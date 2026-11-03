@@ -57,9 +57,9 @@ export const Page01Cover: React.FC<{ onOpenNewspaper?: () => void }> = ({ onOpen
 // =========================================================================
 export const NewspaperPageHeader: React.FC = () => {
   return (
-    <div className="flex items-center justify-between font-garamond text-[12px] sm:text-xs md:text-[13.5px] tracking-[0.2em] sm:tracking-[0.25em] text-[#111111] uppercase pb-1.5 mb-3 sm:mb-4 border-b-[2px] border-[#111111] select-none shrink-0 font-bold">
+    <div className="flex items-center justify-between font-garamond text-[9.5px] sm:text-[10px] md:text-[10.5px] tracking-[0.22em] sm:tracking-[0.25em] text-[#111111] uppercase pb-1 mb-2 sm:mb-2.5 border-b border-[#111111] select-none shrink-0 font-bold">
       <span>MYTHREIE DUMPATI</span>
-      <span>PORTFOLIO . 2026</span>
+      <span>PORTFOLIO</span>
     </div>
   );
 };
