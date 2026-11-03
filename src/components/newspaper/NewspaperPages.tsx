@@ -16,33 +16,31 @@ export const Page01Cover: React.FC<{ onOpenNewspaper?: () => void }> = ({ onOpen
   return (
     <div
       onClick={onOpenNewspaper}
-      className="w-full h-full flex flex-col items-center justify-center p-2 sm:p-4 overflow-hidden relative cursor-pointer select-none bg-[#f2f1ec] group"
+      className="w-full h-full relative overflow-hidden cursor-pointer select-none bg-[#f2f1ec] group flex items-center justify-center"
       role="button"
       tabIndex={0}
       aria-label="The Daily Chronicle - Notes on a Life. Click to open archive."
     >
-      <div className="relative h-full max-h-[calc(100vh-2rem)] aspect-[622/877] max-w-full shadow-2xl transition-transform duration-500 rounded-xs overflow-hidden group-hover:scale-[1.008]">
-        {/* Exact Cover Graphic */}
-        <img
-          src="/daily_chronicle_cover.jpg"
-          alt="The Daily Chronicle - Notes on a Life"
-          className="w-full h-full object-contain pointer-events-none select-none block"
-          loading="eager"
-        />
+      {/* Exact Cover Graphic fitting strict A4 page */}
+      <img
+        src="/daily_chronicle_cover.jpg"
+        alt="The Daily Chronicle - Notes on a Life"
+        className="w-full h-full object-cover pointer-events-none select-none block"
+        loading="eager"
+      />
 
-        {/* Tactile Click Target over the Button Area */}
-        <div
-          onClick={(e) => {
-            e.stopPropagation();
-            onOpenNewspaper?.();
-          }}
-          className="absolute bottom-[4.5%] left-1/2 -translate-x-1/2 w-[52%] h-[5%] cursor-pointer group-hover:brightness-125 transition-all"
-          title="Click to Open Archive"
-        />
+      {/* Tactile Click Target over the Button Area */}
+      <div
+        onClick={(e) => {
+          e.stopPropagation();
+          onOpenNewspaper?.();
+        }}
+        className="absolute bottom-[4.5%] left-1/2 -translate-x-1/2 w-[52%] h-[5%] cursor-pointer group-hover:brightness-125 transition-all"
+        title="Click to Open Archive"
+      />
 
-        {/* Hover Highlight Ring */}
-        <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#141210]/20 pointer-events-none transition-colors" />
-      </div>
+      {/* Hover Highlight Ring */}
+      <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#141210]/20 pointer-events-none transition-colors" />
 
       <div className="sr-only">
         <h1>THE DAILY CHRONICLE - VOL 01. 2026</h1>
@@ -59,7 +57,7 @@ export const Page01Cover: React.FC<{ onOpenNewspaper?: () => void }> = ({ onOpen
 // =========================================================================
 export const NewspaperPageHeader: React.FC = () => {
   return (
-    <div className="flex items-center justify-between font-serif text-xs sm:text-[13px] md:text-[14px] tracking-[0.2em] sm:tracking-[0.25em] text-[#111111] uppercase pb-2 mb-5 sm:mb-7 border-b-[2px] border-[#111111] select-none">
+    <div className="flex items-center justify-between font-serif text-[11px] sm:text-xs md:text-[13px] tracking-[0.2em] sm:tracking-[0.25em] text-[#111111] uppercase pb-1.5 mb-3 sm:mb-4 border-b-[2px] border-[#111111] select-none shrink-0">
       <span>MYTHREIE DUMPATI</span>
       <span>PORTFOLIO . 2026</span>
     </div>
@@ -118,29 +116,29 @@ export const Page02Contents: React.FC<{ onNavigateToSpread?: (spread: number) =>
   ];
 
   return (
-    <div className="editorial-scroll scroll-smooth p-6 sm:p-9 md:p-12 lg:p-14 flex flex-col justify-between h-full overflow-y-auto relative bg-[#faf9f6] text-[#141210] select-none">
+    <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
       <div>
         {/* Universal Top Header Bar */}
         <NewspaperPageHeader />
 
         {/* Title and Subtitle */}
-        <div className="mt-4 sm:mt-6 mb-5 sm:mb-6">
-          <h2 className="font-serif font-black text-3xl sm:text-4xl md:text-[44px] uppercase tracking-[0.02em] text-[#111111] leading-none">
+        <div className="mt-1 sm:mt-2 mb-2 sm:mb-3">
+          <h2 className="font-serif font-black text-2xl sm:text-3xl md:text-[34px] uppercase tracking-[0.02em] text-[#111111] leading-none">
             CONTENTS
           </h2>
-          <p className="font-serif italic text-sm sm:text-base md:text-[17px] text-[#222222] mt-2.5 sm:mt-3 leading-snug">
+          <p className="font-serif italic text-xs sm:text-sm md:text-[14px] text-[#222222] mt-1 sm:mt-1.5 leading-snug">
             A record of academic work, research, and experience.
           </p>
-          <div className="w-full border-b-[1.5px] border-[#111111] mt-3.5 sm:mt-4" />
+          <div className="w-full border-b-[1.5px] border-[#111111] mt-2 sm:mt-2.5" />
         </div>
 
         {/* The 7 Numbered Sections */}
-        <div className="space-y-4 sm:space-y-5 md:space-y-6 mt-6 sm:mt-7">
+        <div className="space-y-1.5 sm:space-y-2 md:space-y-2.5 mt-2 sm:mt-3">
           {contentsList.map((item) => (
             <div
               key={item.num}
               onClick={() => onNavigateToSpread?.(item.page)}
-              className="group cursor-pointer transition-transform duration-150 p-1 -mx-1 rounded-xs hover:translate-x-1"
+              className="group cursor-pointer transition-transform duration-150 p-0.5 rounded-xs hover:translate-x-1"
               role="button"
               tabIndex={0}
               onKeyDown={(e) => {
@@ -151,12 +149,12 @@ export const Page02Contents: React.FC<{ onNavigateToSpread?: (spread: number) =>
               }}
             >
               <div>
-                <h3 className="font-serif font-bold text-base sm:text-lg md:text-[19px] text-[#111111] group-hover:text-[#8C3833] transition-colors leading-tight">
-                  <span className="inline-block w-8 sm:w-9">{item.num}.</span>
+                <h3 className="font-serif font-bold text-sm sm:text-[15px] md:text-base text-[#111111] group-hover:text-[#8C3833] transition-colors leading-tight">
+                  <span className="inline-block w-7 sm:w-8">{item.num}.</span>
                   <span>{item.title}</span>
                 </h3>
               </div>
-              <p className="font-serif text-xs sm:text-sm md:text-[15px] text-[#2c2825] pl-8 sm:pl-9 mt-1 leading-snug">
+              <p className="font-serif text-[10.5px] sm:text-[11.5px] md:text-xs text-[#2c2825] pl-7 sm:pl-8 mt-0.5 leading-snug">
                 {item.desc}
               </p>
             </div>
@@ -165,14 +163,14 @@ export const Page02Contents: React.FC<{ onNavigateToSpread?: (spread: number) =>
       </div>
 
       {/* Interactive Turn to Broadsheet Trigger */}
-      <div className="mt-6 pt-3 border-t border-[#141210]/20">
+      <div className="mt-2.5 pt-2 border-t border-[#141210]/20">
         <button
           type="button"
           onClick={() => onNavigateToSpread?.(3)}
-          className="w-full py-2.5 px-4 bg-[#141210] hover:bg-[#8C3833] text-[#f5f0e1] font-mono-tech text-xs uppercase tracking-widest transition-all cursor-pointer flex items-center justify-between shadow-xs group"
+          className="w-full py-1.5 sm:py-2 px-3 bg-[#141210] hover:bg-[#8C3833] text-[#f5f0e1] font-mono-tech text-[10px] sm:text-xs uppercase tracking-widest transition-all cursor-pointer flex items-center justify-between shadow-xs group"
         >
           <span>LIFT PAGE &amp; TURN TO 01. EDUCATION →</span>
-          <span className="text-[10px] text-[#d9c49f] group-hover:text-white transition-colors">
+          <span className="text-[9px] text-[#d9c49f] group-hover:text-white transition-colors">
             PAGE 03
           </span>
         </button>
@@ -213,68 +211,76 @@ export const Page03Education: React.FC = () => {
   ];
 
   return (
-    <div className="editorial-scroll scroll-smooth p-6 sm:p-9 md:p-12 lg:p-14 flex flex-col justify-start h-full overflow-y-auto relative bg-[#faf9f6] text-[#141210] select-none">
-      {/* Universal Top Header Bar (Name on top of page) */}
-      <NewspaperPageHeader />
+    <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
+      <div>
+        {/* Universal Top Header Bar (Name on top of page) */}
+        <NewspaperPageHeader />
 
-      {/* Heading matching reference image */}
-      <div className="mb-5 sm:mb-7">
-        <h2 className="font-serif font-black text-3xl sm:text-4xl md:text-[42px] text-[#111111] tracking-[0.01em] leading-tight">
-          01. Education
-        </h2>
-        <div className="w-full border-b border-[#111111] mt-3 sm:mt-4" />
-      </div>
-
-      {/* 3-Row Education Timeline Grid with a single unbroken continuous spine */}
-      <div className="grid grid-cols-[1fr_28px_1.15fr] sm:grid-cols-[1fr_36px_1.15fr] grid-rows-3 gap-x-3 sm:gap-x-6 gap-y-6 sm:gap-y-8 relative">
-        {/* Single Unbroken Continuous Vertical Timeline Spine spanning all 3 rows without any gaps */}
-        <div
-          className="col-start-2 row-start-1 row-end-4 relative flex justify-center pointer-events-none z-0"
-          aria-hidden="true"
-        >
-          <div className="w-[2.5px] bg-[#111111] absolute top-[9px] bottom-[-28px] left-1/2 -translate-x-1/2" />
+        {/* Heading matching reference image */}
+        <div className="mb-2 sm:mb-3">
+          <h2 className="font-serif font-black text-2xl sm:text-3xl md:text-[34px] text-[#111111] tracking-[0.01em] leading-tight">
+            01. Education
+          </h2>
+          <div className="w-full border-b border-[#111111] mt-1.5 sm:mt-2" />
         </div>
 
-        {milestones.map((item, index) => {
-          const rowClass = index === 0 ? 'row-start-1' : index === 1 ? 'row-start-2' : 'row-start-3';
+        {/* 3-Row Education Timeline Grid with a single unbroken continuous spine */}
+        <div className="grid grid-cols-[1fr_24px_1.15fr] sm:grid-cols-[1fr_30px_1.15fr] grid-rows-3 gap-x-2.5 sm:gap-x-4 gap-y-2 sm:gap-y-3 md:gap-y-3.5 relative">
+          {/* Single Unbroken Continuous Vertical Timeline Spine spanning all 3 rows without any gaps */}
+          <div
+            className="col-start-2 row-start-1 row-end-4 relative flex justify-center pointer-events-none z-0"
+            aria-hidden="true"
+          >
+            <div className="w-[2.5px] bg-[#111111] absolute top-[8px] bottom-[8px] left-1/2 -translate-x-1/2" />
+          </div>
 
-          return (
-            <React.Fragment key={index}>
-              {/* Left Column: Campus Photograph (Strictly aligned to dot top, uniform aspect ratio & equal spatial gaps) */}
-              <div
-                className={`col-start-1 ${rowClass} self-start w-full aspect-[4/3] bg-[#ebe7dc] overflow-hidden shadow-xs mt-[2px]`}
-              >
-                <img
-                  src={item.image}
-                  alt={item.alt}
-                  className="w-full h-full object-cover grayscale contrast-110 block"
-                  loading="eager"
-                />
-              </div>
+          {milestones.map((item, index) => {
+            const rowClass = index === 0 ? 'row-start-1' : index === 1 ? 'row-start-2' : 'row-start-3';
 
-              {/* Center Timeline Node Dot (Aligned exactly to Image Top and Year) */}
-              <div className={`col-start-2 ${rowClass} self-start flex justify-center items-start z-10 pointer-events-none`}>
-                <div className="w-3.5 h-3.5 rounded-full bg-[#111111] mt-[2px] shrink-0" />
-              </div>
+            return (
+              <React.Fragment key={index}>
+                {/* Left Column: Campus Photograph (Strictly aligned to dot top, uniform aspect ratio & equal spatial gaps) */}
+                <div
+                  className={`col-start-1 ${rowClass} self-start w-full aspect-[4/3] max-h-[85px] sm:max-h-[105px] md:max-h-[120px] bg-[#ebe7dc] overflow-hidden shadow-xs mt-[1px]`}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    className="w-full h-full object-cover grayscale contrast-110 block"
+                    loading="eager"
+                  />
+                </div>
 
-              {/* Right Column: Educational Ledger */}
-              <div className={`col-start-3 ${rowClass} self-start flex flex-col justify-start`}>
-                <span className="font-serif text-sm sm:text-base text-[#111111] font-normal leading-none mt-[2px] mb-1.5 block">
-                  {item.year}
-                </span>
-                <h3 className="font-serif font-bold text-sm sm:text-base md:text-[17px] text-[#111111] leading-snug">
-                  {item.title}
-                </h3>
-                <p className="font-serif text-xs sm:text-sm md:text-[15px] text-[#2c2825] mt-1 leading-snug">
-                  {item.institution}
-                </p>
-                <span className="font-serif font-bold text-sm sm:text-base text-[#111111] mt-2 block">
-                  {item.score}
-                </span>
-              </div>
-            </React.Fragment>
-          );
-        })}
+                {/* Center Timeline Node Dot (Aligned exactly to Image Top and Year) */}
+                <div className={`col-start-2 ${rowClass} self-start flex justify-center items-start z-10 pointer-events-none`}>
+                  <div className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-[#111111] mt-[2px] shrink-0" />
+                </div>
+
+                {/* Right Column: Educational Ledger */}
+                <div className={`col-start-3 ${rowClass} self-start flex flex-col justify-start`}>
+                  <span className="font-serif text-xs sm:text-sm text-[#111111] font-normal leading-none mt-[1px] mb-1 block">
+                    {item.year}
+                  </span>
+                  <h3 className="font-serif font-bold text-xs sm:text-[13px] md:text-[14.5px] text-[#111111] leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="font-serif text-[10px] sm:text-[11px] text-[#2c2825] mt-0.5 leading-snug">
+                    {item.institution}
+                  </p>
+                  <span className="font-serif font-bold text-xs sm:text-[13px] text-[#111111] mt-0.5 block">
+                    {item.score}
+                  </span>
+                </div>
+              </React.Fragment>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Page Footer */}
+      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9px] sm:text-[9.5px] font-mono-tech text-[#5a554e]">
+        <span>MYTHREIE DUMPATI // 01. EDUCATION</span>
+        <span className="font-typewriter font-bold text-[#141210]">PAGE 03</span>
       </div>
     </div>
   );
@@ -285,17 +291,17 @@ export const Page03Education: React.FC = () => {
 // =========================================================================
 export const Page04Experience: React.FC = () => {
   return (
-    <div className="editorial-scroll scroll-smooth p-6 sm:p-9 md:p-12 lg:p-14 flex flex-col justify-between h-full overflow-y-auto relative bg-[#faf9f6] text-[#141210] select-none">
+    <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
       <div>
         {/* Universal Top Header Bar */}
         <NewspaperPageHeader />
 
         {/* Master Heading: professional Experience / Internships */}
-        <div className="flex flex-col items-center justify-center mt-1 sm:mt-2 mb-6 sm:mb-8 md:mb-10 text-center">
+        <div className="flex flex-col items-center justify-center mt-0.5 sm:mt-1 mb-2.5 sm:mb-3.5 text-center">
           <img
             src="/internships_title_vector@2x.png"
             alt="professional Experience — Internships"
-            className="w-[260px] sm:w-[310px] md:w-[350px] max-w-full h-auto object-contain block pointer-events-none drop-shadow-xs"
+            className="w-[190px] sm:w-[220px] md:w-[250px] max-w-full h-auto object-contain block pointer-events-none drop-shadow-xs"
           />
           <div className="sr-only">
             <h2>professional Experience</h2>
@@ -304,16 +310,16 @@ export const Page04Experience: React.FC = () => {
         </div>
 
         {/* Two-Column Symmetrical Layout matching reference */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-7 sm:gap-8 md:gap-10 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-start">
           {/* Column 1: Teleparadigm Networks Ltd. */}
           <div className="flex flex-col">
             {/* Date Tag */}
-            <div className="font-serif text-xs sm:text-[13px] md:text-sm text-[#222222] font-medium tracking-wide text-center mb-2 sm:mb-2.5">
+            <div className="font-serif text-[10.5px] sm:text-xs text-[#222222] font-medium tracking-wide text-center mb-1.5">
               Sept – Nov 2025
             </div>
 
             {/* Sleek Picture Frame (Reduced border thickness with elegant shadow) */}
-            <div className="w-full aspect-square bg-white border-[3.5px] sm:border-[4.5px] border-[#181818] shadow-[0_12px_28px_-6px_rgba(0,0,0,0.22),0_6px_12px_-4px_rgba(0,0,0,0.12)] overflow-hidden flex items-center justify-center p-0.5">
+            <div className="w-full max-w-[145px] sm:max-w-[170px] md:max-w-[190px] mx-auto aspect-square bg-white border-[3px] sm:border-[3.5px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.2),0_4px_8px_-3px_rgba(0,0,0,0.1)] overflow-hidden flex items-center justify-center p-0.5">
               <img
                 src="/internship_teleparadigm.jpg"
                 alt="Teleparadigm Networks Ltd. Internship Artwork"
@@ -323,12 +329,12 @@ export const Page04Experience: React.FC = () => {
             </div>
 
             {/* Title */}
-            <h4 className="font-serif font-bold text-base sm:text-lg md:text-[19px] text-[#111111] leading-snug mt-3.5 sm:mt-4 mb-2 sm:mb-2.5">
+            <h4 className="font-serif font-bold text-xs sm:text-[13.5px] md:text-[15px] text-[#111111] leading-tight mt-2 sm:mt-2.5 mb-1">
               Teleparadigm<br />Networks Ltd.
             </h4>
 
             {/* Description */}
-            <p className="font-serif text-xs sm:text-[13px] md:text-[13.5px] text-[#222222] leading-relaxed text-justify sm:text-left">
+            <p className="font-serif text-[10px] sm:text-[11px] md:text-[11.5px] text-[#222222] leading-relaxed text-justify sm:text-left">
               Developed a secure, decentralized file-sharing platform with role-based access controls to protect sensitive user data from unauthorized access. Implemented distributed storage methods and dynamic permission controls across network nodes, maintaining high data privacy while removing single points of failure.
             </p>
           </div>
@@ -336,12 +342,12 @@ export const Page04Experience: React.FC = () => {
           {/* Column 2: Women Safety Wing, Telangana Police */}
           <div className="flex flex-col">
             {/* Date Tag */}
-            <div className="font-serif text-xs sm:text-[13px] md:text-sm text-[#222222] font-medium tracking-wide text-center mb-2 sm:mb-2.5">
+            <div className="font-serif text-[10.5px] sm:text-xs text-[#222222] font-medium tracking-wide text-center mb-1.5">
               Dec 2024 – Jan 2025
             </div>
 
             {/* Sleek Picture Frame (Reduced border thickness, image occupies more space than white space) */}
-            <div className="w-full aspect-square bg-white border-[3.5px] sm:border-[4.5px] border-[#181818] shadow-[0_12px_28px_-6px_rgba(0,0,0,0.22),0_6px_12px_-4px_rgba(0,0,0,0.12)] overflow-hidden flex items-center justify-center p-0.5">
+            <div className="w-full max-w-[145px] sm:max-w-[170px] md:max-w-[190px] mx-auto aspect-square bg-white border-[3px] sm:border-[3.5px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.2),0_4px_8px_-3px_rgba(0,0,0,0.1)] overflow-hidden flex items-center justify-center p-0.5">
               <img
                 src="/internship_telangana_police.png"
                 alt="Women Safety Wing, Telangana Police Internship Artwork"
@@ -351,12 +357,12 @@ export const Page04Experience: React.FC = () => {
             </div>
 
             {/* Title */}
-            <h4 className="font-serif font-bold text-base sm:text-lg md:text-[19px] text-[#111111] leading-snug mt-3.5 sm:mt-4 mb-2 sm:mb-2.5">
+            <h4 className="font-serif font-bold text-xs sm:text-[13.5px] md:text-[15px] text-[#111111] leading-tight mt-2 sm:mt-2.5 mb-1">
               Women Safety Wing,<br />Telangana Police
             </h4>
 
             {/* Description */}
-            <p className="font-serif text-xs sm:text-[13px] md:text-[13.5px] text-[#222222] leading-relaxed text-justify sm:text-left">
+            <p className="font-serif text-[10px] sm:text-[11px] md:text-[11.5px] text-[#222222] leading-relaxed text-justify sm:text-left">
               Supported key public safety initiatives at the Women Safety Wing&apos;s Bharosa Module by designing high-impact visual campaigns—including T-Safe metro ads reaching 500,000+ citizens—and analysing operational data across 26 centres to boost reporting efficiency, while managing critical government workflows like Daily Situation Reports and Operation Smile 11.
             </p>
           </div>
@@ -364,7 +370,7 @@ export const Page04Experience: React.FC = () => {
       </div>
 
       {/* Broadside Footer */}
-      <div className="mt-8 pt-3 border-t border-[#141210]/30 flex justify-between items-center text-[9.5px] font-mono-tech text-[#5a554e]">
+      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9px] sm:text-[9.5px] font-mono-tech text-[#5a554e]">
         <span>MYTHREIE DUMPATI // 02. PROFESSIONAL EXPERIENCE</span>
         <span className="font-typewriter font-bold text-[#141210]">PAGE 04</span>
       </div>
@@ -373,86 +379,57 @@ export const Page04Experience: React.FC = () => {
 };
 
 // =========================================================================
-// PAGE 05: 03. PROJECTS
+// PAGE 05: 03. PROJECTS (Exact reproduction of uploaded reference image)
 // =========================================================================
 export const Page05Projects: React.FC = () => {
-  const secureShare = RESUME_DATA.projects.find((p) => p.id === 'secureshare')!;
-  const qpat = RESUME_DATA.projects.find((p) => p.id === 'qpat')!;
-  const smia = RESUME_DATA.projects.find((p) => p.id === 'smia')!;
-  const alcohol = RESUME_DATA.projects.find((p) => p.id === 'alcohol-detector')!;
-
   return (
-    <div className="editorial-scroll scroll-smooth p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between h-full overflow-y-auto relative bg-[#faf9f6] text-[#141210]">
+    <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
       <div>
         {/* Universal Top Header Bar */}
         <NewspaperPageHeader />
 
-        <div className="border-b-2 border-[#141210] pb-2 mb-4 flex justify-between items-start">
-          <div>
-            <span className="font-mono-tech text-[9px] uppercase tracking-[0.25em] text-[#8C3833] font-bold block">
-              SECTION 03 // TECHNICAL SOLUTIONS
-            </span>
-            <h3 className="font-display text-xl sm:text-2xl font-black uppercase tracking-wider text-[#141210]">
-              FLAGSHIP RESEARCH PROJECTS
-            </h3>
-          </div>
-          <NewspaperStamp text="DEPLOYED" variant="crimson" rotation={1} />
-        </div>
-
-        {/* SecureShare */}
-        <div className="p-3 bg-[#eae8e2]/80 border-2 border-[#141210] mb-2.5">
-          <div className="flex items-center justify-between border-b border-[#141210] pb-1 mb-1.5">
-            <h4 className="font-serif-vintage text-sm sm:text-base font-bold text-[#141210]">
-              {secureShare.title}
-            </h4>
-            <span className="font-mono-tech text-[8.5px] bg-[#8C3833] text-white px-2 py-0.5 font-bold">
-              IPFS + SHAMIR SSS
-            </span>
-          </div>
-          <p className="font-newsreader text-[11px] text-[#2a2521] leading-relaxed mb-1.5">
-            {secureShare.subtitle}
-          </p>
-          <div className="space-y-1 font-newsreader text-[10.5px] text-[#141210]">
-            {secureShare.keyImplementations.map((b, i) => (
-              <div key={i} className="flex items-start gap-1.5">
-                <span className="text-[#8C3833] font-bold">▶</span>
-                <span>{b}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* QPAT */}
-        <div className="p-2.5 bg-[#eae8e2]/60 border border-[#141210] mb-2">
-          <div className="flex items-center justify-between border-b border-[#141210]/20 pb-1 mb-1">
-            <h4 className="font-serif-vintage text-xs sm:text-sm font-bold text-[#141210]">
-              {qpat.title}
-            </h4>
-            <span className="font-mono-tech text-[8px] text-[#5a554e] font-bold">
-              NLP &amp; BLOOM&apos;S TAXONOMY
-            </span>
-          </div>
-          <p className="font-newsreader text-[10.5px] text-[#2a2521] leading-snug">
-            {qpat.subtitle} — {qpat.keyImplementations[0]}
+        {/* Master Heading: Projects / Curiosity, translated into code. */}
+        <div className="text-center mt-1 sm:mt-2 mb-3 sm:mb-4">
+          <h2 className="font-typewriter font-bold text-2xl sm:text-3xl md:text-[34px] text-[#111111] tracking-tight">
+            Projects
+          </h2>
+          <p className="font-sans text-xs sm:text-[13px] text-[#222222] mt-0.5">
+            Curiosity, translated into code.
           </p>
         </div>
 
-        {/* SMIA & Alcohol Detector */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          <div className="p-2 bg-[#eae8e2]/50 border border-[#141210]/30">
-            <div className="font-serif-vintage text-xs font-bold text-[#141210]">{smia.title}</div>
-            <div className="font-mono-tech text-[8px] text-[#8C3833]">FORENSIC EVIDENCE TOOL</div>
-            <p className="font-newsreader text-[9.5px] text-[#3a352f] mt-0.5">{smia.subtitle}</p>
-          </div>
-          <div className="p-2 bg-[#eae8e2]/50 border border-[#141210]/30">
-            <div className="font-serif-vintage text-xs font-bold text-[#141210]">{alcohol.title}</div>
-            <div className="font-mono-tech text-[8px] text-[#4b4e39]">ARDUINO UNO + MQ-3</div>
-            <p className="font-newsreader text-[9.5px] text-[#3a352f] mt-0.5">{alcohol.subtitle}</p>
-          </div>
+        {/* 1. SecureShare (Left Vertical Accent Bar) */}
+        <div className="border-l-[3.5px] border-[#111111] pl-3 sm:pl-3.5 py-0.5 mb-3 sm:mb-4">
+          <h3 className="font-sans font-bold text-xs sm:text-[13px] md:text-[13.5px] text-[#111111] leading-snug mb-1">
+            SecureShare | Decentralized Secure File Sharing and Communication Platform
+          </h3>
+          <p className="font-sans text-[9.5px] sm:text-[10.5px] text-[#222222] leading-relaxed text-justify sm:text-left">
+            Developed a secure communication platform using Flutter and FastAPI, integrating IPFS-based file storage and blockchain-backed integrity verification. Implemented real-time WebSocket messaging, JWT authentication, role-based access control, administrative auditing, screenshot prevention and self-destructing file transfers to enhance data security and privacy.
+          </p>
+        </div>
+
+        {/* 2. Question Paper Automation Tool (QPAT) (Right Vertical Accent Bar) */}
+        <div className="border-r-[3.5px] border-[#111111] pr-3 sm:pr-3.5 py-0.5 mb-3 sm:mb-4 text-right">
+          <h3 className="font-sans font-bold text-xs sm:text-[13px] md:text-[13.5px] text-[#111111] leading-snug mb-1">
+            Question Paper Automation Tool (QPAT) | Automated Academic Assessment System
+          </h3>
+          <p className="font-sans text-[9.5px] sm:text-[10.5px] text-[#222222] leading-relaxed text-right">
+            Developed a full-stack assessment automation platform using FastAPI and Flutter. Integrated NLP-based question validation, automated parsing, Course Outcome mapping and Bloom&apos;s Taxonomy classification to generate balanced question papers, with secure, password-protected PDF exports.
+          </p>
+        </div>
+
+        {/* 3. Social Media Investigative Assistant (SMIA) (Left Vertical Accent Bar) */}
+        <div className="border-l-[3.5px] border-[#111111] pl-3 sm:pl-3.5 py-0.5 mb-1 sm:mb-2">
+          <h3 className="font-sans font-bold text-xs sm:text-[13px] md:text-[13.5px] text-[#111111] leading-snug mb-1">
+            Social Media Investigative Assistant (SMIA) | Digital Forensic Documentation Tool
+          </h3>
+          <p className="font-sans text-[9.5px] sm:text-[10.5px] text-[#222222] leading-relaxed text-justify sm:text-left">
+            Developed a Flutter-based digital forensics tool for structured case management and secure evidence collection. Implemented timestamped screenshot capture, automated forensic report generation and hybrid local/cloud storage to maintain evidence integrity, traceability and compliance.
+          </p>
         </div>
       </div>
 
-      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9.5px] font-mono-tech text-[#5a554e]">
+      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9px] sm:text-[9.5px] font-mono-tech text-[#5a554e]">
         <span>MYTHREIE DUMPATI // 03. PROJECTS</span>
         <span className="font-typewriter font-bold text-[#141210]">PAGE 05</span>
       </div>
@@ -465,45 +442,45 @@ export const Page05Projects: React.FC = () => {
 // =========================================================================
 export const Page06Publications: React.FC = () => {
   return (
-    <div className="editorial-scroll scroll-smooth p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between h-full overflow-y-auto relative bg-[#faf9f6] text-[#141210]">
+    <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
       <div>
         {/* Universal Top Header Bar */}
         <NewspaperPageHeader />
 
-        <div className="border-b-2 border-[#141210] pb-2 mb-4 flex justify-between items-start">
+        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start">
           <div>
-            <span className="font-mono-tech text-[9px] uppercase tracking-[0.25em] text-[#8C3833] font-bold block">
+            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
               SECTION 04 // SCHOLARLY CONTRIBUTIONS
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-black uppercase tracking-wider text-[#141210]">
+            <h3 className="font-display text-lg sm:text-xl font-black uppercase tracking-wider text-[#141210]">
               PEER-REVIEWED PUBLICATIONS
             </h3>
           </div>
           <NewspaperStamp text="3 PAPERS" variant="crimson" rotation={2} />
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-2">
           {RESUME_DATA.publications.map((paper, idx) => (
-            <div key={idx} className="p-3.5 bg-[#eae8e2]/70 border border-[#141210]">
-              <div className="flex items-baseline justify-between gap-2 border-b border-[#141210]/20 pb-1 mb-1">
-                <span className="font-mono-tech text-[8.5px] uppercase font-bold text-[#8C3833]">
+            <div key={idx} className="p-2.5 bg-[#eae8e2]/70 border border-[#141210]">
+              <div className="flex items-baseline justify-between gap-2 border-b border-[#141210]/20 pb-0.5 mb-0.5">
+                <span className="font-mono-tech text-[8px] sm:text-[8.5px] uppercase font-bold text-[#8C3833]">
                   {paper.venue} • {paper.date}
                 </span>
-                <span className="font-mono-tech text-[8px] bg-[#141210] text-[#f5f0e1] px-1.5 py-0.2">
+                <span className="font-mono-tech text-[7.5px] bg-[#141210] text-[#f5f0e1] px-1.5 py-0.2">
                   {paper.status}
                 </span>
               </div>
-              <h4 className="font-serif-vintage text-xs sm:text-sm font-bold text-[#141210] leading-snug">
+              <h4 className="font-serif-vintage text-xs sm:text-[13px] font-bold text-[#141210] leading-snug">
                 {paper.title}
               </h4>
-              <div className="font-typewriter text-[9.5px] text-[#5a554e] mt-0.5">
+              <div className="font-typewriter text-[9px] text-[#5a554e] mt-0.5">
                 SCOPE: {paper.scope}
               </div>
-              <p className="font-newsreader text-[11px] text-[#2a2521] mt-1 italic leading-snug">
+              <p className="font-newsreader text-[10px] sm:text-[10.5px] text-[#2a2521] mt-0.5 italic leading-snug">
                 {paper.methodology}
               </p>
               {paper.metrics && (
-                <div className="mt-1.5 pt-1 border-t border-[#141210]/15 font-mono-tech text-[8.5px] text-[#8C3833] font-bold">
+                <div className="mt-1 pt-0.5 border-t border-[#141210]/15 font-mono-tech text-[8px] text-[#8C3833] font-bold">
                   {paper.metrics}
                 </div>
               )}
@@ -512,7 +489,7 @@ export const Page06Publications: React.FC = () => {
         </div>
       </div>
 
-      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9.5px] font-mono-tech text-[#5a554e]">
+      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9px] sm:text-[9.5px] font-mono-tech text-[#5a554e]">
         <span>MYTHREIE DUMPATI // 04. PUBLICATIONS</span>
         <span className="font-typewriter font-bold text-[#141210]">PAGE 06</span>
       </div>
@@ -534,35 +511,35 @@ export const Page07Skills: React.FC = () => {
   ];
 
   return (
-    <div className="editorial-scroll scroll-smooth p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between h-full overflow-y-auto relative bg-[#faf9f6] text-[#141210]">
+    <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
       <div>
         {/* Universal Top Header Bar */}
         <NewspaperPageHeader />
 
-        <div className="border-b-2 border-[#141210] pb-2 mb-4 flex justify-between items-start">
+        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start">
           <div>
-            <span className="font-mono-tech text-[9px] uppercase tracking-[0.25em] text-[#8C3833] font-bold block">
+            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
               SECTION 05 // TECHNICAL COMPETENCIES
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-black uppercase tracking-wider text-[#141210]">
+            <h3 className="font-display text-lg sm:text-xl font-black uppercase tracking-wider text-[#141210]">
               SKILLS &amp; ARTIFACTS
             </h3>
           </div>
           <NewspaperStamp text="VERIFIED" variant="olive" rotation={-2} />
         </div>
 
-        <div className="space-y-2.5">
+        <div className="space-y-2">
           {skillCategories.map((category, idx) => (
-            <div key={idx} className="p-2.5 bg-[#eae8e2]/60 border border-[#141210]">
-              <div className="font-mono-tech text-[9.5px] font-bold uppercase tracking-wider text-[#141210] border-b border-[#141210]/20 pb-0.5 mb-1 flex items-center justify-between">
+            <div key={idx} className="p-2 bg-[#eae8e2]/60 border border-[#141210]">
+              <div className="font-mono-tech text-[9px] font-bold uppercase tracking-wider text-[#141210] border-b border-[#141210]/20 pb-0.5 mb-1 flex items-center justify-between">
                 <span>{category.title}</span>
-                <span className="text-[#8C3833] text-[8px]">[{category.items.length} ITEMS]</span>
+                <span className="text-[#8C3833] text-[7.5px]">[{category.items.length} ITEMS]</span>
               </div>
               <div className="flex flex-wrap gap-1">
                 {category.items.map((skill, sIdx) => (
                   <span
                     key={sIdx}
-                    className="px-1.5 py-0.5 font-mono-tech text-[9.5px] bg-[#f4f3ef] border border-[#141210]/40 text-[#141210] font-semibold"
+                    className="px-1.5 py-0.2 font-mono-tech text-[8.5px] sm:text-[9px] bg-[#f4f3ef] border border-[#141210]/40 text-[#141210] font-semibold"
                   >
                     {skill}
                   </span>
@@ -573,7 +550,7 @@ export const Page07Skills: React.FC = () => {
         </div>
       </div>
 
-      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9.5px] font-mono-tech text-[#5a554e]">
+      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9px] sm:text-[9.5px] font-mono-tech text-[#5a554e]">
         <span>MYTHREIE DUMPATI // 05. SKILLS</span>
         <span className="font-typewriter font-bold text-[#141210]">PAGE 07</span>
       </div>
@@ -586,40 +563,40 @@ export const Page07Skills: React.FC = () => {
 // =========================================================================
 export const Page08Certifications: React.FC = () => {
   return (
-    <div className="editorial-scroll scroll-smooth p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between h-full overflow-y-auto relative bg-[#faf9f6] text-[#141210]">
+    <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
       <div>
         {/* Universal Top Header Bar */}
         <NewspaperPageHeader />
 
-        <div className="border-b-2 border-[#141210] pb-2 mb-4 flex justify-between items-start">
+        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start">
           <div>
-            <span className="font-mono-tech text-[9px] uppercase tracking-[0.25em] text-[#8C3833] font-bold block">
+            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
               SECTION 06 // PROFESSIONAL CREDENTIALS
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-black uppercase tracking-wider text-[#141210]">
+            <h3 className="font-display text-lg sm:text-xl font-black uppercase tracking-wider text-[#141210]">
               CERTIFICATIONS &amp; ACCREDITATIONS
             </h3>
           </div>
           <NewspaperStamp text="AUDITED" variant="crimson" rotation={1} />
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-1.5 sm:space-y-2">
           {RESUME_DATA.certifications.map((cert, idx) => (
-            <div key={idx} className="p-3 bg-[#eae8e2]/70 border border-[#141210]">
-              <div className="flex items-start justify-between gap-2 border-b border-[#141210]/20 pb-1.5 mb-1.5">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-[#8C3833] flex-shrink-0" />
-                  <h4 className="font-serif-vintage text-sm sm:text-base font-bold text-[#141210]">
+            <div key={idx} className="p-2 sm:p-2.5 bg-[#eae8e2]/70 border border-[#141210]">
+              <div className="flex items-start justify-between gap-2 border-b border-[#141210]/20 pb-1 mb-1">
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle className="w-3.5 h-3.5 text-[#8C3833] flex-shrink-0" />
+                  <h4 className="font-serif-vintage text-xs sm:text-[13px] md:text-[13.5px] font-bold text-[#141210] leading-tight">
                     {cert.title}
                   </h4>
                 </div>
                 {cert.score && (
-                  <span className="font-mono-tech text-[9px] bg-[#8C3833] text-white px-2 py-0.5 font-bold flex-shrink-0">
+                  <span className="font-mono-tech text-[8px] sm:text-[8.5px] bg-[#8C3833] text-white px-1.5 py-0.2 font-bold flex-shrink-0">
                     {cert.score}
                   </span>
                 )}
               </div>
-              <div className="flex justify-between font-mono-tech text-[9.5px] text-[#5a554e]">
+              <div className="flex justify-between font-mono-tech text-[8.5px] sm:text-[9px] text-[#5a554e]">
                 <span>ISSUER: {cert.issuer}</span>
                 <span>DATE: {cert.date}</span>
               </div>
@@ -628,17 +605,17 @@ export const Page08Certifications: React.FC = () => {
         </div>
 
         {/* NLU Odisha Special Callout */}
-        <div className="mt-4 p-3 bg-[#eae8e2]/90 border-2 border-[#141210]">
-          <div className="font-mono-tech text-[9.5px] uppercase font-bold text-[#8C3833]">
+        <div className="mt-2.5 p-2 sm:p-2.5 bg-[#eae8e2]/90 border-2 border-[#141210]">
+          <div className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase font-bold text-[#8C3833]">
             SPECIAL LEGAL &amp; FORENSIC DISTINCTION
           </div>
-          <div className="font-serif-vintage text-xs text-[#2a2521] mt-1 leading-snug">
+          <div className="font-serif-vintage text-[10.5px] sm:text-xs text-[#2a2521] mt-0.5 leading-snug">
             National Law University Odisha (NLUO) Post Graduate Diploma in Cyber Law and Digital Forensics, completed with an exceptional 87% Distinction grade.
           </div>
         </div>
       </div>
 
-      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9.5px] font-mono-tech text-[#5a554e]">
+      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9px] sm:text-[9.5px] font-mono-tech text-[#5a554e]">
         <span>MYTHREIE DUMPATI // 06. CERTIFICATIONS</span>
         <span className="font-typewriter font-bold text-[#141210]">PAGE 08</span>
       </div>
@@ -651,17 +628,17 @@ export const Page08Certifications: React.FC = () => {
 // =========================================================================
 export const Page09Activities: React.FC = () => {
   return (
-    <div className="editorial-scroll scroll-smooth p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between h-full overflow-y-auto relative bg-[#faf9f6] text-[#141210]">
+    <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
       <div>
         {/* Universal Top Header Bar */}
         <NewspaperPageHeader />
 
-        <div className="border-b-2 border-[#141210] pb-2 mb-4 flex justify-between items-start">
+        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start">
           <div>
-            <span className="font-mono-tech text-[9px] uppercase tracking-[0.25em] text-[#8C3833] font-bold block">
+            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
               SECTION 07 // CAMPUS &amp; COMMUNITY
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-black uppercase tracking-wider text-[#141210]">
+            <h3 className="font-display text-lg sm:text-xl font-black uppercase tracking-wider text-[#141210]">
               ACTIVITIES AND SOCIETIES
             </h3>
           </div>
@@ -669,37 +646,37 @@ export const Page09Activities: React.FC = () => {
         </div>
 
         {/* Presidency Highlight */}
-        <div className="p-3.5 bg-[#eae8e2]/80 border-2 border-[#141210] mb-3">
-          <div className="flex items-center justify-between border-b border-[#141210] pb-1 mb-2">
+        <div className="p-2.5 sm:p-3 bg-[#eae8e2]/80 border-2 border-[#141210] mb-2">
+          <div className="flex items-center justify-between border-b border-[#141210] pb-1 mb-1">
             <div>
-              <span className="font-mono-tech text-[8.5px] text-[#8C3833] uppercase font-bold tracking-widest block">
+              <span className="font-mono-tech text-[8px] text-[#8C3833] uppercase font-bold tracking-widest block">
                 ELECTED CHAIR OF THE GENERAL STUDENT BODY
               </span>
-              <h4 className="font-serif-vintage text-base font-bold text-[#141210]">
+              <h4 className="font-serif-vintage text-sm sm:text-base font-bold text-[#141210]">
                 President, Student Council
               </h4>
             </div>
-            <span className="font-mono-tech text-[9.5px] bg-[#141210] text-[#f5f0e1] px-2 py-0.5 font-bold">
+            <span className="font-mono-tech text-[8.5px] bg-[#141210] text-[#f5f0e1] px-1.5 py-0.5 font-bold">
               2025 – 2026
             </span>
           </div>
-          <div className="font-typewriter text-xs text-[#4b4e39] font-bold mb-1">
+          <div className="font-typewriter text-[10px] text-[#4b4e39] font-bold mb-0.5">
             Keshav Memorial Engineering College • Hyderabad
           </div>
-          <p className="font-newsreader text-xs text-[#2a2521] leading-relaxed">
+          <p className="font-newsreader text-[10px] sm:text-[10.5px] text-[#2a2521] leading-snug">
             Represented 1,200+ undergraduate engineering scholars across academic boards, institutional safety audits, campus infrastructure expansion, and national collegiate hackathon delegations.
           </p>
         </div>
 
         {/* Activities List */}
-        <div className="space-y-2 mt-2">
+        <div className="space-y-1.5">
           {RESUME_DATA.activitiesAndSocieties.map((activity, idx) => (
-            <div key={idx} className="p-2.5 bg-[#eae8e2]/60 border border-[#141210]">
-              <div className="flex items-center justify-between border-b border-[#141210]/20 pb-1 mb-1">
-                <span className="font-serif-vintage text-xs sm:text-sm font-bold text-[#141210]">{activity.role}</span>
-                <span className="font-mono-tech text-[8.5px] text-[#8C3833] font-bold">{activity.organization}</span>
+            <div key={idx} className="p-2 bg-[#eae8e2]/60 border border-[#141210]">
+              <div className="flex items-center justify-between border-b border-[#141210]/20 pb-0.5 mb-0.5">
+                <span className="font-serif-vintage text-xs font-bold text-[#141210]">{activity.role}</span>
+                <span className="font-mono-tech text-[8px] text-[#8C3833] font-bold">{activity.organization}</span>
               </div>
-              <p className="font-newsreader text-[11px] text-[#2a2521] mt-0.5 leading-snug">
+              <p className="font-newsreader text-[10px] text-[#2a2521] leading-snug">
                 {activity.description}
               </p>
             </div>
@@ -707,7 +684,7 @@ export const Page09Activities: React.FC = () => {
         </div>
       </div>
 
-      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9.5px] font-mono-tech text-[#5a554e]">
+      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9px] sm:text-[9.5px] font-mono-tech text-[#5a554e]">
         <span>MYTHREIE DUMPATI // 07. ACTIVITIES AND SOCIETIES</span>
         <span className="font-typewriter font-bold text-[#141210]">PAGE 09</span>
       </div>
@@ -755,17 +732,17 @@ export const Page10Dispatch: React.FC = () => {
   };
 
   return (
-    <div className="editorial-scroll scroll-smooth p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between h-full overflow-y-auto relative bg-[#faf9f6] text-[#141210]">
+    <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
       <div>
         {/* Universal Top Header Bar */}
         <NewspaperPageHeader />
 
-        <div className="border-b-2 border-[#141210] pb-2 mb-4 flex justify-between items-start">
+        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start">
           <div>
-            <span className="font-mono-tech text-[9px] uppercase tracking-[0.25em] text-[#8C3833] font-bold block">
+            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
               COMMUNICATION TERMINAL // SECTION 08
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-black uppercase tracking-wider text-[#141210]">
+            <h3 className="font-display text-lg sm:text-xl font-black uppercase tracking-wider text-[#141210]">
               ENCRYPTED TELEGRAPH DISPATCH
             </h3>
           </div>
@@ -773,20 +750,20 @@ export const Page10Dispatch: React.FC = () => {
         </div>
 
         {/* Form */}
-        <div className="p-3.5 bg-[#eae8e2]/80 border-2 border-[#141210] mb-3">
-          <div className="flex items-center gap-2 border-b border-[#141210] pb-1 mb-2 font-mono-tech text-[10px] uppercase font-bold text-[#141210]">
-            <Send className="w-3.5 h-3.5 text-[#8C3833]" />
+        <div className="p-2.5 sm:p-3 bg-[#eae8e2]/80 border-2 border-[#141210] mb-2.5">
+          <div className="flex items-center gap-1.5 border-b border-[#141210] pb-1 mb-1.5 font-mono-tech text-[9.5px] uppercase font-bold text-[#141210]">
+            <Send className="w-3 h-3 text-[#8C3833]" />
             <span>TRANSMIT DISPATCH MESSAGE (RESEND VERIFIED)</span>
           </div>
 
           {status === 'sent' ? (
-            <div className="p-4 text-center bg-[#141210] text-[#f5f0e1] font-mono-tech text-xs">
+            <div className="p-3 text-center bg-[#141210] text-[#f5f0e1] font-mono-tech text-xs">
               <span className="text-[#d9c49f] font-bold block mb-1">★ DISPATCH TRANSMITTED ★</span>
               <span>Your message has been received by the investigator.</span>
-              {feedbackMsg && <span className="block mt-1 text-[10px] text-[#cfc5b0]">{feedbackMsg}</span>}
+              {feedbackMsg && <span className="block mt-1 text-[9.5px] text-[#cfc5b0]">{feedbackMsg}</span>}
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-2 font-mono-tech text-[10px]">
+            <form onSubmit={handleSubmit} className="space-y-1.5 font-mono-tech text-[9.5px]">
               <div className="grid grid-cols-2 gap-2">
                 <div>
                   <label className="block text-[#5a554e] font-bold mb-0.5">SENDER NAME:</label>
@@ -796,7 +773,7 @@ export const Page10Dispatch: React.FC = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Inspector / Colleague"
-                    className="w-full p-1.5 border border-[#141210] bg-[#f4f3ef] text-[#141210] focus:outline-hidden"
+                    className="w-full p-1 border border-[#141210] bg-[#f4f3ef] text-[#141210] focus:outline-hidden"
                   />
                 </div>
                 <div>
@@ -807,7 +784,7 @@ export const Page10Dispatch: React.FC = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="station@agency.org"
-                    className="w-full p-1.5 border border-[#141210] bg-[#f4f3ef] text-[#141210] focus:outline-hidden"
+                    className="w-full p-1 border border-[#141210] bg-[#f4f3ef] text-[#141210] focus:outline-hidden"
                   />
                 </div>
               </div>
@@ -816,16 +793,16 @@ export const Page10Dispatch: React.FC = () => {
                 <label className="block text-[#5a554e] font-bold mb-0.5">DISPATCH INQUIRY:</label>
                 <textarea
                   required
-                  rows={3}
+                  rows={2}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Inquiry regarding forensic research, collaborations, or engineering..."
-                  className="w-full p-1.5 border border-[#141210] bg-[#f4f3ef] text-[#141210] focus:outline-hidden resize-none"
+                  className="w-full p-1 border border-[#141210] bg-[#f4f3ef] text-[#141210] focus:outline-hidden resize-none"
                 />
               </div>
 
               {status === 'error' && (
-                <div className="p-1.5 bg-[#8C3833]/10 border border-[#8C3833] text-[#8C3833] text-[9.5px]">
+                <div className="p-1 bg-[#8C3833]/10 border border-[#8C3833] text-[#8C3833] text-[9px]">
                   {feedbackMsg}
                 </div>
               )}
@@ -833,7 +810,7 @@ export const Page10Dispatch: React.FC = () => {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full py-2 bg-[#141210] hover:bg-[#8C3833] disabled:opacity-50 text-[#f5f0e1] font-bold uppercase tracking-widest transition-all cursor-pointer shadow-xs flex items-center justify-center gap-1.5"
+                className="w-full py-1.5 bg-[#141210] hover:bg-[#8C3833] disabled:opacity-50 text-[#f5f0e1] font-bold uppercase tracking-widest transition-all cursor-pointer shadow-xs flex items-center justify-center gap-1.5"
               >
                 <span>{status === 'loading' ? 'TRANSMITTING VIA RESEND...' : 'TRANSMIT DISPATCH →'}</span>
               </button>
@@ -842,7 +819,7 @@ export const Page10Dispatch: React.FC = () => {
         </div>
 
         {/* Direct Contacts */}
-        <div className="p-3 bg-[#eae8e2]/60 border border-[#141210] font-mono-tech text-[9.5px] space-y-1">
+        <div className="p-2 sm:p-2.5 bg-[#eae8e2]/60 border border-[#141210] font-mono-tech text-[9px] space-y-0.5">
           <div className="flex justify-between">
             <span className="text-[#5a554e]">TELEGRAPH:</span>
             <a href={`mailto:${RESUME_DATA.personal.email}`} className="font-bold underline">{RESUME_DATA.personal.email}</a>
@@ -854,7 +831,7 @@ export const Page10Dispatch: React.FC = () => {
         </div>
       </div>
 
-      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9.5px] font-mono-tech text-[#5a554e]">
+      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9px] sm:text-[9.5px] font-mono-tech text-[#5a554e]">
         <span>MYTHREIE DUMPATI // DISPATCH TERMINAL</span>
         <span className="font-typewriter font-bold text-[#141210]">PAGE 10</span>
       </div>
@@ -867,17 +844,17 @@ export const Page10Dispatch: React.FC = () => {
 // =========================================================================
 export const Page11Colophon: React.FC = () => {
   return (
-    <div className="editorial-scroll scroll-smooth p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between h-full overflow-y-auto relative bg-[#faf9f6] text-[#141210]">
+    <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
       <div>
         {/* Universal Top Header Bar */}
         <NewspaperPageHeader />
 
-        <div className="border-b-2 border-[#141210] pb-2 mb-4 flex justify-between items-start">
+        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start">
           <div>
-            <span className="font-mono-tech text-[9px] uppercase tracking-[0.25em] text-[#8C3833] font-bold block">
+            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
               OFFICIAL ARCHIVE // COLOPHON
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-black uppercase tracking-wider text-[#141210]">
+            <h3 className="font-display text-lg sm:text-xl font-black uppercase tracking-wider text-[#141210]">
               VERIFIED RECORD &amp; COLOPHON
             </h3>
           </div>
@@ -885,35 +862,35 @@ export const Page11Colophon: React.FC = () => {
         </div>
 
         {/* PDF Download Box */}
-        <div className="p-3.5 bg-[#141210] text-[#f5f0e1] border-2 border-[#141210] mb-4 flex items-center justify-between">
+        <div className="p-2.5 sm:p-3 bg-[#141210] text-[#f5f0e1] border-2 border-[#141210] mb-2.5 flex items-center justify-between">
           <div>
-            <div className="font-mono-tech text-[10.5px] uppercase font-bold text-[#d9c49f]">
+            <div className="font-mono-tech text-[9.5px] sm:text-[10px] uppercase font-bold text-[#d9c49f]">
               OFFICIAL VERIFIED RESUME RECORD
             </div>
-            <div className="font-newsreader text-xs italic text-[#cfc5b0] mt-0.5">
+            <div className="font-newsreader text-[11px] italic text-[#cfc5b0] mt-0.5">
               Full cryptographic curriculum ledger (MYTHREIE_DUMPATI.pdf)
             </div>
           </div>
           <a
             href="/MYTHREIE_DUMPATI.pdf"
             download="MYTHREIE_DUMPATI_RESUME.pdf"
-            className="px-3.5 py-2 bg-[#8C3833] hover:bg-[#a6423c] text-white font-mono-tech text-xs uppercase font-bold tracking-wider inline-flex items-center gap-1.5 shadow-sm transition-all"
+            className="px-2.5 py-1.5 bg-[#8C3833] hover:bg-[#a6423c] text-white font-mono-tech text-[10px] sm:text-[11px] uppercase font-bold tracking-wider inline-flex items-center gap-1.5 shadow-sm transition-all"
           >
-            <Download className="w-3.5 h-3.5" />
+            <Download className="w-3 h-3" />
             <span>DOWNLOAD PDF</span>
           </a>
         </div>
 
         {/* Social Dispatches */}
-        <div className="grid grid-cols-2 gap-2 mb-4">
+        <div className="grid grid-cols-2 gap-2 mb-2.5">
           <a
             href={RESUME_DATA.personal.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2.5 bg-[#eae8e2]/70 border border-[#141210] flex items-center justify-between hover:bg-[#141210] hover:text-[#f5f0e1] transition-all font-mono-tech text-[10px] font-bold"
+            className="p-2 bg-[#eae8e2]/70 border border-[#141210] flex items-center justify-between hover:bg-[#141210] hover:text-[#f5f0e1] transition-all font-mono-tech text-[9.5px] font-bold"
           >
-            <div className="flex items-center gap-2">
-              <GithubIcon className="w-4 h-4" />
+            <div className="flex items-center gap-1.5">
+              <GithubIcon className="w-3.5 h-3.5" />
               <span>GITHUB</span>
             </div>
             <ExternalLink className="w-3 h-3 opacity-60" />
@@ -922,10 +899,10 @@ export const Page11Colophon: React.FC = () => {
             href={RESUME_DATA.personal.linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2.5 bg-[#eae8e2]/70 border border-[#141210] flex items-center justify-between hover:bg-[#141210] hover:text-[#f5f0e1] transition-all font-mono-tech text-[10px] font-bold"
+            className="p-2 bg-[#eae8e2]/70 border border-[#141210] flex items-center justify-between hover:bg-[#141210] hover:text-[#f5f0e1] transition-all font-mono-tech text-[9.5px] font-bold"
           >
-            <div className="flex items-center gap-2">
-              <LinkedinIcon className="w-4 h-4" />
+            <div className="flex items-center gap-1.5">
+              <LinkedinIcon className="w-3.5 h-3.5" />
               <span>LINKEDIN</span>
             </div>
             <ExternalLink className="w-3 h-3 opacity-60" />
@@ -933,8 +910,8 @@ export const Page11Colophon: React.FC = () => {
         </div>
 
         {/* Editorial Colophon */}
-        <div className="p-3 bg-[#eae8e2]/50 border border-[#141210] font-newsreader text-xs text-[#3a352f] leading-relaxed text-center">
-          <div className="font-display font-bold uppercase tracking-wider text-[#141210] text-xs mb-1">
+        <div className="p-2.5 bg-[#eae8e2]/50 border border-[#141210] font-newsreader text-[10.5px] sm:text-[11px] text-[#3a352f] leading-relaxed text-center">
+          <div className="font-display font-bold uppercase tracking-wider text-[#141210] text-[10.5px] mb-0.5">
             THE CHRONICLE ARCHIVE COLOPHON
           </div>
           <p className="italic">
@@ -943,7 +920,7 @@ export const Page11Colophon: React.FC = () => {
         </div>
       </div>
 
-      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9.5px] font-mono-tech text-[#5a554e]">
+      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9px] sm:text-[9.5px] font-mono-tech text-[#5a554e]">
         <span>MYTHREIE DUMPATI // EDITORIAL COLOPHON</span>
         <span className="font-typewriter font-bold text-[#141210]">PAGE 11</span>
       </div>
@@ -968,17 +945,17 @@ export const Page12ClosingBroadside: React.FC<{ onNavigateToSpread?: (spread: nu
   ];
 
   return (
-    <div className="editorial-scroll scroll-smooth p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between h-full overflow-y-auto relative bg-[#faf9f6] text-[#141210]">
+    <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
       <div>
         {/* Universal Top Header Bar */}
         <NewspaperPageHeader />
 
-        <div className="border-b-2 border-[#141210] pb-2 mb-4 flex justify-between items-start">
+        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start">
           <div>
-            <span className="font-mono-tech text-[9px] uppercase tracking-[0.25em] text-[#8C3833] font-bold block">
+            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
               FINAL REGISTER // VOLUME 01
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-black uppercase tracking-wider text-[#141210]">
+            <h3 className="font-display text-lg sm:text-xl font-black uppercase tracking-wider text-[#141210]">
               ARCHIVAL DIRECTORY &amp; CLOSING
             </h3>
           </div>
@@ -986,36 +963,36 @@ export const Page12ClosingBroadside: React.FC<{ onNavigateToSpread?: (spread: nu
         </div>
 
         {/* Archival Table */}
-        <div className="border-2 border-[#141210] p-3 bg-[#eae8e2]/70 mb-3 space-y-2">
-          <div className="font-mono-tech text-[10px] uppercase font-bold text-[#141210] border-b border-[#141210] pb-1 flex justify-between">
+        <div className="border-2 border-[#141210] p-2 bg-[#eae8e2]/70 mb-2 space-y-1">
+          <div className="font-mono-tech text-[9px] uppercase font-bold text-[#141210] border-b border-[#141210] pb-0.5 flex justify-between">
             <span>MASTER DOSSIER DIRECTORY</span>
             <span>HYDERABAD ARCHIVE</span>
           </div>
-          <div className="space-y-1.5 font-mono-tech text-[10px]">
+          <div className="space-y-1 font-mono-tech text-[9px]">
             {archives.map((a) => (
               <div
                 key={a.num}
                 onClick={() => onNavigateToSpread?.(a.spread)}
-                className="flex items-start justify-between p-1 hover:bg-[#141210] hover:text-[#f5f0e1] transition-colors cursor-pointer group"
+                className="flex items-start justify-between p-0.5 hover:bg-[#141210] hover:text-[#f5f0e1] transition-colors cursor-pointer group"
               >
                 <div>
                   <span className="font-bold text-[#8C3833] group-hover:text-[#d9c49f] mr-1.5">[{a.num}]</span>
                   <span className="font-bold">{a.title}</span>
-                  <p className="text-[9px] text-[#5a554e] group-hover:text-[#cfc5b0]">{a.desc}</p>
+                  <p className="text-[8px] text-[#5a554e] group-hover:text-[#cfc5b0]">{a.desc}</p>
                 </div>
-                <span className="text-[9px] uppercase tracking-wider underline">SPREAD 0{a.spread}</span>
+                <span className="text-[8px] uppercase tracking-wider underline">SPREAD 0{a.spread}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Clearance and Seal */}
-        <div className="p-3 bg-[#141210] text-[#f5f0e1] border-2 border-[#141210] flex items-center justify-between">
+        <div className="p-2 bg-[#141210] text-[#f5f0e1] border-2 border-[#141210] flex items-center justify-between">
           <div>
-            <span className="font-mono-tech text-[9px] uppercase tracking-widest text-[#d9c49f] block">
+            <span className="font-mono-tech text-[8px] uppercase tracking-widest text-[#d9c49f] block">
               RESEARCH SECURITY CLEARANCE
             </span>
-            <span className="font-display text-xs sm:text-sm font-bold uppercase tracking-wider">
+            <span className="font-display text-xs font-bold uppercase tracking-wider">
               AUTHORIZATION LEVEL 4 // ARCHIVE COMPLETE
             </span>
           </div>
@@ -1023,7 +1000,7 @@ export const Page12ClosingBroadside: React.FC<{ onNavigateToSpread?: (spread: nu
         </div>
       </div>
 
-      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9.5px] font-mono-tech text-[#5a554e]">
+      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9px] sm:text-[9.5px] font-mono-tech text-[#5a554e]">
         <span>MYTHREIE DUMPATI // CLOSING BROADSIDE</span>
         <span className="font-typewriter font-bold text-[#141210]">PAGE 12</span>
       </div>

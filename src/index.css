@@ -146,8 +146,11 @@
   font-weight: 800;
 }
 
-/* Global Smooth Scrolling */
-html {
+/* Global Layout Settings: Exact A4 Non-Scroll Viewport */
+html, body {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
   scroll-behavior: smooth;
 }
 

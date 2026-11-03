@@ -175,8 +175,8 @@ export const Newspaper3DViewer: React.FC<Newspaper3DViewerProps> = ({
       className="relative w-full h-full flex items-center justify-center select-none"
       style={{ perspective: '2400px' }}
     >
-      {/* Centered Broadsheet Stage Frame */}
-      <div className="relative h-full max-h-[calc(100vh-1.25rem)] aspect-[622/877] max-w-full flex items-center justify-center">
+      {/* Centered Broadsheet Stage Frame (Strict ISO 216 A4 aspect ratio 210/297) */}
+      <div className="relative h-full max-h-[calc(100vh-1.25rem)] aspect-[210/297] max-w-full flex items-center justify-center">
         {/* Subtle Stack Depth Layers Underneath */}
         <div className="absolute inset-0 translate-x-1 translate-y-1 bg-[#e3dfd3] border border-[#141210]/30 rounded-xs shadow-md pointer-events-none" />
         <div className="absolute inset-0 translate-x-2 translate-y-2 bg-[#dad5c6] border border-[#141210]/40 rounded-xs shadow-xl pointer-events-none" />
