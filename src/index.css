@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: "EB Garamond", Georgia, serif;
+}
+
 @layer base {
   :root {
     --newsprint-bg: #f4f3ef;
@@ -14,6 +18,10 @@
 }
 
 /* Custom Editorial Typography Utilities */
+.font-garamond {
+  font-family: 'EB Garamond', Georgia, serif;
+}
+
 .font-typewriter {
   font-family: 'Special Elite', Courier, monospace;
 }

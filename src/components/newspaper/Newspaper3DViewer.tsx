@@ -233,7 +233,7 @@ export const Newspaper3DViewer: React.FC<Newspaper3DViewerProps> = ({
 
                 {/* Whispered Archival "p.t.o." Margin Callout on Hover */}
                 <span
-                  className={`absolute bottom-1 right-1 font-serif italic text-[9px] font-bold text-[#8C3833] tracking-wider transition-opacity duration-200 pointer-events-none ${
+                  className={`absolute bottom-1 right-1 font-garamond italic text-[9.5px] font-bold text-[#141210] tracking-wider transition-opacity duration-200 pointer-events-none ${
                     isHoveredRight ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
@@ -281,7 +281,7 @@ export const Newspaper3DViewer: React.FC<Newspaper3DViewerProps> = ({
                 </div>
 
                 <span
-                  className={`absolute bottom-1 left-1 font-serif italic text-[9px] font-bold text-[#8C3833] tracking-wider transition-opacity duration-200 pointer-events-none ${
+                  className={`absolute bottom-1 left-1 font-garamond italic text-[9.5px] font-bold text-[#141210] tracking-wider transition-opacity duration-200 pointer-events-none ${
                     isHoveredLeft ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
