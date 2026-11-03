@@ -281,104 +281,90 @@ export const Page03Education: React.FC = () => {
 };
 
 // =========================================================================
-// PAGE 04: 02. PROFESSIONAL EXPERIENCE
+// PAGE 04: 02. PROFESSIONAL EXPERIENCE (Internships Broadside)
 // =========================================================================
 export const Page04Experience: React.FC = () => {
-  const policeExp = RESUME_DATA.experience.find((e) => e.id === 'telangana-police')!;
-  const teleparadigmExp = RESUME_DATA.experience.find((e) => e.id === 'teleparadigm')!;
-  const mithraExp = RESUME_DATA.experience.find((e) => e.id === 'mithra-agencies')!;
-
   return (
-    <div className="editorial-scroll scroll-smooth p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between h-full overflow-y-auto relative bg-[#faf9f6] text-[#141210]">
+    <div className="editorial-scroll scroll-smooth p-6 sm:p-9 md:p-12 lg:p-14 flex flex-col justify-between h-full overflow-y-auto relative bg-[#faf9f6] text-[#141210] select-none">
       <div>
         {/* Universal Top Header Bar */}
         <NewspaperPageHeader />
 
-        <div className="border-b-2 border-[#141210] pb-2 mb-4 flex justify-between items-start">
-          <div>
-            <span className="font-mono-tech text-[9px] uppercase tracking-[0.25em] text-[#8C3833] font-bold block">
-              SECTION 02 // FIELD OPERATIONS
-            </span>
-            <h3 className="font-display text-xl sm:text-2xl font-black uppercase tracking-wider text-[#141210]">
-              PROFESSIONAL EXPERIENCE
-            </h3>
-          </div>
-          <NewspaperStamp text="VERIFIED" variant="olive" rotation={-1} />
-        </div>
-
-        {/* Feature 1: Telangana Police */}
-        <div className="p-3.5 bg-[#eae8e2]/70 border-2 border-[#141210] mb-3">
-          <div className="flex items-center justify-between border-b border-[#141210] pb-1 mb-2">
-            <div>
-              <span className="font-mono-tech text-[9px] text-[#8C3833] uppercase font-bold tracking-widest block">
-                SPECIAL LAW ENFORCEMENT MODULE
-              </span>
-              <h4 className="font-serif-vintage text-base font-bold text-[#141210]">
-                {policeExp.role}
-              </h4>
-            </div>
-            <span className="font-mono-tech text-[9.5px] bg-[#141210] text-[#f5f0e1] px-2 py-0.5 font-bold">
-              {policeExp.dates}
-            </span>
-          </div>
-
-          <div className="font-typewriter text-xs text-[#4b4e39] font-bold mb-1">
-            {policeExp.organization} • {policeExp.location}
-          </div>
-
-          <p className="font-newsreader text-xs italic text-[#3a352f] mb-2">
-            &quot;{policeExp.verifiedOutcomes}&quot;
-          </p>
-
-          <div className="space-y-1.5 font-newsreader text-[11px] text-[#141210]">
-            {policeExp.responsibilities.map((r, i) => (
-              <div key={i} className="flex items-start gap-1.5">
-                <span className="text-[#8C3833] font-bold">▶</span>
-                <span>{r}</span>
-              </div>
-            ))}
+        {/* Master Heading: professional Experience / Internships */}
+        <div className="flex flex-col items-center justify-center mt-1 sm:mt-2 mb-6 sm:mb-8 md:mb-10 text-center">
+          <img
+            src="/internships_title_vector@2x.png"
+            alt="professional Experience — Internships"
+            className="w-[260px] sm:w-[310px] md:w-[350px] max-w-full h-auto object-contain block pointer-events-none drop-shadow-xs"
+          />
+          <div className="sr-only">
+            <h2>professional Experience</h2>
+            <h3>Internships</h3>
           </div>
         </div>
 
-        {/* Feature 2: Teleparadigm Systems */}
-        <div className="p-3 bg-[#eae8e2]/50 border border-[#141210] mb-2">
-          <div className="flex items-center justify-between border-b border-[#141210]/20 pb-1 mb-1.5">
-            <div>
-              <h4 className="font-serif-vintage text-sm font-bold text-[#141210]">
-                {teleparadigmExp.role}
-              </h4>
-              <div className="font-typewriter text-[11px] text-[#5a554e]">
-                {teleparadigmExp.organization} • {teleparadigmExp.location}
-              </div>
+        {/* Two-Column Symmetrical Layout matching reference */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-7 sm:gap-8 md:gap-10 lg:gap-12 items-start">
+          {/* Column 1: Teleparadigm Networks Ltd. */}
+          <div className="flex flex-col">
+            {/* Date Tag */}
+            <div className="font-serif text-xs sm:text-[13px] md:text-sm text-[#222222] font-medium tracking-wide text-center mb-2 sm:mb-2.5">
+              Sept – Nov 2025
             </div>
-            <span className="font-mono-tech text-[9px] text-[#5a554e] font-bold">
-              {teleparadigmExp.dates}
-            </span>
+
+            {/* Sleek Picture Frame (Reduced border thickness with elegant shadow) */}
+            <div className="w-full aspect-square bg-white border-[3.5px] sm:border-[4.5px] border-[#181818] shadow-[0_12px_28px_-6px_rgba(0,0,0,0.22),0_6px_12px_-4px_rgba(0,0,0,0.12)] overflow-hidden flex items-center justify-center p-0.5">
+              <img
+                src="/internship_teleparadigm.jpg"
+                alt="Teleparadigm Networks Ltd. Internship Artwork"
+                className="w-full h-full object-contain block pointer-events-none"
+                loading="eager"
+              />
+            </div>
+
+            {/* Title */}
+            <h4 className="font-serif font-bold text-base sm:text-lg md:text-[19px] text-[#111111] leading-snug mt-3.5 sm:mt-4 mb-2 sm:mb-2.5">
+              Teleparadigm<br />Networks Ltd.
+            </h4>
+
+            {/* Description */}
+            <p className="font-serif text-xs sm:text-[13px] md:text-[13.5px] text-[#222222] leading-relaxed text-justify sm:text-left">
+              Developed a secure, decentralized file-sharing platform with role-based access controls to protect sensitive user data from unauthorized access. Implemented distributed storage methods and dynamic permission controls across network nodes, maintaining high data privacy while removing single points of failure.
+            </p>
           </div>
 
-          <div className="space-y-1 font-newsreader text-[11px] text-[#141210]">
-            {teleparadigmExp.responsibilities.map((r, i) => (
-              <div key={i} className="flex items-start gap-1.5">
-                <span className="text-[#141210] font-bold">▪</span>
-                <span>{r}</span>
-              </div>
-            ))}
+          {/* Column 2: Women Safety Wing, Telangana Police */}
+          <div className="flex flex-col">
+            {/* Date Tag */}
+            <div className="font-serif text-xs sm:text-[13px] md:text-sm text-[#222222] font-medium tracking-wide text-center mb-2 sm:mb-2.5">
+              Dec 2024 – Jan 2025
+            </div>
+
+            {/* Sleek Picture Frame (Reduced border thickness, image occupies more space than white space) */}
+            <div className="w-full aspect-square bg-white border-[3.5px] sm:border-[4.5px] border-[#181818] shadow-[0_12px_28px_-6px_rgba(0,0,0,0.22),0_6px_12px_-4px_rgba(0,0,0,0.12)] overflow-hidden flex items-center justify-center p-0.5">
+              <img
+                src="/internship_telangana_police.png"
+                alt="Women Safety Wing, Telangana Police Internship Artwork"
+                className="w-full h-full object-contain block pointer-events-none"
+                loading="eager"
+              />
+            </div>
+
+            {/* Title */}
+            <h4 className="font-serif font-bold text-base sm:text-lg md:text-[19px] text-[#111111] leading-snug mt-3.5 sm:mt-4 mb-2 sm:mb-2.5">
+              Women Safety Wing,<br />Telangana Police
+            </h4>
+
+            {/* Description */}
+            <p className="font-serif text-xs sm:text-[13px] md:text-[13.5px] text-[#222222] leading-relaxed text-justify sm:text-left">
+              Supported key public safety initiatives at the Women Safety Wing&apos;s Bharosa Module by designing high-impact visual campaigns—including T-Safe metro ads reaching 500,000+ citizens—and analysing operational data across 26 centres to boost reporting efficiency, while managing critical government workflows like Daily Situation Reports and Operation Smile 11.
+            </p>
           </div>
         </div>
-
-        {/* Feature 3: Mithra Agencies */}
-        {mithraExp && (
-          <div className="p-2.5 bg-[#eae8e2]/40 border border-[#141210]/30 font-newsreader text-[10.5px]">
-            <div className="flex justify-between items-baseline font-bold text-[#141210]">
-              <span>{mithraExp.role} — {mithraExp.organization}</span>
-              <span className="font-mono-tech text-[9px] text-[#5a554e]">{mithraExp.dates}</span>
-            </div>
-            <p className="italic text-[#4a453e] mt-0.5">{mithraExp.verifiedOutcomes}</p>
-          </div>
-        )}
       </div>
 
-      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9.5px] font-mono-tech text-[#5a554e]">
+      {/* Broadside Footer */}
+      <div className="mt-8 pt-3 border-t border-[#141210]/30 flex justify-between items-center text-[9.5px] font-mono-tech text-[#5a554e]">
         <span>MYTHREIE DUMPATI // 02. PROFESSIONAL EXPERIENCE</span>
         <span className="font-typewriter font-bold text-[#141210]">PAGE 04</span>
       </div>
