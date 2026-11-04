@@ -1,0 +1,4 @@
+# Cloudflare Pages SPA Routing
+# Passes API requests directly to Pages Functions and falls back to index.html for SPA routes
+/api/*  /api/:splat  200
+/*      /index.html  200

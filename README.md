@@ -83,3 +83,44 @@ npm run build
 # 4. Preview production build
 npm run preview
 ```
+
+---
+
+## ☁️ Deploying to Cloudflare Pages
+
+This project is configured out-of-the-box for **Cloudflare Pages** with edge functions and SPA routing.
+
+### Prerequisites Configured
+- **`wrangler.toml`**: Configures the project, sets `pages_build_output_dir = "dist"`, and enables `compatibility_flags = ["nodejs_compat"]`.
+- **`.node-version` & `.nvmrc`**: Instructs Cloudflare Pages build runner to use **Node.js 22 LTS**.
+- **`public/_redirects`**: Handles client-side SPA routing and passes `/api/*` to Cloudflare Pages Functions.
+- **`public/_headers`**: Enforces production security headers and long-term caching for static assets.
+- **`public/_routes.json`**: Optimizes edge function invocations to strictly route `/api/*` requests through functions while serving static assets directly from Cloudflare's edge cache.
+- **`functions/api/send.ts`**: Native Cloudflare Pages Edge Function handling `/api/send` inquiries via standard Web Fetch.
+
+### Method 1: Connect via Cloudflare Dashboard (Recommended)
+1. In Cloudflare Dashboard, go to **Compute (Workers & Pages)** > **Create** > **Pages** > **Connect to Git**.
+2. Select repository: `mythreie-dumpati-portfolio`.
+3. Set the build settings:
+   - **Framework preset**: `Vite` (or `None`)
+   - **Build command**: `npm run build`
+   - **Build output directory**: `dist`
+   - **Root directory**: `/`
+4. Add Environment Variables (Settings > Variables and Secrets):
+   - `NODE_VERSION`: `22`
+   - `RESEND_API_KEY`: *(Your Resend API key)*
+   - `CONTACT_NOTIFICATION_EMAIL`: `mythreie.dumpati@gmail.com`
+   - `EMAIL_FROM`: `onboarding@resend.dev` (or verified domain)
+5. Click **Save and Deploy**.
+
+### Method 2: Deploy via Wrangler CLI
+```bash
+# 1. Build the production assets
+npm run build
+
+# 2. Deploy directly to Cloudflare Pages
+npm run pages:deploy
+# or:
+npx wrangler pages deploy dist --project-name mythreie-dumpati-portfolio
+```
+

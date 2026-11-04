@@ -1,0 +1,12 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "mythreie-dumpati-portfolio"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "dist"
+
+# Default environment variables for Cloudflare Pages
+# Note: Sensitive secrets (e.g. RESEND_API_KEY) should be configured in
+# Cloudflare Dashboard -> Workers & Pages -> mythreie-dumpati-portfolio -> Settings -> Variables and Secrets
+[vars]
+EMAIL_FROM = "onboarding@resend.dev"
+CONTACT_NOTIFICATION_EMAIL = "mythreie.dumpati@gmail.com"
