@@ -299,34 +299,36 @@ export const Page03Education: React.FC = () => {
 export const Page04Experience: React.FC = () => {
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      <div>
-        {/* Universal Top Header Bar */}
-        <NewspaperPageHeader />
+      <div className="flex-1 flex flex-col justify-between">
+        <div>
+          {/* Universal Top Header Bar */}
+          <NewspaperPageHeader />
 
-        {/* Master Heading: professional Experience / Internships */}
-        <div className="flex flex-col items-center justify-center mt-0.5 mb-2 sm:mb-2.5 text-center shrink-0">
-          <img
-            src="/internships_title_vector@2x.png"
-            alt="professional Experience — Internships"
-            className="w-[185px] sm:w-[215px] md:w-[235px] max-w-full h-auto object-contain block pointer-events-none drop-shadow-xs"
-          />
-          <div className="sr-only">
-            <h2>professional Experience</h2>
-            <h3>Internships</h3>
+          {/* Master Heading: professional Experience / Internships */}
+          <div className="flex flex-col items-center justify-center mt-1 sm:mt-2 md:mt-3 mb-2 sm:mb-3 text-center shrink-0">
+            <img
+              src="/internships_title_vector@2x.png"
+              alt="professional Experience — Internships"
+              className="w-[200px] sm:w-[230px] md:w-[250px] max-w-full h-auto object-contain block pointer-events-none drop-shadow-xs"
+            />
+            <div className="sr-only">
+              <h2>professional Experience</h2>
+              <h3>Internships</h3>
+            </div>
           </div>
         </div>
 
-        {/* Two-Column Symmetrical Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-7 items-start mt-1">
+        {/* Two-Column Symmetrical Layout brought down to fill canvas */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-7 items-start my-auto pb-2 sm:pb-3">
           {/* Column 1: Teleparadigm Networks Ltd. */}
           <div className="flex flex-col">
             {/* Date Tag */}
-            <div className="h-[20px] flex items-center justify-center font-garamond text-[10.5px] sm:text-xs text-[#222222] font-medium tracking-wide text-center mb-1 shrink-0">
+            <div className="h-[22px] flex items-center justify-center font-garamond text-xs sm:text-[13px] md:text-[13.5px] text-[#222222] font-medium tracking-wide text-center mb-1.5 shrink-0">
               Sept – Nov 2025
             </div>
 
             {/* Sleek Picture Frame with Thin Internal Border */}
-            <div className="w-full max-w-[135px] sm:max-w-[155px] md:max-w-[170px] mx-auto aspect-square bg-white border-[1.5px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.22)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
+            <div className="w-full max-w-[150px] sm:max-w-[170px] md:max-w-[185px] mx-auto aspect-square bg-white border-[1.5px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.22)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
               <img
                 src="/internship_teleparadigm.png"
                 alt="Teleparadigm Networks Ltd. Internship Artwork"
@@ -336,13 +338,13 @@ export const Page04Experience: React.FC = () => {
             </div>
 
             {/* Title */}
-            <h4 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-tight mt-1.5 mb-1 min-h-[32px] sm:min-h-[36px] flex flex-col justify-start">
+            <h4 className="font-garamond font-bold text-sm sm:text-[15px] md:text-[16px] text-[#111111] leading-tight mt-2.5 mb-1.5 min-h-[34px] sm:min-h-[38px] flex flex-col justify-start">
               <span>Teleparadigm</span>
               <span>Networks Ltd.</span>
             </h4>
 
             {/* Description */}
-            <p className="font-garamond text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#222222] leading-relaxed text-justify sm:text-left">
+            <p className="font-garamond text-[10px] sm:text-[11px] md:text-[11.5px] text-[#222222] leading-relaxed text-justify sm:text-left">
               Developed a secure, decentralized file-sharing platform with role-based access controls to protect sensitive user data from unauthorized access. Implemented distributed storage methods and dynamic permission controls across network nodes, maintaining high data privacy while removing single points of failure.
             </p>
           </div>
@@ -350,12 +352,12 @@ export const Page04Experience: React.FC = () => {
           {/* Column 2: Women Safety Wing, Telangana Police */}
           <div className="flex flex-col">
             {/* Date Tag */}
-            <div className="h-[20px] flex items-center justify-center font-garamond text-[10.5px] sm:text-xs text-[#222222] font-medium tracking-wide text-center mb-1 shrink-0">
+            <div className="h-[22px] flex items-center justify-center font-garamond text-xs sm:text-[13px] md:text-[13.5px] text-[#222222] font-medium tracking-wide text-center mb-1.5 shrink-0">
               Dec 2024 – Jan 2025
             </div>
 
             {/* Sleek Picture Frame with Thin Internal Border (Image occupies full space without excessive whitespace) */}
-            <div className="w-full max-w-[135px] sm:max-w-[155px] md:max-w-[170px] mx-auto aspect-square bg-white border-[1.5px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.22)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
+            <div className="w-full max-w-[150px] sm:max-w-[170px] md:max-w-[185px] mx-auto aspect-square bg-white border-[1.5px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.22)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
               <img
                 src="/internship_telangana_police.png"
                 alt="Women Safety Wing, Telangana Police Internship Artwork"
@@ -365,13 +367,13 @@ export const Page04Experience: React.FC = () => {
             </div>
 
             {/* Title */}
-            <h4 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-tight mt-1.5 mb-1 min-h-[32px] sm:min-h-[36px] flex flex-col justify-start">
+            <h4 className="font-garamond font-bold text-sm sm:text-[15px] md:text-[16px] text-[#111111] leading-tight mt-2.5 mb-1.5 min-h-[34px] sm:min-h-[38px] flex flex-col justify-start">
               <span>Women Safety Wing,</span>
               <span>Telangana Police</span>
             </h4>
 
             {/* Description */}
-            <p className="font-garamond text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#222222] leading-relaxed text-justify sm:text-left">
+            <p className="font-garamond text-[10px] sm:text-[11px] md:text-[11.5px] text-[#222222] leading-relaxed text-justify sm:text-left">
               Supported key public safety initiatives at the Women Safety Wing&apos;s Bharosa Module by designing high-impact visual campaigns—including T-Safe metro ads reaching 500,000+ citizens—and analysing operational data across 26 centres to boost reporting efficiency, while managing critical government workflows like Daily Situation Reports and Operation Smile 11.
             </p>
           </div>
@@ -486,102 +488,119 @@ export const Page05Projects: React.FC = () => {
 export const Page06Publications: React.FC = () => {
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      <div>
-        {/* Universal Top Header Bar */}
-        <NewspaperPageHeader />
+      <div className="flex-1 flex flex-col justify-between">
+        <div>
+          {/* Universal Top Header Bar */}
+          <NewspaperPageHeader />
 
-        {/* Master Heading: Publications / Research, written and shared. */}
-        <div className="text-center mt-0.5 mb-2 sm:mb-2.5 shrink-0">
-          <h2 className="font-garamond font-black text-2xl sm:text-3xl md:text-[34px] text-[#111111] tracking-[0.01em] leading-none">
-            Publications
-          </h2>
-          <p className="font-garamond italic text-xs sm:text-sm md:text-[14px] text-[#222222] mt-1 sm:mt-1.5 leading-snug">
-            Research, written and shared.
-          </p>
+          {/* Master Heading: Publications / Research, written and shared. */}
+          <div className="text-center mt-1 sm:mt-1.5 mb-2 sm:mb-3 shrink-0">
+            <h2 className="font-garamond font-black text-2xl sm:text-3xl md:text-[36px] text-[#111111] tracking-[0.01em] leading-none">
+              Publications
+            </h2>
+            <p className="font-garamond italic text-xs sm:text-sm md:text-[15px] text-[#222222] mt-1 sm:mt-1.5 leading-snug">
+              Research, written and shared.
+            </p>
+          </div>
         </div>
 
         {/* 3 Dark Rounded Cards matching Reference Image */}
-        <div className="flex flex-col gap-2.5 sm:gap-3 mt-1 sm:mt-1.5">
+        <div className="flex-1 flex flex-col justify-between gap-3 sm:gap-3.5 my-1 sm:my-2">
           {/* Top Row: Two Equal Columns */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
             {/* Card 1: Decentralized Secure File Sharing */}
-            <div className="bg-[#111111] text-white rounded-2xl p-3 sm:p-3.5 flex flex-col justify-between shadow-md">
-              <div>
-                <h3 className="font-garamond font-bold text-xs sm:text-[13px] md:text-[13.5px] text-white leading-snug">
-                  An Intelligent Decentralized Secure File Sharing System with Privacy-Preserving Access Control (2026)
+            <div className="bg-black text-white rounded-3xl p-3.5 sm:p-4 md:p-5 flex flex-col justify-between shadow-md">
+              <div className="flex justify-between items-baseline gap-1.5">
+                <h3 className="font-sans font-bold text-xs sm:text-[13px] md:text-[13.5px] text-white leading-tight">
+                  An Intelligent Decentralized Secure File Sharing System with Privacy-Preserving Access Control
                 </h3>
-                <p className="font-sans text-[8.5px] sm:text-[9.5px] text-[#e0e0e0] mt-1.5 leading-relaxed text-justify sm:text-left">
-                  Designed a decentralized file-sharing architecture integrating Blockchain, IPFS, Shamir&apos;s Secret Sharing, and an Isolation Forest anomaly detection model to intercept anomalous exfiltration requests and maintain immutable audit trails.
-                </p>
+                <span className="font-sans font-bold text-xs sm:text-[13px] md:text-[13.5px] text-white shrink-0 ml-1">
+                  2026
+                </span>
               </div>
 
-              <div className="mt-2.5 pt-2 border-t border-white/15 flex items-end justify-between gap-2">
-                <div className="font-sans text-[8px] sm:text-[8.5px] text-[#b0b0b0] leading-tight space-y-0.5">
-                  <div><span className="font-semibold text-white">Journal:</span> ICSSEECC - 2026</div>
-                  <div><span className="font-semibold text-white">Publisher:</span> IEEE Xplore</div>
+              <p className="font-sans text-[9px] sm:text-[10px] md:text-[10.5px] text-white/95 text-center my-auto leading-relaxed px-1">
+                A decentralised file-sharing system integrating Blockchain, IPFS, Shamir’s Secret Sharing and Isolation Forest-based anomaly detection.
+              </p>
+
+              <div>
+                <div className="text-center font-sans text-[8.5px] sm:text-[9.5px] text-white/90 space-y-0.5">
+                  <div>Journal Name: ICSSEECC -2026</div>
+                  <div>Publisher: IEEE Xplor</div>
                 </div>
-                <a
-                  href="https://ieeexplore.ieee.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white text-[#111111] hover:bg-[#e6e6e6] transition-colors rounded-full px-2.5 py-1 text-[8px] sm:text-[8.5px] font-sans font-semibold tracking-wide shrink-0 inline-flex items-center gap-1 cursor-pointer"
-                >
-                  <span>click to read</span>
-                  <ExternalLink className="w-2.5 h-2.5 text-[#111111]" />
-                </a>
+
+                <div className="mt-3 sm:mt-3.5 flex justify-center">
+                  <a
+                    href="https://ieeexplore.ieee.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white text-black rounded-full px-5 sm:px-6 py-1.5 text-[10.5px] sm:text-xs font-sans font-medium hover:bg-neutral-200 transition-colors inline-block text-center shadow-xs"
+                  >
+                    click to read
+                  </a>
+                </div>
               </div>
             </div>
 
             {/* Card 2: Instagram Profile Forensics */}
-            <div className="bg-[#111111] text-white rounded-2xl p-3 sm:p-3.5 flex flex-col justify-between shadow-md">
-              <div>
-                <h3 className="font-garamond font-bold text-xs sm:text-[13px] md:text-[13.5px] text-white leading-snug">
-                  A Web-Based Automation Framework for Instagram Profile Forensics (2025)
+            <div className="bg-black text-white rounded-3xl p-3.5 sm:p-4 md:p-5 flex flex-col justify-between shadow-md">
+              <div className="flex justify-between items-baseline gap-1.5">
+                <h3 className="font-sans font-bold text-xs sm:text-[13px] md:text-[13.5px] text-white leading-tight">
+                  A Web-Based Automation Framework for Instagram Profile Forensics
                 </h3>
-                <p className="font-sans text-[8.5px] sm:text-[9.5px] text-[#e0e0e0] mt-1.5 leading-relaxed text-justify sm:text-left">
-                  Developed an automated, non-invasive digital forensic tool using FastAPI and Flutter to streamline evidence acquisition. Integrated Playwright for automated SHA-256 evidence hashing and dynamic ReportLab PDF generation for court-admissible reports.
-                </p>
+                <span className="font-sans font-bold text-xs sm:text-[13px] md:text-[13.5px] text-white shrink-0 ml-1">
+                  2025
+                </span>
               </div>
 
-              <div className="mt-2.5 pt-2 border-t border-white/15 flex items-end justify-between gap-2">
-                <div className="font-sans text-[8px] sm:text-[8.5px] text-[#b0b0b0] leading-tight space-y-0.5">
-                  <div><span className="font-semibold text-white">Journal:</span> ICCIC - 2025</div>
-                  <div><span className="font-semibold text-white">Publisher:</span> IJRDET</div>
+              <p className="font-sans text-[9px] sm:text-[10px] md:text-[10.5px] text-white/95 text-center my-auto leading-relaxed px-1">
+                Developed a FastAPI–Flutter digital forensics tool automating evidence acquisition, SHA-256 hashing, timestamp validation and tamper-evident PDF report generation.
+              </p>
+
+              <div>
+                <div className="text-center font-sans text-[8.5px] sm:text-[9.5px] text-white/90 space-y-0.5">
+                  <div>Journal Name: ICCIC - 2025</div>
+                  <div>Publisher: IJRDET</div>
                 </div>
-                <a
-                  href="https://ijrdet.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white text-[#111111] hover:bg-[#e6e6e6] transition-colors rounded-full px-2.5 py-1 text-[8px] sm:text-[8.5px] font-sans font-semibold tracking-wide shrink-0 inline-flex items-center gap-1 cursor-pointer"
-                >
-                  <span>click to read</span>
-                  <ExternalLink className="w-2.5 h-2.5 text-[#111111]" />
-                </a>
+
+                <div className="mt-3 sm:mt-3.5 flex justify-center">
+                  <a
+                    href="https://ijrdet.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white text-black rounded-full px-5 sm:px-6 py-1.5 text-[10.5px] sm:text-xs font-sans font-medium hover:bg-neutral-200 transition-colors inline-block text-center shadow-xs"
+                  >
+                    click to read
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Bottom Row: Full-Width Card */}
-          <div className="bg-[#111111] text-white rounded-2xl p-3 sm:p-3.5 shadow-md flex flex-col justify-between">
-            <div>
-              <h3 className="font-garamond font-bold text-xs sm:text-[13px] md:text-[13.5px] text-white leading-snug">
-                Quantifying the Security-Utility-Latency Frontier: An Empirical Benchmark of Small and Medium Language Models Under Adversarial Injection (2026)
+          <div className="bg-black text-white rounded-3xl p-3.5 sm:p-4 md:p-5 shadow-md flex flex-col justify-between">
+            <div className="flex justify-between items-baseline gap-2">
+              <h3 className="font-sans font-bold text-xs sm:text-[13px] md:text-[13.5px] text-white leading-tight">
+                Quantifying the Security-Utility-Latency Frontier: An Empirical Benchmark of Small and Medium Language Models Under Adversarial Injection
               </h3>
-              <p className="font-sans text-[8.5px] sm:text-[9.5px] text-[#e0e0e0] mt-1.5 leading-relaxed text-justify sm:text-left">
-                Evaluated five open-weight language models across 2,500 test queries against direct jailbreaks, indirect prompt injection, and obfuscation attacks on an isolated testbed. Characterized the multi-objective Pareto frontier across attack robustness, over-refusal rates, and tail latency.
-              </p>
+              <span className="font-sans font-bold text-xs sm:text-[13px] md:text-[13.5px] text-white shrink-0 ml-1">
+                2026
+              </span>
             </div>
 
-            <div className="mt-2.5 pt-2 border-t border-white/15 flex items-end justify-between gap-2">
-              <div className="font-sans text-[8px] sm:text-[8.5px] text-[#b0b0b0] leading-tight space-y-0.5">
-                <div><span className="font-semibold text-white">Journal:</span> ISDDC - 2026</div>
-                <div><span className="font-semibold text-white">Publisher:</span> IEEE Xplore</div>
+            <p className="font-sans text-[9px] sm:text-[10px] md:text-[10.5px] text-white/95 text-center my-2 sm:my-2.5 leading-relaxed max-w-xl mx-auto">
+              Evaluated five open-weight language models against jailbreak and prompt-injection attacks, analysing trade-offs between robustness, over-refusal and latency.
+            </p>
+
+            <div className="mt-2 flex items-center justify-between">
+              <div className="font-sans text-[8.5px] sm:text-[9.5px] text-white/90 space-y-0.5">
+                <div>Journal Name: ISDDC - 2026</div>
+                <div>Publisher: IEEE Xplore</div>
               </div>
-              <span
-                className="bg-white text-[#111111] rounded-full px-2.5 py-1 text-[8px] sm:text-[8.5px] font-sans font-semibold tracking-wide shrink-0 font-medium"
-              >
-                To appear in IEEE Xplore
-              </span>
+              <div className="bg-white text-black rounded-full px-4 sm:px-5 py-1 text-[9.5px] sm:text-[10.5px] font-sans font-medium text-center leading-tight shadow-xs shrink-0">
+                <div>To appear in</div>
+                <div>IEEE Xplore</div>
+              </div>
             </div>
           </div>
         </div>
