@@ -299,36 +299,34 @@ export const Page03Education: React.FC = () => {
 export const Page04Experience: React.FC = () => {
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      <div className="flex-1 flex flex-col justify-between">
-        <div>
-          {/* Universal Top Header Bar */}
-          <NewspaperPageHeader />
+      <div>
+        {/* Universal Top Header Bar */}
+        <NewspaperPageHeader />
 
-          {/* Master Heading: professional Experience / Internships (brought down to match reference positioning) */}
-          <div className="flex flex-col items-center justify-center mt-4 sm:mt-6 md:mt-8 mb-3 sm:mb-4 md:mb-5 text-center shrink-0">
-            <img
-              src="/internships_title_vector@2x.png"
-              alt="professional Experience — Internships"
-              className="w-[195px] sm:w-[225px] md:w-[245px] max-w-full h-auto object-contain block pointer-events-none drop-shadow-xs"
-            />
-            <div className="sr-only">
-              <h2>professional Experience</h2>
-              <h3>Internships</h3>
-            </div>
+        {/* Master Heading: professional Experience / Internships (enlarged, centered, and placed a bit down from the top) */}
+        <div className="flex flex-col items-center justify-center mt-3 sm:mt-4 md:mt-5 mb-2 sm:mb-2.5 text-center shrink-0">
+          <img
+            src="/internships_title_vector@2x.png"
+            alt="professional Experience — Internships"
+            className="w-[230px] sm:w-[265px] md:w-[295px] max-w-full h-auto object-contain block pointer-events-none drop-shadow-xs mx-auto"
+          />
+          <div className="sr-only">
+            <h2>professional Experience</h2>
+            <h3>Internships</h3>
           </div>
         </div>
 
-        {/* Two-Column Symmetrical Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-7 items-start pb-1 sm:pb-2">
+        {/* Two-Column Symmetrical Layout (content restored to natural position) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-7 items-start mt-2 sm:mt-2.5">
           {/* Column 1: Teleparadigm Networks Ltd. */}
           <div className="flex flex-col">
             {/* Date Tag */}
-            <div className="h-[20px] flex items-center justify-center font-garamond text-xs sm:text-[12.5px] md:text-[13px] text-[#222222] font-medium tracking-wide text-center mb-1 shrink-0">
+            <div className="h-[20px] flex items-center justify-center font-garamond text-[10.5px] sm:text-xs text-[#222222] font-medium tracking-wide text-center mb-1 shrink-0">
               Sept – Nov 2025
             </div>
 
             {/* Sleek Picture Frame with Thin Internal Border */}
-            <div className="w-full max-w-[140px] sm:max-w-[160px] md:max-w-[175px] mx-auto aspect-square bg-white border-[1.5px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.22)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
+            <div className="w-full max-w-[135px] sm:max-w-[155px] md:max-w-[170px] mx-auto aspect-square bg-white border-[1.5px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.22)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
               <img
                 src="/internship_teleparadigm.png"
                 alt="Teleparadigm Networks Ltd. Internship Artwork"
@@ -338,7 +336,7 @@ export const Page04Experience: React.FC = () => {
             </div>
 
             {/* Title */}
-            <h4 className="font-garamond font-bold text-xs sm:text-[14px] md:text-[15px] text-[#111111] leading-tight mt-2 mb-1 min-h-[32px] sm:min-h-[36px] flex flex-col justify-start">
+            <h4 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-tight mt-1.5 mb-1 min-h-[32px] sm:min-h-[36px] flex flex-col justify-start">
               <span>Teleparadigm</span>
               <span>Networks Ltd.</span>
             </h4>
@@ -352,12 +350,12 @@ export const Page04Experience: React.FC = () => {
           {/* Column 2: Women Safety Wing, Telangana Police */}
           <div className="flex flex-col">
             {/* Date Tag */}
-            <div className="h-[20px] flex items-center justify-center font-garamond text-xs sm:text-[12.5px] md:text-[13px] text-[#222222] font-medium tracking-wide text-center mb-1 shrink-0">
+            <div className="h-[20px] flex items-center justify-center font-garamond text-[10.5px] sm:text-xs text-[#222222] font-medium tracking-wide text-center mb-1 shrink-0">
               Dec 2024 – Jan 2025
             </div>
 
             {/* Sleek Picture Frame with Thin Internal Border (Image occupies full space without excessive whitespace) */}
-            <div className="w-full max-w-[140px] sm:max-w-[160px] md:max-w-[175px] mx-auto aspect-square bg-white border-[1.5px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.22)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
+            <div className="w-full max-w-[135px] sm:max-w-[155px] md:max-w-[170px] mx-auto aspect-square bg-white border-[1.5px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.22)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
               <img
                 src="/internship_telangana_police.png"
                 alt="Women Safety Wing, Telangana Police Internship Artwork"
@@ -367,7 +365,7 @@ export const Page04Experience: React.FC = () => {
             </div>
 
             {/* Title */}
-            <h4 className="font-garamond font-bold text-xs sm:text-[14px] md:text-[15px] text-[#111111] leading-tight mt-2 mb-1 min-h-[32px] sm:min-h-[36px] flex flex-col justify-start">
+            <h4 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-tight mt-1.5 mb-1 min-h-[32px] sm:min-h-[36px] flex flex-col justify-start">
               <span>Women Safety Wing,</span>
               <span>Telangana Police</span>
             </h4>
