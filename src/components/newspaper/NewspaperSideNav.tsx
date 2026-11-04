@@ -66,17 +66,17 @@ export const NewspaperSideNav: React.FC<NewspaperSideNavProps> = ({
   ];
 
   return (
-    <aside className="relative z-30 h-full max-h-[calc(100vh-1rem)] flex flex-col justify-between items-center py-3 px-2 sm:px-2.5 bg-[#14100c]/95 border border-[#30261e] rounded-xs text-[#f5f0e1] shadow-2xl select-none flex-shrink-0 transition-all mr-2 sm:mr-3">
+    <aside className="relative z-30 h-full max-h-[calc(100vh-1rem)] flex flex-col justify-between items-center py-2 px-1.5 sm:px-2 bg-[#14100c]/95 border border-[#30261e] rounded-xs text-[#f5f0e1] shadow-2xl select-none flex-shrink-0 transition-all mr-2 sm:mr-3 overflow-y-auto overflow-x-hidden editorial-scroll">
       {/* Top: Publication Brand Icon with Flyout Tooltip */}
-      <div className="flex flex-col items-center gap-2">
+      <div className="flex flex-col items-center gap-1.5 shrink-0">
         <div className="relative group">
           <button
             type="button"
             onClick={() => onNavigateToSpread(1)}
-            className="w-10 h-10 rounded-xs bg-[#221a14] hover:bg-[#30261d] border border-[#3d2e23] flex items-center justify-center text-[#d9c49f] hover:text-white transition-all shadow-sm cursor-pointer"
+            className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-xs bg-[#221a14] hover:bg-[#30261d] border border-[#3d2e23] flex items-center justify-center text-[#d9c49f] hover:text-white transition-all shadow-sm cursor-pointer"
             title="Front Page"
           >
-            <Newspaper className="w-5 h-5" />
+            <Newspaper className="w-4 h-4" />
           </button>
           
           {/* Tooltip flyout on hover */}
@@ -91,10 +91,10 @@ export const NewspaperSideNav: React.FC<NewspaperSideNavProps> = ({
           <button
             type="button"
             onClick={() => onNavigateToSpread(1)}
-            className="w-9 h-9 rounded-xs bg-[#221a14] hover:bg-[#30261d] border border-[#3d2e23] flex items-center justify-center text-[#d9c49f] hover:text-white transition-all cursor-pointer"
+            className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-xs bg-[#221a14] hover:bg-[#30261d] border border-[#3d2e23] flex items-center justify-center text-[#d9c49f] hover:text-white transition-all cursor-pointer"
             title="Return to Front Page"
           >
-            <RotateCcw className="w-4 h-4" />
+            <RotateCcw className="w-3.5 h-3.5" />
           </button>
           <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 hidden group-hover:flex flex-col bg-[#1c1611] text-[#f5f0e1] border border-[#4a3a2d] px-2.5 py-1.5 rounded-xs shadow-xl font-mono-tech text-[10px] whitespace-nowrap z-50 pointer-events-none">
             <span className="font-bold text-[#d9c49f]">Front Page</span>
@@ -104,17 +104,17 @@ export const NewspaperSideNav: React.FC<NewspaperSideNavProps> = ({
       </div>
 
       {/* Middle: Vertical Spread Navigator & Section Jumps */}
-      <div className="flex flex-col items-center gap-2 my-auto">
+      <div className="flex flex-col items-center gap-1 my-auto shrink-0">
         {/* Previous Spread Button */}
         <div className="relative group">
           <button
             type="button"
             onClick={onPrevSpread}
             disabled={isFlipping || currentSpread === 1}
-            className="w-8 h-8 rounded-xs bg-[#221a14] hover:bg-[#30261d] text-[#f5f0e1] disabled:opacity-25 border border-[#3d2e23] flex items-center justify-center transition-all cursor-pointer"
+            className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-xs bg-[#221a14] hover:bg-[#30261d] text-[#f5f0e1] disabled:opacity-25 border border-[#3d2e23] flex items-center justify-center transition-all cursor-pointer"
             aria-label="Previous Broadsheet"
           >
-            <ChevronUp className="w-4 h-4 text-[#d9c49f]" />
+            <ChevronUp className="w-3.5 h-3.5 text-[#d9c49f]" />
           </button>
           <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 hidden group-hover:flex flex-col bg-[#1c1611] text-[#f5f0e1] border border-[#4a3a2d] px-2.5 py-1 rounded-xs shadow-xl font-mono-tech text-[10px] whitespace-nowrap z-50 pointer-events-none">
             <span>Previous Broadsheet [←]</span>
@@ -122,7 +122,7 @@ export const NewspaperSideNav: React.FC<NewspaperSideNavProps> = ({
         </div>
 
         {/* Five Section Indicators with Rich Hover Tooltips */}
-        <div className="flex flex-col items-center gap-1.5 py-2 border-y border-[#30261e]/80 my-1">
+        <div className="flex flex-col items-center gap-1 py-1.5 border-y border-[#30261e]/80 my-0.5">
           {sectionPills.map((pill) => {
             const isCurrent = currentSpread === pill.spread;
             return (
@@ -130,9 +130,9 @@ export const NewspaperSideNav: React.FC<NewspaperSideNavProps> = ({
                 <button
                   type="button"
                   onClick={() => onNavigateToSpread(pill.spread)}
-                  className={`w-7 h-7 rounded-xs font-mono-tech text-[10px] font-bold flex items-center justify-center transition-all cursor-pointer border ${
+                  className={`w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-xs font-mono-tech text-[10px] font-bold flex items-center justify-center transition-all cursor-pointer border ${
                     isCurrent
-                      ? 'bg-[#8C3833] text-white border-[#8C3833] shadow-md scale-110'
+                      ? 'bg-[#8C3833] text-white border-[#8C3833] shadow-md scale-105'
                       : 'bg-[#221a14] text-[#a6947e] border-[#3d2e23] hover:border-[#d9c49f] hover:text-[#f5f0e1]'
                   }`}
                   aria-label={`Jump to ${pill.title}`}
@@ -159,10 +159,10 @@ export const NewspaperSideNav: React.FC<NewspaperSideNavProps> = ({
             type="button"
             onClick={onNextSpread}
             disabled={isFlipping || currentSpread === totalSpreads}
-            className="w-8 h-8 rounded-xs bg-[#221a14] hover:bg-[#30261d] text-[#f5f0e1] disabled:opacity-25 border border-[#3d2e23] flex items-center justify-center transition-all cursor-pointer"
+            className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-xs bg-[#221a14] hover:bg-[#30261d] text-[#f5f0e1] disabled:opacity-25 border border-[#3d2e23] flex items-center justify-center transition-all cursor-pointer"
             aria-label="Next Broadsheet"
           >
-            <ChevronDown className="w-4 h-4 text-[#d9c49f]" />
+            <ChevronDown className="w-3.5 h-3.5 text-[#d9c49f]" />
           </button>
           <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 hidden group-hover:flex flex-col bg-[#1c1611] text-[#f5f0e1] border border-[#4a3a2d] px-2.5 py-1 rounded-xs shadow-xl font-mono-tech text-[10px] whitespace-nowrap z-50 pointer-events-none">
             <span>Next Broadsheet [→]</span>
@@ -170,22 +170,22 @@ export const NewspaperSideNav: React.FC<NewspaperSideNavProps> = ({
         </div>
 
         {/* Current Folio Indicator */}
-        <span className="font-mono-tech text-[9px] text-[#8a7662] tracking-widest mt-1">
+        <span className="font-mono-tech text-[8.5px] sm:text-[9px] text-[#8a7662] tracking-widest mt-0.5">
           {String(currentSpread).padStart(2, '0')}/{String(totalSpreads).padStart(2, '0')}
         </span>
       </div>
 
-      {/* Bottom: Utilities (Index, Audio, PDF, Fullscreen) */}
-      <div className="flex flex-col items-center gap-2">
+      {/* Bottom: Utilities (Index, Audio, Fullscreen, PDF) */}
+      <div className="flex flex-col items-center gap-1.5 shrink-0">
         {/* Table of Contents Index */}
         <div className="relative group">
           <button
             type="button"
             onClick={onOpenIndex}
-            className="w-9 h-9 rounded-xs bg-[#221a14] hover:bg-[#30261d] border border-[#3d2e23] flex items-center justify-center text-[#d9c49f] hover:text-white transition-all cursor-pointer"
+            className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-xs bg-[#221a14] hover:bg-[#30261d] border border-[#3d2e23] flex items-center justify-center text-[#d9c49f] hover:text-white transition-all cursor-pointer"
             title="General Catalogue Index"
           >
-            <Bookmark className="w-4 h-4 text-[#8C3833]" />
+            <Bookmark className="w-3.5 h-3.5 text-[#8C3833]" />
           </button>
           <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 hidden group-hover:flex flex-col bg-[#1c1611] text-[#f5f0e1] border border-[#4a3a2d] px-2.5 py-1.5 rounded-xs shadow-xl font-mono-tech text-[10px] whitespace-nowrap z-50 pointer-events-none">
             <span className="font-bold text-[#d9c49f]">Index Catalogue</span>
@@ -198,13 +198,13 @@ export const NewspaperSideNav: React.FC<NewspaperSideNavProps> = ({
           <button
             type="button"
             onClick={onToggleSound}
-            className="w-9 h-9 rounded-xs bg-[#221a14] hover:bg-[#30261d] border border-[#3d2e23] flex items-center justify-center text-[#d9c49f] hover:text-white transition-all cursor-pointer"
+            className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-xs bg-[#221a14] hover:bg-[#30261d] border border-[#3d2e23] flex items-center justify-center text-[#d9c49f] hover:text-white transition-all cursor-pointer"
             title="Toggle Newsprint Sound"
           >
             {soundEnabled ? (
-              <Volume2 className="w-4 h-4 text-[#d9c49f]" />
+              <Volume2 className="w-3.5 h-3.5 text-[#d9c49f]" />
             ) : (
-              <VolumeX className="w-4 h-4 text-[#6c5947]" />
+              <VolumeX className="w-3.5 h-3.5 text-[#6c5947]" />
             )}
           </button>
           <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 hidden group-hover:flex flex-col bg-[#1c1611] text-[#f5f0e1] border border-[#4a3a2d] px-2.5 py-1.5 rounded-xs shadow-xl font-mono-tech text-[10px] whitespace-nowrap z-50 pointer-events-none">
@@ -218,13 +218,13 @@ export const NewspaperSideNav: React.FC<NewspaperSideNavProps> = ({
           <button
             type="button"
             onClick={toggleFullscreen}
-            className="w-9 h-9 rounded-xs bg-[#221a14] hover:bg-[#30261d] border border-[#3d2e23] flex items-center justify-center text-[#d9c49f] hover:text-white transition-all cursor-pointer"
+            className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-xs bg-[#221a14] hover:bg-[#30261d] border border-[#3d2e23] flex items-center justify-center text-[#d9c49f] hover:text-white transition-all cursor-pointer"
             title="Toggle Fullscreen"
           >
             {isFullscreen ? (
-              <Minimize2 className="w-4 h-4" />
+              <Minimize2 className="w-3.5 h-3.5" />
             ) : (
-              <Maximize2 className="w-4 h-4" />
+              <Maximize2 className="w-3.5 h-3.5" />
             )}
           </button>
           <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 hidden group-hover:flex flex-col bg-[#1c1611] text-[#f5f0e1] border border-[#4a3a2d] px-2.5 py-1.5 rounded-xs shadow-xl font-mono-tech text-[10px] whitespace-nowrap z-50 pointer-events-none">
@@ -239,10 +239,10 @@ export const NewspaperSideNav: React.FC<NewspaperSideNavProps> = ({
             href="/MYTHREIE_DUMPATI.pdf"
             download="MYTHREIE_DUMPATI_RESUME.pdf"
             onClick={() => soundManager.playStampSound()}
-            className="w-9 h-9 rounded-xs bg-[#8C3833] hover:bg-[#a6423c] border border-[#a6423c] flex items-center justify-center text-white transition-all shadow-md cursor-pointer"
+            className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-xs bg-[#8C3833] hover:bg-[#a6423c] border border-[#a6423c] flex items-center justify-center text-white transition-all shadow-md cursor-pointer"
             title="Download PDF Resume"
           >
-            <Download className="w-4 h-4" />
+            <Download className="w-3.5 h-3.5" />
           </a>
           <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 hidden group-hover:flex flex-col bg-[#1c1611] text-[#f5f0e1] border border-[#4a3a2d] px-3 py-2 rounded-xs shadow-2xl font-mono-tech text-[10px] whitespace-nowrap z-50 pointer-events-none">
             <div className="flex items-center gap-1.5 font-bold text-[#d9c49f]">
