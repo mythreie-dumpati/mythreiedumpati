@@ -117,28 +117,30 @@ export const Page02Contents: React.FC<{ onNavigateToSpread?: (spread: number) =>
 
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      <div>
-        {/* Universal Top Header Bar */}
-        <NewspaperPageHeader />
+      <div className="flex-1 flex flex-col justify-between">
+        <div>
+          {/* Universal Top Header Bar */}
+          <NewspaperPageHeader />
 
-        {/* Title and Subtitle */}
-        <div className="mt-0.5 sm:mt-1 mb-1.5 sm:mb-2 shrink-0">
-          <h2 className="font-garamond font-black text-2xl sm:text-3xl md:text-[34px] uppercase tracking-[0.02em] text-[#111111] leading-none">
-            CONTENTS
-          </h2>
-          <p className="font-garamond italic text-xs sm:text-sm md:text-[14px] text-[#222222] mt-1 sm:mt-1.5 leading-snug">
-            A record of academic work, research, and experience.
-          </p>
-          <div className="w-full border-b-[1.5px] border-[#111111] mt-2 sm:mt-2.5" />
+          {/* Title and Subtitle */}
+          <div className="mt-0.5 sm:mt-1 mb-2 shrink-0">
+            <h2 className="font-garamond font-black text-2xl sm:text-3xl md:text-[34px] uppercase tracking-[0.02em] text-[#111111] leading-none">
+              CONTENTS
+            </h2>
+            <p className="font-garamond italic text-xs sm:text-sm md:text-[14px] text-[#222222] mt-1 sm:mt-1.5 leading-snug">
+              A record of academic work, research, and experience.
+            </p>
+            <div className="w-full border-b-[1.5px] border-[#111111] mt-2 sm:mt-2.5" />
+          </div>
         </div>
 
-        {/* The 7 Numbered Sections */}
-        <div className="space-y-1.5 sm:space-y-2 md:space-y-2.5 mt-2 sm:mt-2.5">
+        {/* The 7 Numbered Sections: spaced to gracefully utilize the vertical canvas */}
+        <div className="flex-1 flex flex-col justify-between py-1.5 sm:py-2.5 md:py-3">
           {contentsList.map((item) => (
             <div
               key={item.num}
               onClick={() => onNavigateToSpread?.(item.page)}
-              className="group cursor-pointer transition-transform duration-150 p-0.5 rounded-xs hover:translate-x-1"
+              className="group cursor-pointer transition-transform duration-150 py-1 sm:py-1.5 px-0.5 rounded-xs hover:translate-x-1"
               role="button"
               tabIndex={0}
               onKeyDown={(e) => {
@@ -216,10 +218,18 @@ export const Page03Education: React.FC = () => {
 
       {/* Heading matching reference image with EB Garamond */}
       <div className="mb-1 sm:mb-2 shrink-0">
-        <h2 className="font-garamond font-black text-2xl sm:text-3xl md:text-[36px] text-[#111111] tracking-[0.01em] leading-tight">
-          01. Education
-        </h2>
-        <div className="w-full border-b border-[#111111] mt-1 sm:mt-1.5" />
+        <div className="flex items-baseline justify-between">
+          <h2 className="font-garamond font-bold text-2xl sm:text-3xl md:text-[32px] text-[#111111] tracking-[0.01em] leading-tight">
+            01. Education
+          </h2>
+          <span className="font-garamond font-bold text-lg sm:text-xl md:text-[22px] text-[#111111] tabular-nums">
+            03
+          </span>
+        </div>
+        <div className="w-full border-b border-dotted border-[#111111]/40 mt-1 mb-1 sm:mb-1.5" />
+        <p className="font-garamond text-xs sm:text-sm text-[#222222]">
+          My academic journey and qualifications
+        </p>
       </div>
 
       {/* 3-Row Education Timeline Grid utilizing the full vertical space */}
@@ -315,10 +325,10 @@ export const Page04Experience: React.FC = () => {
               Sept – Nov 2025
             </div>
 
-            {/* Sleek Picture Frame */}
-            <div className="w-full max-w-[135px] sm:max-w-[155px] md:max-w-[175px] mx-auto aspect-square bg-white border-[2.5px] border-[#181818] shadow-[0_6px_16px_-4px_rgba(0,0,0,0.18)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
+            {/* Sleek Picture Frame with Thin Internal Border */}
+            <div className="w-full max-w-[135px] sm:max-w-[155px] md:max-w-[170px] mx-auto aspect-square bg-white border-[1.5px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.22)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
               <img
-                src="/internship_teleparadigm.jpg"
+                src="/internship_teleparadigm.png"
                 alt="Teleparadigm Networks Ltd. Internship Artwork"
                 className="w-full h-full object-contain block pointer-events-none"
                 loading="eager"
@@ -344,8 +354,8 @@ export const Page04Experience: React.FC = () => {
               Dec 2024 – Jan 2025
             </div>
 
-            {/* Sleek Picture Frame */}
-            <div className="w-full max-w-[135px] sm:max-w-[155px] md:max-w-[175px] mx-auto aspect-square bg-white border-[2.5px] border-[#181818] shadow-[0_6px_16px_-4px_rgba(0,0,0,0.18)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
+            {/* Sleek Picture Frame with Thin Internal Border (Image occupies full space without excessive whitespace) */}
+            <div className="w-full max-w-[135px] sm:max-w-[155px] md:max-w-[170px] mx-auto aspect-square bg-white border-[1.5px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.22)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
               <img
                 src="/internship_telangana_police.png"
                 alt="Women Safety Wing, Telangana Police Internship Artwork"
@@ -398,15 +408,25 @@ export const Page05Projects: React.FC = () => {
         </div>
 
         {/* 3 Projects distributed with clean, natural editorial gaps */}
-        <div className="space-y-3.5 sm:space-y-4 md:space-y-4.5 mt-2">
+        <div className="space-y-3 sm:space-y-3.5 md:space-y-4 mt-1.5 sm:mt-2">
           {/* 1. SecureShare (Left Vertical Accent Bar) */}
           <div className="border-l-[3.5px] sm:border-l-[4px] border-[#111111] pl-3 sm:pl-4 py-0.5">
             <h3 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-snug mb-1">
               SecureShare | Decentralized Secure File Sharing and Communication Platform
             </h3>
-            <p className="font-sans text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#222222] leading-relaxed text-justify sm:text-left">
+            <p className="font-sans text-[9px] sm:text-[10px] md:text-[10.5px] text-[#222222] leading-relaxed text-justify sm:text-left">
               Developed a secure communication platform using Flutter and FastAPI, integrating IPFS-based file storage and blockchain-backed integrity verification. Implemented real-time WebSocket messaging, JWT authentication, role-based access control, administrative auditing, screenshot prevention and self-destructing file transfers to enhance data security and privacy.
             </p>
+            <div className="mt-1 sm:mt-1.5">
+              <a
+                href="https://github.com/mythreie-dumpati/SecureShare"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-[8.5px] sm:text-[9.5px] md:text-[10px] text-[#111111] hover:underline font-medium inline-block"
+              >
+                Link: https://github.com/mythreie-dumpati/SecureShare
+              </a>
+            </div>
           </div>
 
           {/* 2. Question Paper Automation Tool (QPAT) (Right Vertical Accent Bar) */}
@@ -414,9 +434,19 @@ export const Page05Projects: React.FC = () => {
             <h3 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-snug mb-1">
               Question Paper Automation Tool (QPAT) | Automated Academic Assessment System
             </h3>
-            <p className="font-sans text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#222222] leading-relaxed text-right">
+            <p className="font-sans text-[9px] sm:text-[10px] md:text-[10.5px] text-[#222222] leading-relaxed text-right">
               Developed a full-stack assessment automation platform using FastAPI and Flutter. Integrated NLP-based question validation, automated parsing, Course Outcome mapping and Bloom&apos;s Taxonomy classification to generate balanced question papers, with secure, password-protected PDF exports.
             </p>
+            <div className="mt-1 sm:mt-1.5">
+              <a
+                href="https://github.com/mythreie-dumpati/Question-Paper-Automation-Tool"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-[8.5px] sm:text-[9.5px] md:text-[10px] text-[#111111] hover:underline font-medium inline-block"
+              >
+                Link: https://github.com/mythreie-dumpati/Question-Paper-Automation-Tool
+              </a>
+            </div>
           </div>
 
           {/* 3. Social Media Investigative Assistant (SMIA) (Left Vertical Accent Bar) */}
@@ -424,9 +454,19 @@ export const Page05Projects: React.FC = () => {
             <h3 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-snug mb-1">
               Social Media Investigative Assistant (SMIA) | Digital Forensic Documentation Tool
             </h3>
-            <p className="font-sans text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#222222] leading-relaxed text-justify sm:text-left">
+            <p className="font-sans text-[9px] sm:text-[10px] md:text-[10.5px] text-[#222222] leading-relaxed text-justify sm:text-left">
               Developed a Flutter-based digital forensics tool for structured case management and secure evidence collection. Implemented timestamped screenshot capture, automated forensic report generation and hybrid local/cloud storage to maintain evidence integrity, traceability and compliance.
             </p>
+            <div className="mt-1 sm:mt-1.5">
+              <a
+                href="https://github.com/mythreie-dumpati/social-media-investigative-assistant-for-law-enforcement"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-[8.5px] sm:text-[9.5px] md:text-[10px] text-[#111111] hover:underline font-medium inline-block"
+              >
+                Link: https://github.com/mythreie-dumpati/social-media-investigative-assistant-for-law-enforc ement
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -450,47 +490,100 @@ export const Page06Publications: React.FC = () => {
         {/* Universal Top Header Bar */}
         <NewspaperPageHeader />
 
-        {/* Heading matching Contents font */}
-        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start shrink-0">
-          <div>
-            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
-              SECTION 04 // SCHOLARLY CONTRIBUTIONS
-            </span>
-            <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
-              PEER-REVIEWED PUBLICATIONS
-            </h3>
-          </div>
-          <NewspaperStamp text="3 PAPERS" variant="crimson" rotation={2} />
+        {/* Master Heading: Publications / Research, written and shared. */}
+        <div className="text-center mt-0.5 mb-2 sm:mb-2.5 shrink-0">
+          <h2 className="font-garamond font-black text-2xl sm:text-3xl md:text-[34px] text-[#111111] tracking-[0.01em] leading-none">
+            Publications
+          </h2>
+          <p className="font-garamond italic text-xs sm:text-sm md:text-[14px] text-[#222222] mt-1 sm:mt-1.5 leading-snug">
+            Research, written and shared.
+          </p>
         </div>
 
-        {/* 3 Publications */}
-        <div className="space-y-2 sm:space-y-2.5 mt-2">
-          {RESUME_DATA.publications.map((paper, idx) => (
-            <div key={idx} className="p-2 sm:p-2.5 bg-[#eae8e2]/70 border border-[#141210]">
-              <div className="flex items-baseline justify-between gap-2 border-b border-[#141210]/20 pb-0.5 mb-1">
-                <span className="font-mono-tech text-[8px] sm:text-[8.5px] uppercase font-bold text-[#8C3833]">
-                  {paper.venue} • {paper.date}
-                </span>
-                <span className="font-mono-tech text-[7.5px] bg-[#141210] text-[#f5f0e1] px-1.5 py-0.2">
-                  {paper.status}
-                </span>
+        {/* 3 Dark Rounded Cards matching Reference Image */}
+        <div className="flex flex-col gap-2.5 sm:gap-3 mt-1 sm:mt-1.5">
+          {/* Top Row: Two Equal Columns */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+            {/* Card 1: Decentralized Secure File Sharing */}
+            <div className="bg-[#111111] text-white rounded-2xl p-3 sm:p-3.5 flex flex-col justify-between shadow-md">
+              <div>
+                <h3 className="font-garamond font-bold text-xs sm:text-[13px] md:text-[13.5px] text-white leading-snug">
+                  An Intelligent Decentralized Secure File Sharing System with Privacy-Preserving Access Control (2026)
+                </h3>
+                <p className="font-sans text-[8.5px] sm:text-[9.5px] text-[#e0e0e0] mt-1.5 leading-relaxed text-justify sm:text-left">
+                  Designed a decentralized file-sharing architecture integrating Blockchain, IPFS, Shamir&apos;s Secret Sharing, and an Isolation Forest anomaly detection model to intercept anomalous exfiltration requests and maintain immutable audit trails.
+                </p>
               </div>
-              <h4 className="font-garamond font-bold text-xs sm:text-[13px] md:text-[14px] text-[#141210] leading-snug">
-                {paper.title}
-              </h4>
-              <div className="font-typewriter text-[9px] text-[#5a554e] mt-0.5">
-                SCOPE: {paper.scope}
-              </div>
-              <p className="font-newsreader text-[10px] sm:text-[10.5px] text-[#2a2521] mt-0.5 italic leading-snug">
-                {paper.methodology}
-              </p>
-              {paper.metrics && (
-                <div className="mt-1 pt-0.5 border-t border-[#141210]/15 font-mono-tech text-[8px] text-[#8C3833] font-bold">
-                  {paper.metrics}
+
+              <div className="mt-2.5 pt-2 border-t border-white/15 flex items-end justify-between gap-2">
+                <div className="font-sans text-[8px] sm:text-[8.5px] text-[#b0b0b0] leading-tight space-y-0.5">
+                  <div><span className="font-semibold text-white">Journal:</span> ICSSEECC - 2026</div>
+                  <div><span className="font-semibold text-white">Publisher:</span> IEEE Xplore</div>
                 </div>
-              )}
+                <a
+                  href="https://ieeexplore.ieee.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-[#111111] hover:bg-[#e6e6e6] transition-colors rounded-full px-2.5 py-1 text-[8px] sm:text-[8.5px] font-sans font-semibold tracking-wide shrink-0 inline-flex items-center gap-1 cursor-pointer"
+                >
+                  <span>click to read</span>
+                  <ExternalLink className="w-2.5 h-2.5 text-[#111111]" />
+                </a>
+              </div>
             </div>
-          ))}
+
+            {/* Card 2: Instagram Profile Forensics */}
+            <div className="bg-[#111111] text-white rounded-2xl p-3 sm:p-3.5 flex flex-col justify-between shadow-md">
+              <div>
+                <h3 className="font-garamond font-bold text-xs sm:text-[13px] md:text-[13.5px] text-white leading-snug">
+                  A Web-Based Automation Framework for Instagram Profile Forensics (2025)
+                </h3>
+                <p className="font-sans text-[8.5px] sm:text-[9.5px] text-[#e0e0e0] mt-1.5 leading-relaxed text-justify sm:text-left">
+                  Developed an automated, non-invasive digital forensic tool using FastAPI and Flutter to streamline evidence acquisition. Integrated Playwright for automated SHA-256 evidence hashing and dynamic ReportLab PDF generation for court-admissible reports.
+                </p>
+              </div>
+
+              <div className="mt-2.5 pt-2 border-t border-white/15 flex items-end justify-between gap-2">
+                <div className="font-sans text-[8px] sm:text-[8.5px] text-[#b0b0b0] leading-tight space-y-0.5">
+                  <div><span className="font-semibold text-white">Journal:</span> ICCIC - 2025</div>
+                  <div><span className="font-semibold text-white">Publisher:</span> IJRDET</div>
+                </div>
+                <a
+                  href="https://ijrdet.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-[#111111] hover:bg-[#e6e6e6] transition-colors rounded-full px-2.5 py-1 text-[8px] sm:text-[8.5px] font-sans font-semibold tracking-wide shrink-0 inline-flex items-center gap-1 cursor-pointer"
+                >
+                  <span>click to read</span>
+                  <ExternalLink className="w-2.5 h-2.5 text-[#111111]" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Row: Full-Width Card */}
+          <div className="bg-[#111111] text-white rounded-2xl p-3 sm:p-3.5 shadow-md flex flex-col justify-between">
+            <div>
+              <h3 className="font-garamond font-bold text-xs sm:text-[13px] md:text-[13.5px] text-white leading-snug">
+                Quantifying the Security-Utility-Latency Frontier: An Empirical Benchmark of Small and Medium Language Models Under Adversarial Injection (2026)
+              </h3>
+              <p className="font-sans text-[8.5px] sm:text-[9.5px] text-[#e0e0e0] mt-1.5 leading-relaxed text-justify sm:text-left">
+                Evaluated five open-weight language models across 2,500 test queries against direct jailbreaks, indirect prompt injection, and obfuscation attacks on an isolated testbed. Characterized the multi-objective Pareto frontier across attack robustness, over-refusal rates, and tail latency.
+              </p>
+            </div>
+
+            <div className="mt-2.5 pt-2 border-t border-white/15 flex items-end justify-between gap-2">
+              <div className="font-sans text-[8px] sm:text-[8.5px] text-[#b0b0b0] leading-tight space-y-0.5">
+                <div><span className="font-semibold text-white">Journal:</span> ISDDC - 2026</div>
+                <div><span className="font-semibold text-white">Publisher:</span> IEEE Xplore</div>
+              </div>
+              <span
+                className="bg-white text-[#111111] rounded-full px-2.5 py-1 text-[8px] sm:text-[8.5px] font-sans font-semibold tracking-wide shrink-0 font-medium"
+              >
+                To appear in IEEE Xplore
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
