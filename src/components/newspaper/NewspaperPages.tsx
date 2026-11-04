@@ -117,54 +117,56 @@ export const Page02Contents: React.FC<{ onNavigateToSpread?: (spread: number) =>
 
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      {/* Universal Top Header Bar */}
-      <NewspaperPageHeader />
+      <div>
+        {/* Universal Top Header Bar */}
+        <NewspaperPageHeader />
 
-      {/* Title and Subtitle */}
-      <div className="mt-0.5 sm:mt-1 mb-1 sm:mb-2 shrink-0">
-        <h2 className="font-garamond font-black text-2xl sm:text-3xl md:text-[36px] uppercase tracking-[0.02em] text-[#111111] leading-none">
-          CONTENTS
-        </h2>
-        <p className="font-garamond italic text-xs sm:text-sm md:text-[14.5px] text-[#222222] mt-1 sm:mt-1.5 leading-snug">
-          A record of academic work, research, and experience.
-        </p>
-        <div className="w-full border-b-[1.5px] border-[#111111] mt-2 sm:mt-2.5" />
-      </div>
+        {/* Title and Subtitle */}
+        <div className="mt-0.5 sm:mt-1 mb-1.5 sm:mb-2 shrink-0">
+          <h2 className="font-garamond font-black text-2xl sm:text-3xl md:text-[34px] uppercase tracking-[0.02em] text-[#111111] leading-none">
+            CONTENTS
+          </h2>
+          <p className="font-garamond italic text-xs sm:text-sm md:text-[14px] text-[#222222] mt-1 sm:mt-1.5 leading-snug">
+            A record of academic work, research, and experience.
+          </p>
+          <div className="w-full border-b-[1.5px] border-[#111111] mt-2 sm:mt-2.5" />
+        </div>
 
-      {/* The 7 Numbered Sections with Page Numbers distributed evenly across height */}
-      <div className="flex-1 flex flex-col justify-between py-1 sm:py-2">
-        {contentsList.map((item) => (
-          <div
-            key={item.num}
-            onClick={() => onNavigateToSpread?.(item.page)}
-            className="group cursor-pointer transition-transform duration-150 p-1 rounded-xs hover:translate-x-1"
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                onNavigateToSpread?.(item.page);
-              }
-            }}
-          >
-            {/* Title & Page Number */}
-            <div className="flex items-baseline justify-between">
-              <h3 className="font-garamond font-bold text-sm sm:text-base md:text-[17px] text-[#111111] leading-tight">
-                <span className="inline-block w-7 sm:w-8">{item.num}.</span>
-                <span>{item.title}</span>
-              </h3>
-              <span className="font-garamond font-bold text-xs sm:text-sm md:text-[15px] text-[#111111] tabular-nums ml-2">
-                0{item.page}
-              </span>
+        {/* The 7 Numbered Sections */}
+        <div className="space-y-1.5 sm:space-y-2 md:space-y-2.5 mt-2 sm:mt-2.5">
+          {contentsList.map((item) => (
+            <div
+              key={item.num}
+              onClick={() => onNavigateToSpread?.(item.page)}
+              className="group cursor-pointer transition-transform duration-150 p-0.5 rounded-xs hover:translate-x-1"
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onNavigateToSpread?.(item.page);
+                }
+              }}
+            >
+              {/* Title & Page Number */}
+              <div className="flex items-baseline justify-between">
+                <h3 className="font-garamond font-bold text-sm sm:text-base md:text-[16px] text-[#111111] leading-tight">
+                  <span className="inline-block w-7 sm:w-8">{item.num}.</span>
+                  <span>{item.title}</span>
+                </h3>
+                <span className="font-garamond font-bold text-xs sm:text-sm md:text-[14.5px] text-[#111111] tabular-nums ml-2">
+                  0{item.page}
+                </span>
+              </div>
+              {/* Description */}
+              <p className="font-garamond text-[10.5px] sm:text-[11.5px] md:text-xs text-[#2c2825] pl-7 sm:pl-8 mt-0.5 leading-snug">
+                {item.desc}
+              </p>
+              {/* Line in between is strictly AFTER the content, not in between */}
+              <div className="w-full border-b border-dotted border-[#111111]/25 mt-1 sm:mt-1.5" />
             </div>
-            {/* Description */}
-            <p className="font-garamond text-[11px] sm:text-xs md:text-[13px] text-[#2c2825] pl-7 sm:pl-8 mt-0.5 leading-snug">
-              {item.desc}
-            </p>
-            {/* Line in between is strictly AFTER the content, not in between */}
-            <div className="w-full border-b border-dotted border-[#111111]/25 mt-1 sm:mt-1.5" />
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Page Footer */}
@@ -287,80 +289,82 @@ export const Page03Education: React.FC = () => {
 export const Page04Experience: React.FC = () => {
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      {/* Universal Top Header Bar */}
-      <NewspaperPageHeader />
+      <div>
+        {/* Universal Top Header Bar */}
+        <NewspaperPageHeader />
 
-      {/* Master Heading: professional Experience / Internships */}
-      <div className="flex flex-col items-center justify-center mt-0.5 mb-1 sm:mb-2 text-center shrink-0">
-        <img
-          src="/internships_title_vector@2x.png"
-          alt="professional Experience — Internships"
-          className="w-[190px] sm:w-[220px] md:w-[245px] max-w-full h-auto object-contain block pointer-events-none drop-shadow-xs"
-        />
-        <div className="sr-only">
-          <h2>professional Experience</h2>
-          <h3>Internships</h3>
-        </div>
-      </div>
-
-      {/* Two-Column Symmetrical Layout utilizing full vertical space */}
-      <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-7 items-start py-1 sm:py-2">
-        {/* Column 1: Teleparadigm Networks Ltd. */}
-        <div className="flex flex-col">
-          {/* Date Tag */}
-          <div className="h-[22px] flex items-center justify-center font-garamond text-[11px] sm:text-xs md:text-[12.5px] text-[#222222] font-medium tracking-wide text-center mb-1 sm:mb-1.5 shrink-0">
-            Sept – Nov 2025
+        {/* Master Heading: professional Experience / Internships */}
+        <div className="flex flex-col items-center justify-center mt-0.5 mb-2 sm:mb-2.5 text-center shrink-0">
+          <img
+            src="/internships_title_vector@2x.png"
+            alt="professional Experience — Internships"
+            className="w-[185px] sm:w-[215px] md:w-[235px] max-w-full h-auto object-contain block pointer-events-none drop-shadow-xs"
+          />
+          <div className="sr-only">
+            <h2>professional Experience</h2>
+            <h3>Internships</h3>
           </div>
-
-          {/* Sleek Picture Frame (Reduced border thickness with elegant shadow) */}
-          <div className="w-full max-w-[140px] sm:max-w-[165px] md:max-w-[185px] mx-auto aspect-square bg-white border-[3px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.2),0_4px_8px_-3px_rgba(0,0,0,0.1)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
-            <img
-              src="/internship_teleparadigm.jpg"
-              alt="Teleparadigm Networks Ltd. Internship Artwork"
-              className="w-full h-full object-contain block pointer-events-none"
-              loading="eager"
-            />
-          </div>
-
-          {/* Title */}
-          <h4 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[15.5px] text-[#111111] leading-tight mt-1.5 sm:mt-2 mb-1 min-h-[34px] sm:min-h-[38px] flex flex-col justify-start">
-            <span>Teleparadigm</span>
-            <span>Networks Ltd.</span>
-          </h4>
-
-          {/* Description */}
-          <p className="font-garamond text-[10px] sm:text-[11px] md:text-[11.5px] text-[#222222] leading-relaxed text-justify sm:text-left">
-            Developed a secure, decentralized file-sharing platform with role-based access controls to protect sensitive user data from unauthorized access. Implemented distributed storage methods and dynamic permission controls across network nodes, maintaining high data privacy while removing single points of failure.
-          </p>
         </div>
 
-        {/* Column 2: Women Safety Wing, Telangana Police */}
-        <div className="flex flex-col">
-          {/* Date Tag */}
-          <div className="h-[22px] flex items-center justify-center font-garamond text-[11px] sm:text-xs md:text-[12.5px] text-[#222222] font-medium tracking-wide text-center mb-1 sm:mb-1.5 shrink-0">
-            Dec 2024 – Jan 2025
+        {/* Two-Column Symmetrical Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-7 items-start mt-1">
+          {/* Column 1: Teleparadigm Networks Ltd. */}
+          <div className="flex flex-col">
+            {/* Date Tag */}
+            <div className="h-[20px] flex items-center justify-center font-garamond text-[10.5px] sm:text-xs text-[#222222] font-medium tracking-wide text-center mb-1 shrink-0">
+              Sept – Nov 2025
+            </div>
+
+            {/* Sleek Picture Frame */}
+            <div className="w-full max-w-[135px] sm:max-w-[155px] md:max-w-[175px] mx-auto aspect-square bg-white border-[2.5px] border-[#181818] shadow-[0_6px_16px_-4px_rgba(0,0,0,0.18)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
+              <img
+                src="/internship_teleparadigm.jpg"
+                alt="Teleparadigm Networks Ltd. Internship Artwork"
+                className="w-full h-full object-contain block pointer-events-none"
+                loading="eager"
+              />
+            </div>
+
+            {/* Title */}
+            <h4 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-tight mt-1.5 mb-1 min-h-[32px] sm:min-h-[36px] flex flex-col justify-start">
+              <span>Teleparadigm</span>
+              <span>Networks Ltd.</span>
+            </h4>
+
+            {/* Description */}
+            <p className="font-garamond text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#222222] leading-relaxed text-justify sm:text-left">
+              Developed a secure, decentralized file-sharing platform with role-based access controls to protect sensitive user data from unauthorized access. Implemented distributed storage methods and dynamic permission controls across network nodes, maintaining high data privacy while removing single points of failure.
+            </p>
           </div>
 
-          {/* Sleek Picture Frame (Reduced border thickness, image occupies more space than white space) */}
-          <div className="w-full max-w-[140px] sm:max-w-[165px] md:max-w-[185px] mx-auto aspect-square bg-white border-[3px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.2),0_4px_8px_-3px_rgba(0,0,0,0.1)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
-            <img
-              src="/internship_telangana_police.png"
-              alt="Women Safety Wing, Telangana Police Internship Artwork"
-              className="w-full h-full object-contain block pointer-events-none"
-              loading="eager"
-            />
+          {/* Column 2: Women Safety Wing, Telangana Police */}
+          <div className="flex flex-col">
+            {/* Date Tag */}
+            <div className="h-[20px] flex items-center justify-center font-garamond text-[10.5px] sm:text-xs text-[#222222] font-medium tracking-wide text-center mb-1 shrink-0">
+              Dec 2024 – Jan 2025
+            </div>
+
+            {/* Sleek Picture Frame */}
+            <div className="w-full max-w-[135px] sm:max-w-[155px] md:max-w-[175px] mx-auto aspect-square bg-white border-[2.5px] border-[#181818] shadow-[0_6px_16px_-4px_rgba(0,0,0,0.18)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
+              <img
+                src="/internship_telangana_police.png"
+                alt="Women Safety Wing, Telangana Police Internship Artwork"
+                className="w-full h-full object-contain block pointer-events-none"
+                loading="eager"
+              />
+            </div>
+
+            {/* Title */}
+            <h4 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-tight mt-1.5 mb-1 min-h-[32px] sm:min-h-[36px] flex flex-col justify-start">
+              <span>Women Safety Wing,</span>
+              <span>Telangana Police</span>
+            </h4>
+
+            {/* Description */}
+            <p className="font-garamond text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#222222] leading-relaxed text-justify sm:text-left">
+              Supported key public safety initiatives at the Women Safety Wing&apos;s Bharosa Module by designing high-impact visual campaigns—including T-Safe metro ads reaching 500,000+ citizens—and analysing operational data across 26 centres to boost reporting efficiency, while managing critical government workflows like Daily Situation Reports and Operation Smile 11.
+            </p>
           </div>
-
-          {/* Title */}
-          <h4 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[15.5px] text-[#111111] leading-tight mt-1.5 sm:mt-2 mb-1 min-h-[34px] sm:min-h-[38px] flex flex-col justify-start">
-            <span>Women Safety Wing,</span>
-            <span>Telangana Police</span>
-          </h4>
-
-          {/* Description */}
-          <p className="font-garamond text-[10px] sm:text-[11px] md:text-[11.5px] text-[#222222] leading-relaxed text-justify sm:text-left">
-            Supported key public safety initiatives at the Women Safety Wing&apos;s Bharosa Module by designing high-impact visual campaigns—including T-Safe metro ads reaching 500,000+ citizens—and analysing operational data across 26 centres to boost reporting efficiency, while managing critical government workflows like Daily Situation Reports and Operation Smile 11.
-          </p>
         </div>
       </div>
 
@@ -379,49 +383,51 @@ export const Page04Experience: React.FC = () => {
 export const Page05Projects: React.FC = () => {
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      {/* Universal Top Header Bar */}
-      <NewspaperPageHeader />
+      <div>
+        {/* Universal Top Header Bar */}
+        <NewspaperPageHeader />
 
-      {/* Master Heading: Projects / Curiosity, translated into code. (Same font as contents) */}
-      <div className="text-center mt-0.5 sm:mt-1 mb-1 sm:mb-2 shrink-0">
-        <h2 className="font-garamond font-black text-2xl sm:text-3xl md:text-[36px] text-[#111111] tracking-[0.01em] leading-none">
-          Projects
-        </h2>
-        <p className="font-garamond italic text-xs sm:text-sm md:text-[14px] text-[#222222] mt-1 sm:mt-1.5">
-          Curiosity, translated into code.
-        </p>
-      </div>
-
-      {/* 3 Projects distributed gracefully across full vertical space with exact reference design */}
-      <div className="flex-1 flex flex-col justify-between py-2 sm:py-3 md:py-4">
-        {/* 1. SecureShare (Left Vertical Accent Bar) */}
-        <div className="border-l-[3.5px] sm:border-l-[4px] border-[#111111] pl-3 sm:pl-4 py-0.5">
-          <h3 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[15px] text-[#111111] leading-snug mb-1">
-            SecureShare | Decentralized Secure File Sharing and Communication Platform
-          </h3>
-          <p className="font-sans text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#222222] leading-relaxed text-justify sm:text-left">
-            Developed a secure communication platform using Flutter and FastAPI, integrating IPFS-based file storage and blockchain-backed integrity verification. Implemented real-time WebSocket messaging, JWT authentication, role-based access control, administrative auditing, screenshot prevention and self-destructing file transfers to enhance data security and privacy.
+        {/* Master Heading: Projects / Curiosity, translated into code. */}
+        <div className="text-center mt-0.5 sm:mt-1 mb-2.5 sm:mb-3 shrink-0">
+          <h2 className="font-garamond font-black text-2xl sm:text-3xl md:text-[34px] text-[#111111] tracking-[0.01em] leading-none">
+            Projects
+          </h2>
+          <p className="font-garamond italic text-xs sm:text-sm md:text-[14px] text-[#222222] mt-1 sm:mt-1.5">
+            Curiosity, translated into code.
           </p>
         </div>
 
-        {/* 2. Question Paper Automation Tool (QPAT) (Right Vertical Accent Bar) */}
-        <div className="border-r-[3.5px] sm:border-r-[4px] border-[#111111] pr-3 sm:pr-4 py-0.5 text-right">
-          <h3 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[15px] text-[#111111] leading-snug mb-1">
-            Question Paper Automation Tool (QPAT) | Automated Academic Assessment System
-          </h3>
-          <p className="font-sans text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#222222] leading-relaxed text-right">
-            Developed a full-stack assessment automation platform using FastAPI and Flutter. Integrated NLP-based question validation, automated parsing, Course Outcome mapping and Bloom&apos;s Taxonomy classification to generate balanced question papers, with secure, password-protected PDF exports.
-          </p>
-        </div>
+        {/* 3 Projects distributed with clean, natural editorial gaps */}
+        <div className="space-y-3.5 sm:space-y-4 md:space-y-4.5 mt-2">
+          {/* 1. SecureShare (Left Vertical Accent Bar) */}
+          <div className="border-l-[3.5px] sm:border-l-[4px] border-[#111111] pl-3 sm:pl-4 py-0.5">
+            <h3 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-snug mb-1">
+              SecureShare | Decentralized Secure File Sharing and Communication Platform
+            </h3>
+            <p className="font-sans text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#222222] leading-relaxed text-justify sm:text-left">
+              Developed a secure communication platform using Flutter and FastAPI, integrating IPFS-based file storage and blockchain-backed integrity verification. Implemented real-time WebSocket messaging, JWT authentication, role-based access control, administrative auditing, screenshot prevention and self-destructing file transfers to enhance data security and privacy.
+            </p>
+          </div>
 
-        {/* 3. Social Media Investigative Assistant (SMIA) (Left Vertical Accent Bar) */}
-        <div className="border-l-[3.5px] sm:border-l-[4px] border-[#111111] pl-3 sm:pl-4 py-0.5">
-          <h3 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[15px] text-[#111111] leading-snug mb-1">
-            Social Media Investigative Assistant (SMIA) | Digital Forensic Documentation Tool
-          </h3>
-          <p className="font-sans text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#222222] leading-relaxed text-justify sm:text-left">
-            Developed a Flutter-based digital forensics tool for structured case management and secure evidence collection. Implemented timestamped screenshot capture, automated forensic report generation and hybrid local/cloud storage to maintain evidence integrity, traceability and compliance.
-          </p>
+          {/* 2. Question Paper Automation Tool (QPAT) (Right Vertical Accent Bar) */}
+          <div className="border-r-[3.5px] sm:border-r-[4px] border-[#111111] pr-3 sm:pr-4 py-0.5 text-right">
+            <h3 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-snug mb-1">
+              Question Paper Automation Tool (QPAT) | Automated Academic Assessment System
+            </h3>
+            <p className="font-sans text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#222222] leading-relaxed text-right">
+              Developed a full-stack assessment automation platform using FastAPI and Flutter. Integrated NLP-based question validation, automated parsing, Course Outcome mapping and Bloom&apos;s Taxonomy classification to generate balanced question papers, with secure, password-protected PDF exports.
+            </p>
+          </div>
+
+          {/* 3. Social Media Investigative Assistant (SMIA) (Left Vertical Accent Bar) */}
+          <div className="border-l-[3.5px] sm:border-l-[4px] border-[#111111] pl-3 sm:pl-4 py-0.5">
+            <h3 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-snug mb-1">
+              Social Media Investigative Assistant (SMIA) | Digital Forensic Documentation Tool
+            </h3>
+            <p className="font-sans text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#222222] leading-relaxed text-justify sm:text-left">
+              Developed a Flutter-based digital forensics tool for structured case management and secure evidence collection. Implemented timestamped screenshot capture, automated forensic report generation and hybrid local/cloud storage to maintain evidence integrity, traceability and compliance.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -440,50 +446,52 @@ export const Page05Projects: React.FC = () => {
 export const Page06Publications: React.FC = () => {
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      {/* Universal Top Header Bar */}
-      <NewspaperPageHeader />
+      <div>
+        {/* Universal Top Header Bar */}
+        <NewspaperPageHeader />
 
-      {/* Heading matching Contents font */}
-      <div className="border-b-2 border-[#141210] pb-1.5 mb-2 flex justify-between items-start shrink-0">
-        <div>
-          <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
-            SECTION 04 // SCHOLARLY CONTRIBUTIONS
-          </span>
-          <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
-            PEER-REVIEWED PUBLICATIONS
-          </h3>
-        </div>
-        <NewspaperStamp text="3 PAPERS" variant="crimson" rotation={2} />
-      </div>
-
-      {/* 3 Publications distributed evenly to fully utilize vertical space */}
-      <div className="flex-1 flex flex-col justify-between py-1 sm:py-2">
-        {RESUME_DATA.publications.map((paper, idx) => (
-          <div key={idx} className="p-2.5 sm:p-3 bg-[#eae8e2]/70 border border-[#141210]">
-            <div className="flex items-baseline justify-between gap-2 border-b border-[#141210]/20 pb-0.5 mb-1">
-              <span className="font-mono-tech text-[8px] sm:text-[8.5px] uppercase font-bold text-[#8C3833]">
-                {paper.venue} • {paper.date}
-              </span>
-              <span className="font-mono-tech text-[7.5px] bg-[#141210] text-[#f5f0e1] px-1.5 py-0.2">
-                {paper.status}
-              </span>
-            </div>
-            <h4 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#141210] leading-snug">
-              {paper.title}
-            </h4>
-            <div className="font-typewriter text-[9px] text-[#5a554e] mt-0.5">
-              SCOPE: {paper.scope}
-            </div>
-            <p className="font-newsreader text-[10px] sm:text-[10.5px] text-[#2a2521] mt-0.5 italic leading-snug">
-              {paper.methodology}
-            </p>
-            {paper.metrics && (
-              <div className="mt-1 pt-0.5 border-t border-[#141210]/15 font-mono-tech text-[8px] text-[#8C3833] font-bold">
-                {paper.metrics}
-              </div>
-            )}
+        {/* Heading matching Contents font */}
+        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start shrink-0">
+          <div>
+            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
+              SECTION 04 // SCHOLARLY CONTRIBUTIONS
+            </span>
+            <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
+              PEER-REVIEWED PUBLICATIONS
+            </h3>
           </div>
-        ))}
+          <NewspaperStamp text="3 PAPERS" variant="crimson" rotation={2} />
+        </div>
+
+        {/* 3 Publications */}
+        <div className="space-y-2 sm:space-y-2.5 mt-2">
+          {RESUME_DATA.publications.map((paper, idx) => (
+            <div key={idx} className="p-2 sm:p-2.5 bg-[#eae8e2]/70 border border-[#141210]">
+              <div className="flex items-baseline justify-between gap-2 border-b border-[#141210]/20 pb-0.5 mb-1">
+                <span className="font-mono-tech text-[8px] sm:text-[8.5px] uppercase font-bold text-[#8C3833]">
+                  {paper.venue} • {paper.date}
+                </span>
+                <span className="font-mono-tech text-[7.5px] bg-[#141210] text-[#f5f0e1] px-1.5 py-0.2">
+                  {paper.status}
+                </span>
+              </div>
+              <h4 className="font-garamond font-bold text-xs sm:text-[13px] md:text-[14px] text-[#141210] leading-snug">
+                {paper.title}
+              </h4>
+              <div className="font-typewriter text-[9px] text-[#5a554e] mt-0.5">
+                SCOPE: {paper.scope}
+              </div>
+              <p className="font-newsreader text-[10px] sm:text-[10.5px] text-[#2a2521] mt-0.5 italic leading-snug">
+                {paper.methodology}
+              </p>
+              {paper.metrics && (
+                <div className="mt-1 pt-0.5 border-t border-[#141210]/15 font-mono-tech text-[8px] text-[#8C3833] font-bold">
+                  {paper.metrics}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Page Footer */}
@@ -510,42 +518,44 @@ export const Page07Skills: React.FC = () => {
 
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      {/* Universal Top Header Bar */}
-      <NewspaperPageHeader />
+      <div>
+        {/* Universal Top Header Bar */}
+        <NewspaperPageHeader />
 
-      {/* Heading matching Contents font */}
-      <div className="border-b-2 border-[#141210] pb-1.5 mb-2 flex justify-between items-start shrink-0">
-        <div>
-          <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
-            SECTION 05 // TECHNICAL COMPETENCIES
-          </span>
-          <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
-            SKILLS &amp; ARTIFACTS
-          </h3>
-        </div>
-        <NewspaperStamp text="VERIFIED" variant="olive" rotation={-2} />
-      </div>
-
-      {/* 6 Skill Categories distributed evenly to fully utilize vertical space */}
-      <div className="flex-1 flex flex-col justify-between py-1 sm:py-1.5">
-        {skillCategories.map((category, idx) => (
-          <div key={idx} className="p-1.5 sm:p-2 bg-[#eae8e2]/60 border border-[#141210]">
-            <div className="font-mono-tech text-[9px] font-bold uppercase tracking-wider text-[#141210] border-b border-[#141210]/20 pb-0.5 mb-1 flex items-center justify-between">
-              <span>{category.title}</span>
-              <span className="text-[#8C3833] text-[7.5px]">[{category.items.length} ITEMS]</span>
-            </div>
-            <div className="flex flex-wrap gap-1">
-              {category.items.map((skill, sIdx) => (
-                <span
-                  key={sIdx}
-                  className="px-1.5 py-0.2 font-mono-tech text-[8px] sm:text-[8.5px] bg-[#f4f3ef] border border-[#141210]/40 text-[#141210] font-semibold"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
+        {/* Heading matching Contents font */}
+        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start shrink-0">
+          <div>
+            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
+              SECTION 05 // TECHNICAL COMPETENCIES
+            </span>
+            <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
+              SKILLS &amp; ARTIFACTS
+            </h3>
           </div>
-        ))}
+          <NewspaperStamp text="VERIFIED" variant="olive" rotation={-2} />
+        </div>
+
+        {/* 6 Skill Categories */}
+        <div className="space-y-1.5 sm:space-y-2 mt-2">
+          {skillCategories.map((category, idx) => (
+            <div key={idx} className="p-1.5 sm:p-2 bg-[#eae8e2]/60 border border-[#141210]">
+              <div className="font-mono-tech text-[9px] font-bold uppercase tracking-wider text-[#141210] border-b border-[#141210]/20 pb-0.5 mb-1 flex items-center justify-between">
+                <span>{category.title}</span>
+                <span className="text-[#8C3833] text-[7.5px]">[{category.items.length} ITEMS]</span>
+              </div>
+              <div className="flex flex-wrap gap-1">
+                {category.items.map((skill, sIdx) => (
+                  <span
+                    key={sIdx}
+                    className="px-1.5 py-0.2 font-mono-tech text-[8px] sm:text-[8.5px] bg-[#f4f3ef] border border-[#141210]/40 text-[#141210] font-semibold"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Page Footer */}
@@ -563,25 +573,25 @@ export const Page07Skills: React.FC = () => {
 export const Page08Certifications: React.FC = () => {
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      {/* Universal Top Header Bar */}
-      <NewspaperPageHeader />
+      <div>
+        {/* Universal Top Header Bar */}
+        <NewspaperPageHeader />
 
-      {/* Heading matching Contents font */}
-      <div className="border-b-2 border-[#141210] pb-1.5 mb-2 flex justify-between items-start shrink-0">
-        <div>
-          <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
-            SECTION 06 // PROFESSIONAL CREDENTIALS
-          </span>
-          <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
-            CERTIFICATIONS &amp; ACCREDITATIONS
-          </h3>
+        {/* Heading matching Contents font */}
+        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start shrink-0">
+          <div>
+            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
+              SECTION 06 // PROFESSIONAL CREDENTIALS
+            </span>
+            <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
+              CERTIFICATIONS &amp; ACCREDITATIONS
+            </h3>
+          </div>
+          <NewspaperStamp text="AUDITED" variant="crimson" rotation={1} />
         </div>
-        <NewspaperStamp text="AUDITED" variant="crimson" rotation={1} />
-      </div>
 
-      {/* Certifications and Callout distributed evenly to fully utilize vertical space */}
-      <div className="flex-1 flex flex-col justify-between py-1 sm:py-2">
-        <div className="space-y-1.5 sm:space-y-2 flex-1 flex flex-col justify-between">
+        {/* Certifications and Callout */}
+        <div className="space-y-1.5 sm:space-y-2 mt-2">
           {RESUME_DATA.certifications.map((cert, idx) => (
             <div key={idx} className="p-2 sm:p-2.5 bg-[#eae8e2]/70 border border-[#141210]">
               <div className="flex items-start justify-between gap-2 border-b border-[#141210]/20 pb-1 mb-1">
@@ -606,7 +616,7 @@ export const Page08Certifications: React.FC = () => {
         </div>
 
         {/* NLU Odisha Special Callout */}
-        <div className="mt-2 p-2 sm:p-2.5 bg-[#eae8e2]/90 border-2 border-[#141210] shrink-0">
+        <div className="mt-2.5 p-2 sm:p-2.5 bg-[#eae8e2]/90 border-2 border-[#141210]">
           <div className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase font-bold text-[#8C3833]">
             SPECIAL LEGAL &amp; FORENSIC DISTINCTION
           </div>
@@ -631,26 +641,25 @@ export const Page08Certifications: React.FC = () => {
 export const Page09Activities: React.FC = () => {
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      {/* Universal Top Header Bar */}
-      <NewspaperPageHeader />
+      <div>
+        {/* Universal Top Header Bar */}
+        <NewspaperPageHeader />
 
-      {/* Heading matching Contents font */}
-      <div className="border-b-2 border-[#141210] pb-1.5 mb-2 flex justify-between items-start shrink-0">
-        <div>
-          <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
-            SECTION 07 // CAMPUS &amp; COMMUNITY
-          </span>
-          <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
-            ACTIVITIES AND SOCIETIES
-          </h3>
+        {/* Heading matching Contents font */}
+        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start shrink-0">
+          <div>
+            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
+              SECTION 07 // CAMPUS &amp; COMMUNITY
+            </span>
+            <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
+              ACTIVITIES AND SOCIETIES
+            </h3>
+          </div>
+          <NewspaperStamp text="LEADERSHIP" variant="olive" rotation={1} />
         </div>
-        <NewspaperStamp text="LEADERSHIP" variant="olive" rotation={1} />
-      </div>
 
-      {/* Leadership & Activities distributed evenly across height */}
-      <div className="flex-1 flex flex-col justify-between py-1 sm:py-2">
         {/* Presidency Highlight */}
-        <div className="p-2.5 sm:p-3 bg-[#eae8e2]/80 border-2 border-[#141210]">
+        <div className="p-2.5 sm:p-3 bg-[#eae8e2]/80 border-2 border-[#141210] mb-2 sm:mb-2.5">
           <div className="flex items-center justify-between border-b border-[#141210] pb-1 mb-1">
             <div>
               <span className="font-mono-tech text-[8px] text-[#8C3833] uppercase font-bold tracking-widest block">
@@ -673,7 +682,7 @@ export const Page09Activities: React.FC = () => {
         </div>
 
         {/* Activities List */}
-        <div className="space-y-1.5 sm:space-y-2 flex-1 flex flex-col justify-around mt-1 sm:mt-1.5">
+        <div className="space-y-1.5 sm:space-y-2">
           {RESUME_DATA.activitiesAndSocieties.map((activity, idx) => (
             <div key={idx} className="p-2 sm:p-2.5 bg-[#eae8e2]/60 border border-[#141210]">
               <div className="flex items-center justify-between border-b border-[#141210]/20 pb-0.5 mb-0.5">
@@ -738,24 +747,23 @@ export const Page10Dispatch: React.FC = () => {
 
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      {/* Universal Top Header Bar */}
-      <NewspaperPageHeader />
+      <div>
+        {/* Universal Top Header Bar */}
+        <NewspaperPageHeader />
 
-      {/* Heading matching Contents font */}
-      <div className="border-b-2 border-[#141210] pb-1.5 mb-2 flex justify-between items-start shrink-0">
-        <div>
-          <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
-            COMMUNICATION TERMINAL // SECTION 08
-          </span>
-          <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
-            ENCRYPTED TELEGRAPH DISPATCH
-          </h3>
+        {/* Heading matching Contents font */}
+        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start shrink-0">
+          <div>
+            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
+              COMMUNICATION TERMINAL // SECTION 08
+            </span>
+            <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
+              ENCRYPTED TELEGRAPH DISPATCH
+            </h3>
+          </div>
+          <NewspaperStamp text="DISPATCH" variant="crimson" rotation={-1} />
         </div>
-        <NewspaperStamp text="DISPATCH" variant="crimson" rotation={-1} />
-      </div>
 
-      {/* Form & Contacts distributed evenly across height */}
-      <div className="flex-1 flex flex-col justify-between py-1 sm:py-2">
         {/* Form Box */}
         <div className="p-2.5 sm:p-3 bg-[#eae8e2]/80 border-2 border-[#141210]">
           <div className="flex items-center gap-1.5 border-b border-[#141210] pb-1 mb-1.5 font-mono-tech text-[9.5px] uppercase font-bold text-[#141210]">
@@ -853,26 +861,25 @@ export const Page10Dispatch: React.FC = () => {
 export const Page11Colophon: React.FC = () => {
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      {/* Universal Top Header Bar */}
-      <NewspaperPageHeader />
+      <div>
+        {/* Universal Top Header Bar */}
+        <NewspaperPageHeader />
 
-      {/* Heading matching Contents font */}
-      <div className="border-b-2 border-[#141210] pb-1.5 mb-2 flex justify-between items-start shrink-0">
-        <div>
-          <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
-            OFFICIAL ARCHIVE // COLOPHON
-          </span>
-          <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
-            VERIFIED RECORD &amp; COLOPHON
-          </h3>
+        {/* Heading matching Contents font */}
+        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start shrink-0">
+          <div>
+            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
+              OFFICIAL ARCHIVE // COLOPHON
+            </span>
+            <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
+              VERIFIED RECORD &amp; COLOPHON
+            </h3>
+          </div>
+          <NewspaperStamp text="RECORD" variant="olive" rotation={1} />
         </div>
-        <NewspaperStamp text="RECORD" variant="olive" rotation={1} />
-      </div>
 
-      {/* PDF, Socials and Colophon distributed evenly across height */}
-      <div className="flex-1 flex flex-col justify-between py-2 sm:py-3">
         {/* PDF Download Box */}
-        <div className="p-2.5 sm:p-3 bg-[#141210] text-[#f5f0e1] border-2 border-[#141210] flex items-center justify-between">
+        <div className="p-2.5 sm:p-3 bg-[#141210] text-[#f5f0e1] border-2 border-[#141210] flex items-center justify-between mb-2">
           <div>
             <div className="font-garamond text-[12px] sm:text-[13px] uppercase font-bold text-[#d9c49f]">
               OFFICIAL VERIFIED RESUME RECORD
@@ -892,7 +899,7 @@ export const Page11Colophon: React.FC = () => {
         </div>
 
         {/* Social Dispatches */}
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-2 gap-2 mb-2">
           <a
             href={RESUME_DATA.personal.githubUrl}
             target="_blank"
@@ -957,24 +964,23 @@ export const Page12ClosingBroadside: React.FC<{ onNavigateToSpread?: (spread: nu
 
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      {/* Universal Top Header Bar */}
-      <NewspaperPageHeader />
+      <div>
+        {/* Universal Top Header Bar */}
+        <NewspaperPageHeader />
 
-      {/* Heading matching Contents font */}
-      <div className="border-b-2 border-[#141210] pb-1.5 mb-2 flex justify-between items-start shrink-0">
-        <div>
-          <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
-            FINAL REGISTER // VOLUME 01
-          </span>
-          <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
-            ARCHIVAL DIRECTORY &amp; CLOSING
-          </h3>
+        {/* Heading matching Contents font */}
+        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start shrink-0">
+          <div>
+            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
+              FINAL REGISTER // VOLUME 01
+            </span>
+            <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
+              ARCHIVAL DIRECTORY &amp; CLOSING
+            </h3>
+          </div>
+          <NewspaperStamp text="CLASSIFIED" variant="crimson" rotation={-2} />
         </div>
-        <NewspaperStamp text="CLASSIFIED" variant="crimson" rotation={-2} />
-      </div>
 
-      {/* Directory & Clearance distributed evenly across height */}
-      <div className="flex-1 flex flex-col justify-between py-1 sm:py-2">
         {/* Archival Table */}
         <div className="border-2 border-[#141210] p-2 bg-[#eae8e2]/70 mb-2 space-y-1">
           <div className="font-mono-tech text-[9px] uppercase font-bold text-[#141210] border-b border-[#141210] pb-0.5 flex justify-between">
@@ -989,7 +995,7 @@ export const Page12ClosingBroadside: React.FC<{ onNavigateToSpread?: (spread: nu
                 className="flex items-start justify-between p-0.5 hover:bg-[#141210] hover:text-[#f5f0e1] transition-colors cursor-pointer group"
               >
                 <div>
-                  <span className="font-bold text-[#8C3833] group-hover:text-[#d9c49f] mr-1.5">[{a.num}]</span>
+                  <span className="font-bold text-[#141210] group-hover:text-[#d9c49f] mr-1.5">[{a.num}]</span>
                   <span className="font-bold">{a.title}</span>
                   <p className="text-[8px] text-[#5a554e] group-hover:text-[#cfc5b0]">{a.desc}</p>
                 </div>
