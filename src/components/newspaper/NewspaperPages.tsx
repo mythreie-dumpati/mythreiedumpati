@@ -315,17 +315,17 @@ export const Page04Experience: React.FC = () => {
           </div>
         </div>
 
-        {/* Two-Column Symmetrical Layout (content restored to natural position) */}
+        {/* Two-Column Symmetrical Layout (text strictly constrained to the size of the image, no excessive width) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-7 items-start mt-2 sm:mt-2.5">
           {/* Column 1: Teleparadigm Networks Ltd. */}
-          <div className="flex flex-col">
+          <div className="w-full max-w-[135px] sm:max-w-[155px] md:max-w-[170px] mx-auto flex flex-col">
             {/* Date Tag */}
             <div className="h-[20px] flex items-center justify-center font-garamond text-[10.5px] sm:text-xs text-[#222222] font-medium tracking-wide text-center mb-1 shrink-0">
               Sept – Nov 2025
             </div>
 
             {/* Sleek Picture Frame with Thin Internal Border */}
-            <div className="w-full max-w-[135px] sm:max-w-[155px] md:max-w-[170px] mx-auto aspect-square bg-white border-[1.5px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.22)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
+            <div className="w-full aspect-square bg-white border-[1.5px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.22)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
               <img
                 src="/internship_teleparadigm.png"
                 alt="Teleparadigm Networks Ltd. Internship Artwork"
@@ -334,27 +334,27 @@ export const Page04Experience: React.FC = () => {
               />
             </div>
 
-            {/* Title */}
-            <h4 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-tight mt-1.5 mb-1 min-h-[32px] sm:min-h-[36px] flex flex-col justify-start">
+            {/* Title aligned strictly to image width */}
+            <h4 className="font-garamond font-bold text-xs sm:text-[13px] md:text-[14px] text-[#111111] leading-tight mt-1.5 mb-1 min-h-[30px] sm:min-h-[34px] flex flex-col justify-start text-left w-full">
               <span>Teleparadigm</span>
               <span>Networks Ltd.</span>
             </h4>
 
-            {/* Description */}
-            <p className="font-garamond text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#222222] leading-relaxed text-justify sm:text-left">
+            {/* Description aligned strictly to image width, no excessive expansion */}
+            <p className="font-garamond text-[8.5px] sm:text-[9.5px] md:text-[10px] text-[#222222] leading-relaxed text-justify sm:text-left w-full">
               Developed a secure, decentralized file-sharing platform with role-based access controls to protect sensitive user data from unauthorized access. Implemented distributed storage methods and dynamic permission controls across network nodes, maintaining high data privacy while removing single points of failure.
             </p>
           </div>
 
           {/* Column 2: Women Safety Wing, Telangana Police */}
-          <div className="flex flex-col">
+          <div className="w-full max-w-[135px] sm:max-w-[155px] md:max-w-[170px] mx-auto flex flex-col">
             {/* Date Tag */}
             <div className="h-[20px] flex items-center justify-center font-garamond text-[10.5px] sm:text-xs text-[#222222] font-medium tracking-wide text-center mb-1 shrink-0">
               Dec 2024 – Jan 2025
             </div>
 
-            {/* Sleek Picture Frame with Thin Internal Border (Image occupies full space without excessive whitespace) */}
-            <div className="w-full max-w-[135px] sm:max-w-[155px] md:max-w-[170px] mx-auto aspect-square bg-white border-[1.5px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.22)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
+            {/* Sleek Picture Frame with Thin Internal Border */}
+            <div className="w-full aspect-square bg-white border-[1.5px] border-[#181818] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.22)] overflow-hidden flex items-center justify-center p-0.5 shrink-0">
               <img
                 src="/internship_telangana_police.png"
                 alt="Women Safety Wing, Telangana Police Internship Artwork"
@@ -363,14 +363,14 @@ export const Page04Experience: React.FC = () => {
               />
             </div>
 
-            {/* Title */}
-            <h4 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-tight mt-1.5 mb-1 min-h-[32px] sm:min-h-[36px] flex flex-col justify-start">
+            {/* Title aligned strictly to image width */}
+            <h4 className="font-garamond font-bold text-xs sm:text-[13px] md:text-[14px] text-[#111111] leading-tight mt-1.5 mb-1 min-h-[30px] sm:min-h-[34px] flex flex-col justify-start text-left w-full">
               <span>Women Safety Wing,</span>
               <span>Telangana Police</span>
             </h4>
 
-            {/* Description */}
-            <p className="font-garamond text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#222222] leading-relaxed text-justify sm:text-left">
+            {/* Description aligned strictly to image width, no excessive expansion */}
+            <p className="font-garamond text-[8.5px] sm:text-[9.5px] md:text-[10px] text-[#222222] leading-relaxed text-justify sm:text-left w-full">
               Supported key public safety initiatives at the Women Safety Wing&apos;s Bharosa Module by designing high-impact visual campaigns—including T-Safe metro ads reaching 500,000+ citizens—and analysing operational data across 26 centres to boost reporting efficiency, while managing critical government workflows like Daily Situation Reports and Operation Smile 11.
             </p>
           </div>
