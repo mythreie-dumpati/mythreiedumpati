@@ -315,8 +315,8 @@ export const Page04Experience: React.FC = () => {
           </div>
         </div>
 
-        {/* Two-Column Symmetrical Layout (text strictly constrained to the size of the image, no excessive width) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-7 items-start mt-2 sm:mt-2.5">
+        {/* Two-Column Symmetrical Layout (pulled down, strictly constrained to image width, with justified text) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-7 items-start mt-4 sm:mt-5 md:mt-6">
           {/* Column 1: Teleparadigm Networks Ltd. */}
           <div className="w-full max-w-[135px] sm:max-w-[155px] md:max-w-[170px] mx-auto flex flex-col">
             {/* Date Tag */}
@@ -340,8 +340,8 @@ export const Page04Experience: React.FC = () => {
               <span>Networks Ltd.</span>
             </h4>
 
-            {/* Description aligned strictly to image width, no excessive expansion */}
-            <p className="font-garamond text-[8.5px] sm:text-[9.5px] md:text-[10px] text-[#222222] leading-relaxed text-justify sm:text-left w-full">
+            {/* Description strictly justified across columns */}
+            <p className="font-garamond text-[8.5px] sm:text-[9.5px] md:text-[10px] text-[#222222] leading-relaxed text-justify w-full">
               Developed a secure, decentralized file-sharing platform with role-based access controls to protect sensitive user data from unauthorized access. Implemented distributed storage methods and dynamic permission controls across network nodes, maintaining high data privacy while removing single points of failure.
             </p>
           </div>
@@ -369,8 +369,8 @@ export const Page04Experience: React.FC = () => {
               <span>Telangana Police</span>
             </h4>
 
-            {/* Description aligned strictly to image width, no excessive expansion */}
-            <p className="font-garamond text-[8.5px] sm:text-[9.5px] md:text-[10px] text-[#222222] leading-relaxed text-justify sm:text-left w-full">
+            {/* Description strictly justified across columns */}
+            <p className="font-garamond text-[8.5px] sm:text-[9.5px] md:text-[10px] text-[#222222] leading-relaxed text-justify w-full">
               Supported key public safety initiatives at the Women Safety Wing&apos;s Bharosa Module by designing high-impact visual campaigns—including T-Safe metro ads reaching 500,000+ citizens—and analysing operational data across 26 centres to boost reporting efficiency, while managing critical government workflows like Daily Situation Reports and Operation Smile 11.
             </p>
           </div>
