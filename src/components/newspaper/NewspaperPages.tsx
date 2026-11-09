@@ -720,7 +720,7 @@ export const Page08Certifications: React.FC = () => {
           <h2 className="font-garamond font-bold text-2xl sm:text-[26px] md:text-[28px] text-[#111111] leading-none mb-1">
             Volunteering
           </h2>
-          <div className="w-full border-b-[1.5px] border-[#9e9e9e] mb-3 sm:mb-3.5" />
+          <div className="w-full h-[2.5px] sm:h-[3px] bg-[#666666] mb-3 sm:mb-3.5" />
 
           <div className="space-y-3 sm:space-y-3.5">
             {/* 1. CSI KMEC */}
@@ -779,7 +779,7 @@ export const Page08Certifications: React.FC = () => {
           <h2 className="font-garamond font-bold text-2xl sm:text-[26px] md:text-[28px] text-[#111111] leading-none mb-1">
             Certifications
           </h2>
-          <div className="w-full border-b-[1.5px] border-[#9e9e9e] mb-3 sm:mb-3.5" />
+          <div className="w-full h-[2.5px] sm:h-[3px] bg-[#666666] mb-3 sm:mb-3.5" />
 
           {/* Centered 2x2 grid (78% span, max-w-[325px], mx-auto) */}
           <div className="w-[78%] max-w-[325px] mx-auto grid grid-cols-2 gap-2.5 sm:gap-3 md:gap-3.5">
