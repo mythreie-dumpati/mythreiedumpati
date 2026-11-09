@@ -860,7 +860,7 @@ export const Page09LanguagesContact: React.FC = () => {
         throw new Error(data.error || 'Failed to dispatch transmission.');
       }
       setStatus('sent');
-      setFeedbackMsg('Message sent successfully!');
+      setFeedbackMsg('Message sent!');
       setTimeout(() => {
         setName('');
         setEmail('');
@@ -874,119 +874,179 @@ export const Page09LanguagesContact: React.FC = () => {
   };
 
   return (
-    <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      <div className="flex-1 flex flex-col justify-between">
-        <div>
-          {/* Universal Top Header Bar */}
-          <NewspaperPageHeader />
+    <div className="relative w-full h-full bg-white overflow-hidden select-none">
+      {/* 1. Heading 'Languages' */}
+      <h2
+        className="absolute font-garamond font-bold text-black select-none pointer-events-none"
+        style={{
+          left: '11.64%',
+          top: '15.93%',
+          fontSize: 'clamp(20px, 3.8vw, 32px)',
+          lineHeight: '1',
+        }}
+      >
+        Languages
+      </h2>
 
-          {/* Master Heading: Languages */}
-          <div className="mt-0.5 sm:mt-1 mb-2 sm:mb-3 shrink-0">
-            <h2 className="font-garamond font-bold text-2xl sm:text-3xl md:text-[34px] text-[#111111] leading-none">
-              Languages
-            </h2>
-          </div>
-
-          {/* Two Solid Black Circles: Telugu & English */}
-          <div className="flex items-center gap-3 sm:gap-4 md:gap-5 pl-1 sm:pl-2 mt-2 sm:mt-3">
-            {/* Telugu Circle (Larger) */}
-            <div className="w-[120px] h-[120px] sm:w-[138px] sm:h-[138px] md:w-[152px] md:h-[152px] rounded-full bg-black text-white flex flex-col items-center justify-center text-center shrink-0 shadow-md">
-              <span className="font-sans font-bold text-sm sm:text-base md:text-[17px] text-white leading-tight">
-                Telugu
-              </span>
-              <span className="font-garamond italic text-[11px] sm:text-xs md:text-[12.5px] text-white/90 mt-0.5">
-                Mother tongue
-              </span>
-            </div>
-
-            {/* English Circle (Offset slightly) */}
-            <div className="w-[105px] h-[105px] sm:w-[118px] sm:h-[118px] md:w-[130px] md:h-[130px] rounded-full bg-black text-white flex flex-col items-center justify-center text-center shrink-0 shadow-md translate-y-1.5 sm:translate-y-2">
-              <span className="font-sans font-bold text-sm sm:text-base md:text-[17px] text-white leading-tight">
-                English
-              </span>
-              <span className="font-garamond italic text-[11px] sm:text-xs md:text-[12.5px] text-white/90 mt-0.5">
-                Band: C1
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* BOTTOM SECTION: Giant Black Dome Contact Portal */}
-        <div className="relative mt-auto -mx-4 sm:-mx-5 md:-mx-6 lg:-mx-7 -mb-4 sm:-mb-5 md:-mb-6 lg:-mb-7 bg-black text-white pt-6 sm:pt-8 md:pt-9 pb-3 sm:pb-4 px-6 sm:px-8 md:px-10 rounded-t-[50%_32%] overflow-hidden flex flex-col items-center">
-          <form onSubmit={handleSubmit} className="w-full max-w-[270px] sm:max-w-[300px] md:max-w-[320px] flex flex-col">
-            {/* Fullname */}
-            <div className="w-full mb-2.5 sm:mb-3">
-              <label className="font-garamond font-bold text-xs sm:text-[13px] md:text-[14px] text-white block mb-0.5">
-                Fullname
-              </label>
-              <div className="border-b-[1.5px] border-white pb-0.5">
-                <input
-                  type="text"
-                  required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="w-full bg-transparent text-white font-garamond text-xs sm:text-[13px] focus:outline-hidden"
-                />
-              </div>
-            </div>
-
-            {/* E-mail */}
-            <div className="w-full mb-3 sm:mb-3.5">
-              <label className="font-garamond font-bold text-xs sm:text-[13px] md:text-[14px] text-white block mb-0.5">
-                E-mail
-              </label>
-              <div className="border-b-[1.5px] border-white pb-0.5">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-transparent text-white font-garamond text-xs sm:text-[13px] focus:outline-hidden"
-                />
-              </div>
-            </div>
-
-            {/* Message Box */}
-            <div className="w-full bg-white rounded-xl sm:rounded-2xl p-2 sm:p-2.5 relative shadow-lg">
-              <textarea
-                required
-                rows={3}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Message"
-                className="w-full bg-transparent text-[#111111] font-garamond placeholder-[#111111] text-xs sm:text-[13px] focus:outline-hidden resize-none leading-relaxed pr-8"
-              />
-              <button
-                type="submit"
-                disabled={status === 'loading'}
-                className="absolute bottom-2 right-2 bg-black hover:bg-neutral-800 disabled:opacity-40 text-white rounded-full p-1.5 transition-colors cursor-pointer flex items-center justify-center shadow-xs"
-                title="Send Message"
-                aria-label="Send Message"
-              >
-                <Send className="w-3 h-3" />
-              </button>
-            </div>
-
-            {/* Feedback Message */}
-            {status === 'sent' && (
-              <div className="text-[10px] font-mono-tech text-[#a3e635] mt-1 text-center font-bold">
-                ✓ Message dispatched successfully!
-              </div>
-            )}
-            {status === 'error' && (
-              <div className="text-[9.5px] font-mono-tech text-[#f87171] mt-1 text-center">
-                {feedbackMsg}
-              </div>
-            )}
-          </form>
-
-          {/* Page Footer inside black dome */}
-          <div className="w-full max-w-[270px] sm:max-w-[300px] md:max-w-[320px] pt-2 mt-2.5 border-t border-white/20 flex justify-between items-center text-[8.5px] sm:text-[9px] font-mono-tech text-white/70 shrink-0">
-            <span>MYTHREIE DUMPATI // 07. LANGUAGES &amp; CONTACT</span>
-            <span className="font-typewriter font-bold text-white">PAGE 09</span>
-          </div>
-        </div>
+      {/* 2. Left Circle: Telugu / Mother tongue */}
+      <div
+        className="absolute rounded-full bg-black text-white flex flex-col items-center justify-center text-center select-none shadow-xs"
+        style={{
+          left: '9.27%',
+          top: '22.30%',
+          width: '33.33%',
+          aspectRatio: '1 / 1',
+        }}
+      >
+        <span
+          className="font-sans font-bold text-white leading-tight"
+          style={{ fontSize: 'clamp(12px, 2.2vw, 19px)' }}
+        >
+          Telugu
+        </span>
+        <span
+          className="font-garamond italic text-white/90"
+          style={{ fontSize: 'clamp(9px, 1.6vw, 13.5px)', marginTop: '2px' }}
+        >
+          Mother tongue
+        </span>
       </div>
+
+      {/* 3. Right Circle: English / Band: C1 */}
+      <div
+        className="absolute rounded-full bg-black text-white flex flex-col items-center justify-center text-center select-none shadow-xs"
+        style={{
+          left: '42.41%',
+          top: '26.59%',
+          width: '30.18%',
+          aspectRatio: '1 / 1',
+        }}
+      >
+        <span
+          className="font-sans font-bold text-white leading-tight"
+          style={{ fontSize: 'clamp(12px, 2.2vw, 19px)' }}
+        >
+          English
+        </span>
+        <span
+          className="font-garamond italic text-white/90"
+          style={{ fontSize: 'clamp(9px, 1.6vw, 13.5px)', marginTop: '2px' }}
+        >
+          Band: C1
+        </span>
+      </div>
+
+      {/* 4. Giant Circular Black Dome */}
+      <svg
+        viewBox="0 0 507 722"
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        preserveAspectRatio="none"
+      >
+        <path d="M 0 522 A 281 281 0 0 1 507 522 L 507 722 L 0 722 Z" fill="#000000" />
+      </svg>
+
+      {/* 5. Contact Form Elements inside Dome */}
+      <form onSubmit={handleSubmit} className="relative z-10 w-full h-full">
+        {/* Fullname */}
+        <div
+          className="absolute flex flex-col justify-end"
+          style={{
+            left: '24.5%',
+            top: '60.5%',
+            width: '30.2%',
+          }}
+        >
+          <label
+            className="font-garamond font-bold text-white block mb-0.5"
+            style={{ fontSize: 'clamp(10px, 1.8vw, 15px)' }}
+          >
+            Fullname
+          </label>
+          <div className="border-b-[1.5px] border-white pb-0.5 w-full">
+            <input
+              type="text"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full bg-transparent text-white font-garamond focus:outline-none"
+              style={{ fontSize: 'clamp(9.5px, 1.6vw, 13.5px)' }}
+            />
+          </div>
+        </div>
+
+        {/* E-mail */}
+        <div
+          className="absolute flex flex-col justify-end"
+          style={{
+            left: '24.5%',
+            top: '70.8%',
+            width: '30.2%',
+          }}
+        >
+          <label
+            className="font-garamond font-bold text-white block mb-0.5"
+            style={{ fontSize: 'clamp(10px, 1.8vw, 15px)' }}
+          >
+            E-mail
+          </label>
+          <div className="border-b-[1.5px] border-white pb-0.5 w-full">
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full bg-transparent text-white font-garamond focus:outline-none"
+              style={{ fontSize: 'clamp(9.5px, 1.6vw, 13.5px)' }}
+            />
+          </div>
+        </div>
+
+        {/* Message Box */}
+        <div
+          className="absolute bg-white rounded-[7px] sm:rounded-[9px] p-2 sm:p-2.5 shadow-md flex flex-col"
+          style={{
+            left: '23.3%',
+            top: '82.4%',
+            width: '38.5%',
+            height: '11.8%',
+          }}
+        >
+          <textarea
+            required
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSubmit(e as any);
+              }
+            }}
+            placeholder="Message"
+            className="w-full h-full bg-transparent text-black font-garamond placeholder-black focus:outline-none resize-none leading-relaxed"
+            style={{ fontSize: 'clamp(9.5px, 1.6vw, 13.5px)' }}
+          />
+        </div>
+
+        <button type="submit" className="sr-only">Submit</button>
+
+        {/* Status Toast when submitting/sent */}
+        {status === 'sent' && (
+          <div
+            className="absolute z-20 bg-white/95 text-black px-3 py-1 rounded-full font-mono-tech text-[10px] font-bold shadow-lg pointer-events-none"
+            style={{ left: '50%', bottom: '1.5%', transform: 'translateX(-50%)' }}
+          >
+            ✓ Sent
+          </div>
+        )}
+        {status === 'error' && (
+          <div
+            className="absolute z-20 bg-red-600 text-white px-3 py-1 rounded-full font-mono-tech text-[10px] font-bold shadow-lg pointer-events-none"
+            style={{ left: '50%', bottom: '1.5%', transform: 'translateX(-50%)' }}
+          >
+            {feedbackMsg || 'Error sending'}
+          </div>
+        )}
+      </form>
     </div>
   );
 };
