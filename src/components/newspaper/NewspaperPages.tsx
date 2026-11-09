@@ -709,82 +709,95 @@ export const Page07Skills: React.FC = () => {
 // PAGE 08: 06. VOLUNTEERING & CERTIFICATIONS (Exact reproduction of reference image)
 // =========================================================================
 export const Page08Certifications: React.FC = () => {
-  const volunteeringItems = [
-    {
-      period: ['[ 15/06/2023 -', '25/06/2026 ]'],
-      role: 'Social Media Team – Computer Society of India (CSI) KMEC',
-      desc: 'Led multi-platform digital marketing initiatives and content creation to actively promote tech symposiums, hackathons, and skill-building workshops to the student body.',
-    },
-    {
-      period: ['[ 09/11/2023 -', '15/02/2026 ]'],
-      role: 'Event Organizer for College',
-      desc: 'Coordinated logistics, scheduling, and cross-functional teams for flagship technical and cultural college festivals, driving high student participation and ensuring seamless event execution.',
-    },
-    {
-      period: ['[ 10/07/2018 -', '15/03/2019 ]'],
-      role: 'Student Body President at School',
-      desc: 'Represented the student body to institutional leadership, spearheading campus-wide initiatives, policy improvements, and major events.',
-    },
-  ];
-
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      <div className="flex-1 flex flex-col justify-between">
-        <div>
-          {/* Universal Top Header Bar */}
-          <NewspaperPageHeader />
+      <div className="flex-1 flex flex-col">
+        {/* Universal Top Header Bar */}
+        <NewspaperPageHeader />
 
-          {/* TOP HALF: VOLUNTEERING */}
-          <div className="mt-0.5 sm:mt-1">
-            <h2 className="font-garamond font-bold text-xl sm:text-2xl md:text-[25px] text-[#111111] leading-none mb-1">
-              Volunteering
-            </h2>
-            <div className="w-full border-b-[1.5px] border-[#888888] mb-2 sm:mb-2.5" />
+        {/* TOP HALF: VOLUNTEERING */}
+        <div className="mt-1 sm:mt-1.5">
+          <h2 className="font-garamond font-bold text-2xl sm:text-[26px] md:text-[28px] text-[#111111] leading-none mb-1">
+            Volunteering
+          </h2>
+          <div className="w-full border-b-[1.5px] border-[#9e9e9e] mb-3 sm:mb-3.5" />
 
-            <div className="space-y-2 sm:space-y-2.5">
-              {volunteeringItems.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 sm:gap-3">
-                  <div className="w-[85px] sm:w-[98px] md:w-[108px] shrink-0 font-garamond text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#111111] leading-tight select-none">
-                    <div>{item.period[0]}</div>
-                    <div className="pl-0.5">{item.period[1]}</div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-garamond font-bold text-[11px] sm:text-[12px] md:text-[13px] text-[#111111] leading-snug">
-                      {item.role}
-                    </h3>
-                    <p className="font-garamond text-[9px] sm:text-[10px] md:text-[10.5px] text-[#222222] mt-0.5 leading-snug">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
+          <div className="space-y-3 sm:space-y-3.5">
+            {/* 1. CSI KMEC */}
+            <div className="flex items-start gap-2.5 sm:gap-3">
+              <div className="w-[82px] sm:w-[94px] md:w-[102px] shrink-0 font-sans text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#111111] leading-tight select-none">
+                <div>[ 15/06/2023 -</div>
+                <div className="pl-1.5 sm:pl-2">25/06/2026 ]</div>
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-garamond font-bold text-xs sm:text-[13px] md:text-[13.5px] text-[#111111] leading-tight">
+                  <div>Social Media Team – Computer Society of India</div>
+                  <div>(CSI) KMEC</div>
+                </h3>
+                <p className="font-sans text-[8.5px] sm:text-[9.5px] md:text-[10px] text-[#222222] mt-1 leading-snug">
+                  Led multi-platform digital marketing initiatives and content creation to actively promote tech symposiums, hackathons, and skill-building workshops to the student body.
+                </p>
+              </div>
+            </div>
+
+            {/* 2. Event Organizer */}
+            <div className="flex items-start gap-2.5 sm:gap-3">
+              <div className="w-[82px] sm:w-[94px] md:w-[102px] shrink-0 font-sans text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#111111] leading-tight select-none">
+                <div>[ 09/11/2023 -</div>
+                <div className="pl-1.5 sm:pl-2">15/02/2026 ]</div>
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-garamond font-bold text-xs sm:text-[13px] md:text-[13.5px] text-[#111111] leading-tight">
+                  Event Organizer for College
+                </h3>
+                <p className="font-sans text-[8.5px] sm:text-[9.5px] md:text-[10px] text-[#222222] mt-1 leading-snug">
+                  Coordinated logistics, scheduling, and cross-functional teams for flagship technical and cultural college festivals, driving high student participation and ensuring seamless event execution.
+                </p>
+              </div>
+            </div>
+
+            {/* 3. Student Body President */}
+            <div className="flex items-start gap-2.5 sm:gap-3">
+              <div className="w-[82px] sm:w-[94px] md:w-[102px] shrink-0 font-sans text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#111111] leading-tight select-none">
+                <div>[ 10/07/2018 -</div>
+                <div className="pl-1.5 sm:pl-2">15/03/2019 ]</div>
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-garamond font-bold text-xs sm:text-[13px] md:text-[13.5px] text-[#111111] leading-tight">
+                  Student Body President at School
+                </h3>
+                <p className="font-sans text-[8.5px] sm:text-[9.5px] md:text-[10px] text-[#222222] mt-1 leading-snug">
+                  Represented the student body to institutional leadership, spearheading campus-wide initiatives, policy improvements, and major events.
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* BOTTOM HALF: CERTIFICATIONS (2x2 Black Cards) */}
-        <div className="mt-2.5 sm:mt-3">
-          <h2 className="font-garamond font-bold text-xl sm:text-2xl md:text-[25px] text-[#111111] leading-none mb-1">
+        {/* BOTTOM HALF: CERTIFICATIONS (Centered 2x2 Black Cards matching exact reference image) */}
+        <div className="mt-3.5 sm:mt-4 md:mt-5">
+          <h2 className="font-garamond font-bold text-2xl sm:text-[26px] md:text-[28px] text-[#111111] leading-none mb-1">
             Certifications
           </h2>
-          <div className="w-full border-b-[1.5px] border-[#888888] mb-2 sm:mb-2.5" />
+          <div className="w-full border-b-[1.5px] border-[#9e9e9e] mb-3 sm:mb-3.5" />
 
-          <div className="grid grid-cols-2 gap-2 sm:gap-2.5 md:gap-3">
+          {/* Centered 2x2 grid (78% span, max-w-[325px], mx-auto) */}
+          <div className="w-[78%] max-w-[325px] mx-auto grid grid-cols-2 gap-2.5 sm:gap-3 md:gap-3.5">
             {/* 1. Cyber Crime and Cyber Forensics Course 87% */}
-            <div className="bg-black text-white p-2 sm:p-2.5 md:p-3 rounded-xs flex flex-col justify-between shadow-xs min-h-[56px] sm:min-h-[64px] md:min-h-[70px]">
-              <div className="font-sans font-bold text-[10px] sm:text-[11px] md:text-[11.5px] text-white leading-tight">
+            <div className="bg-black text-white p-2.5 sm:p-3 rounded-none flex flex-col justify-between shadow-xs aspect-[1.8/1] min-h-[58px] sm:min-h-[64px]">
+              <div className="font-sans font-bold text-[9.5px] sm:text-[10.5px] md:text-[11px] text-white leading-tight">
                 <div>Cyber Crime and</div>
                 <div>Cyber Forensics</div>
               </div>
-              <div className="flex justify-between items-baseline font-sans font-bold text-[10px] sm:text-[11px] md:text-[11.5px] text-white mt-1">
+              <div className="flex justify-between items-baseline font-sans font-bold text-[9.5px] sm:text-[10.5px] md:text-[11px] text-white mt-1">
                 <span>Course</span>
-                <span className="text-[11px] sm:text-[12px] md:text-[13px]">87%</span>
+                <span className="text-[11px] sm:text-[12px] md:text-[12.5px]">87%</span>
               </div>
             </div>
 
             {/* 2. Ethical Hacking Awareness Workshop */}
-            <div className="bg-black text-white p-2 sm:p-2.5 md:p-3 rounded-xs flex flex-col justify-center items-center text-center shadow-xs min-h-[56px] sm:min-h-[64px] md:min-h-[70px]">
-              <div className="font-sans font-bold text-[10px] sm:text-[11px] md:text-[11.5px] text-white leading-tight">
+            <div className="bg-black text-white p-2.5 sm:p-3 rounded-none flex flex-col justify-center items-center text-center shadow-xs aspect-[1.8/1] min-h-[58px] sm:min-h-[64px]">
+              <div className="font-sans font-bold text-[9.5px] sm:text-[10.5px] md:text-[11px] text-white leading-tight">
                 <div>Ethical Hacking</div>
                 <div>Awareness</div>
                 <div>Workshop</div>
@@ -792,8 +805,8 @@ export const Page08Certifications: React.FC = () => {
             </div>
 
             {/* 3. Machine and Deep Learning Techniques Webinar */}
-            <div className="bg-black text-white p-2 sm:p-2.5 md:p-3 rounded-xs flex flex-col justify-center items-center text-center shadow-xs min-h-[56px] sm:min-h-[64px] md:min-h-[70px]">
-              <div className="font-sans font-bold text-[10px] sm:text-[11px] md:text-[11.5px] text-white leading-tight">
+            <div className="bg-black text-white p-2.5 sm:p-3 rounded-none flex flex-col justify-center items-center text-center shadow-xs aspect-[1.8/1] min-h-[58px] sm:min-h-[64px]">
+              <div className="font-sans font-bold text-[9.5px] sm:text-[10.5px] md:text-[11px] text-white leading-tight">
                 <div>Machine and Deep</div>
                 <div>Learning Techniques</div>
                 <div>Webinar</div>
@@ -801,8 +814,8 @@ export const Page08Certifications: React.FC = () => {
             </div>
 
             {/* 4. Cybersecurity with Ethical Hacking Workshop */}
-            <div className="bg-black text-white p-2 sm:p-2.5 md:p-3 rounded-xs flex flex-col justify-center items-center text-center shadow-xs min-h-[56px] sm:min-h-[64px] md:min-h-[70px]">
-              <div className="font-sans font-bold text-[10px] sm:text-[11px] md:text-[11.5px] text-white leading-tight">
+            <div className="bg-black text-white p-2.5 sm:p-3 rounded-none flex flex-col justify-center items-center text-center shadow-xs aspect-[1.8/1] min-h-[58px] sm:min-h-[64px]">
+              <div className="font-sans font-bold text-[9.5px] sm:text-[10.5px] md:text-[11px] text-white leading-tight">
                 <div>Cybersecurity with</div>
                 <div>Ethical Hacking</div>
                 <div>Workshop</div>
