@@ -80,20 +80,6 @@ export const NewspaperIndexModal: React.FC<NewspaperIndexModalProps> = ({
       tag: 'LANGUAGES & CONTACT',
       desc: 'Linguistic proficiencies in Telugu (Native) & English (C1), plus direct message dispatch.',
     },
-    {
-      spread: 10,
-      title: 'Encrypted Telegraph Dispatch Terminal',
-      pages: '10',
-      tag: 'TELEGRAPH',
-      desc: 'Live Resend-verified communication terminal for research inquiries and security collaborations.',
-    },
-    {
-      spread: 11,
-      title: 'Official Record Download & Editorial Colophon',
-      pages: '11',
-      tag: 'COLOPHON',
-      desc: 'Official verified resume PDF download (MYTHREIE_DUMPATI.pdf), GitHub/LinkedIn, and archival stamp.',
-    },
   ];
 
   return (

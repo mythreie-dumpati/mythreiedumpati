@@ -61,8 +61,6 @@ export const NewspaperSideNav: React.FC<NewspaperSideNavProps> = ({
     { spread: 7, title: 'Skills', pages: '07', subtitle: '05. Skills • Technical Competencies & Arsenal' },
     { spread: 8, title: 'Volunteering & Certs', pages: '08', subtitle: '06. Volunteering & Recognized Credentials' },
     { spread: 9, title: 'Languages & Contact', pages: '09', subtitle: '07. Languages & Direct Contact Portal' },
-    { spread: 10, title: 'Dispatch', pages: '10', subtitle: 'Encrypted Resend Telegraph Terminal' },
-    { spread: 11, title: 'Colophon & PDF', pages: '11', subtitle: 'Official Verified Resume PDF & Colophon' },
   ];
 
   return (

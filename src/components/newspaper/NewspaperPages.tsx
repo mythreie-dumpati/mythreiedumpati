@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  ExternalLink,
-  Download,
-  Send,
-} from 'lucide-react';
 import { RESUME_DATA } from '../../data/resumeData';
-import { NewspaperStamp } from './elements/NewspaperStamp';
-import { GithubIcon, LinkedinIcon } from '../SocialIcons';
 
 // =========================================================================
 // PAGE 01: THE OFFICIAL FRONT COVER (Exact reference from user upload)
@@ -463,7 +456,7 @@ export const Page05Projects: React.FC = () => {
                 rel="noopener noreferrer"
                 className="font-sans text-[8.5px] sm:text-[9.5px] md:text-[10px] text-[#111111] hover:underline font-medium inline-block"
               >
-                Link: https://github.com/mythreie-dumpati/social-media-investigative-assistant-for-law-enforc ement
+                Link: https://github.com/mythreie-dumpati/social-media-investigative-assistant-for-law-enforcement
               </a>
             </div>
           </div>
@@ -523,12 +516,12 @@ export const Page06Publications: React.FC = () => {
               <div>
                 <div className="text-center font-sans text-[8.5px] sm:text-[9.5px] text-white/90 space-y-0.5">
                   <div>Journal Name: ICSSEECC -2026</div>
-                  <div>Publisher: IEEE Xplor</div>
+                  <div>Publisher: IEEE Xplore</div>
                 </div>
 
                 <div className="mt-3 sm:mt-3.5 flex justify-center">
                   <a
-                    href="https://ieeexplore.ieee.org"
+                    href="https://ieeexplore.ieee.org/document/11722208"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-white text-black rounded-full px-5 sm:px-6 py-1.5 text-[10.5px] sm:text-xs font-sans font-medium hover:bg-neutral-200 transition-colors inline-block text-center shadow-xs"
@@ -562,7 +555,7 @@ export const Page06Publications: React.FC = () => {
 
                 <div className="mt-3 sm:mt-3.5 flex justify-center">
                   <a
-                    href="https://ijrdet.com"
+                    href="https://www.ijrdet.com/files/Volume14Issue12/IJRDET_1225_148.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-white text-black rounded-full px-5 sm:px-6 py-1.5 text-[10.5px] sm:text-xs font-sans font-medium hover:bg-neutral-200 transition-colors inline-block text-center shadow-xs"
@@ -1057,329 +1050,7 @@ export const Page09Activities: React.FC = () => {
 };
 
 // =========================================================================
-// PAGE 10: ARCHIVAL TELEGRAPH TRANSMISSION (CONTACT)
-// =========================================================================
-export const Page10Dispatch: React.FC = () => {
-  const [name, setName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [message, setMessage] = React.useState('');
-  const [status, setStatus] = React.useState<'idle' | 'loading' | 'sent' | 'error'>('idle');
-  const [feedbackMsg, setFeedbackMsg] = React.useState('');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('loading');
-    setFeedbackMsg('');
-
-    try {
-      const res = await fetch('/api/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message }),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || 'Failed to dispatch transmission.');
-      }
-      setStatus('sent');
-      setFeedbackMsg(data.id ? `TRANSMISSION ID: ${data.id}` : 'Logged into chief investigator ledger.');
-      setTimeout(() => {
-        setName('');
-        setEmail('');
-        setMessage('');
-        setStatus('idle');
-      }, 5000);
-    } catch (err: any) {
-      setStatus('error');
-      setFeedbackMsg(err.message || 'Dispatch failed. Direct telegraph: mythreie.dumpati@gmail.com');
-    }
-  };
-
-  return (
-    <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      <div>
-        {/* Universal Top Header Bar */}
-        <NewspaperPageHeader />
-
-        {/* Heading matching Contents font */}
-        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start shrink-0">
-          <div>
-            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
-              COMMUNICATION TERMINAL // SECTION 08
-            </span>
-            <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
-              ENCRYPTED TELEGRAPH DISPATCH
-            </h3>
-          </div>
-          <NewspaperStamp text="DISPATCH" variant="crimson" rotation={-1} />
-        </div>
-
-        {/* Form Box */}
-        <div className="p-2.5 sm:p-3 bg-[#eae8e2]/80 border-2 border-[#141210]">
-          <div className="flex items-center gap-1.5 border-b border-[#141210] pb-1 mb-1.5 font-mono-tech text-[9.5px] uppercase font-bold text-[#141210]">
-            <Send className="w-3 h-3 text-[#8C3833]" />
-            <span>TRANSMIT DISPATCH MESSAGE (RESEND VERIFIED)</span>
-          </div>
-
-          {status === 'sent' ? (
-            <div className="p-3 text-center bg-[#141210] text-[#f5f0e1] font-mono-tech text-xs">
-              <span className="text-[#d9c49f] font-bold block mb-1">★ DISPATCH TRANSMITTED ★</span>
-              <span>Your message has been received by the investigator.</span>
-              {feedbackMsg && <span className="block mt-1 text-[9.5px] text-[#cfc5b0]">{feedbackMsg}</span>}
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-1.5 font-mono-tech text-[9.5px]">
-              <div className="grid grid-cols-2 gap-2">
-                <div>
-                  <label className="block text-[#5a554e] font-bold mb-0.5">SENDER NAME:</label>
-                  <input
-                    type="text"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Inspector / Colleague"
-                    className="w-full p-1 border border-[#141210] bg-[#f4f3ef] text-[#141210] focus:outline-hidden"
-                  />
-                </div>
-                <div>
-                  <label className="block text-[#5a554e] font-bold mb-0.5">RETURN TELEGRAPH (EMAIL):</label>
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="station@agency.org"
-                    className="w-full p-1 border border-[#141210] bg-[#f4f3ef] text-[#141210] focus:outline-hidden"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-[#5a554e] font-bold mb-0.5">DISPATCH INQUIRY:</label>
-                <textarea
-                  required
-                  rows={2}
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Inquiry regarding forensic research, collaborations, or engineering..."
-                  className="w-full p-1 border border-[#141210] bg-[#f4f3ef] text-[#141210] focus:outline-hidden resize-none"
-                />
-              </div>
-
-              {status === 'error' && (
-                <div className="p-1 bg-[#8C3833]/10 border border-[#8C3833] text-[#8C3833] text-[9px]">
-                  {feedbackMsg}
-                </div>
-              )}
-
-              <button
-                type="submit"
-                disabled={status === 'loading'}
-                className="w-full py-1.5 bg-[#141210] hover:bg-[#2c2825] disabled:opacity-50 text-[#f5f0e1] font-bold uppercase tracking-widest transition-all cursor-pointer shadow-xs flex items-center justify-center gap-1.5"
-              >
-                <span>{status === 'loading' ? 'TRANSMITTING VIA RESEND...' : 'TRANSMIT DISPATCH →'}</span>
-              </button>
-            </form>
-          )}
-        </div>
-
-        {/* Direct Contacts */}
-        <div className="p-2 sm:p-2.5 bg-[#eae8e2]/60 border border-[#141210] font-mono-tech text-[9px] space-y-0.5 mt-2">
-          <div className="flex justify-between">
-            <span className="text-[#5a554e]">TELEGRAPH:</span>
-            <a href={`mailto:${RESUME_DATA.personal.email}`} className="font-bold underline">{RESUME_DATA.personal.email}</a>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-[#5a554e]">STATION:</span>
-            <span>{RESUME_DATA.personal.location}</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Page Footer */}
-      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9px] sm:text-[9.5px] font-mono-tech text-[#5a554e] shrink-0">
-        <span>MYTHREIE DUMPATI // DISPATCH TERMINAL</span>
-        <span className="font-typewriter font-bold text-[#141210]">PAGE 10</span>
-      </div>
-    </div>
-  );
-};
-
-// =========================================================================
-// PAGE 11: OFFICIAL RECORD DOWNLOAD & EDITORIAL COLOPHON
-// =========================================================================
-export const Page11Colophon: React.FC = () => {
-  return (
-    <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      <div>
-        {/* Universal Top Header Bar */}
-        <NewspaperPageHeader />
-
-        {/* Heading matching Contents font */}
-        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start shrink-0">
-          <div>
-            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
-              OFFICIAL ARCHIVE // COLOPHON
-            </span>
-            <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
-              VERIFIED RECORD &amp; COLOPHON
-            </h3>
-          </div>
-          <NewspaperStamp text="RECORD" variant="olive" rotation={1} />
-        </div>
-
-        {/* PDF Download Box */}
-        <div className="p-2.5 sm:p-3 bg-[#141210] text-[#f5f0e1] border-2 border-[#141210] flex items-center justify-between mb-2">
-          <div>
-            <div className="font-garamond text-[12px] sm:text-[13px] uppercase font-bold text-[#d9c49f]">
-              OFFICIAL VERIFIED RESUME RECORD
-            </div>
-            <div className="font-newsreader text-[11px] italic text-[#cfc5b0] mt-0.5">
-              Full cryptographic curriculum ledger (MYTHREIE_DUMPATI.pdf)
-            </div>
-          </div>
-          <a
-            href="/MYTHREIE_DUMPATI.pdf"
-            download="MYTHREIE_DUMPATI_RESUME.pdf"
-            className="px-2.5 py-1.5 bg-[#8C3833] hover:bg-[#a6423c] text-white font-mono-tech text-[10px] sm:text-[11px] uppercase font-bold tracking-wider inline-flex items-center gap-1.5 shadow-sm transition-all"
-          >
-            <Download className="w-3 h-3" />
-            <span>DOWNLOAD PDF</span>
-          </a>
-        </div>
-
-        {/* Social Dispatches */}
-        <div className="grid grid-cols-2 gap-2 mb-2">
-          <a
-            href={RESUME_DATA.personal.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 sm:p-2.5 bg-[#eae8e2]/70 border border-[#141210] flex items-center justify-between hover:bg-[#141210] hover:text-[#f5f0e1] transition-all font-mono-tech text-[9.5px] font-bold"
-          >
-            <div className="flex items-center gap-1.5">
-              <GithubIcon className="w-3.5 h-3.5" />
-              <span>GITHUB</span>
-            </div>
-            <ExternalLink className="w-3 h-3 opacity-60" />
-          </a>
-          <a
-            href={RESUME_DATA.personal.linkedinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 sm:p-2.5 bg-[#eae8e2]/70 border border-[#141210] flex items-center justify-between hover:bg-[#141210] hover:text-[#f5f0e1] transition-all font-mono-tech text-[9.5px] font-bold"
-          >
-            <div className="flex items-center gap-1.5">
-              <LinkedinIcon className="w-3.5 h-3.5" />
-              <span>LINKEDIN</span>
-            </div>
-            <ExternalLink className="w-3 h-3 opacity-60" />
-          </a>
-        </div>
-
-        {/* Editorial Colophon */}
-        <div className="p-2.5 sm:p-3 bg-[#eae8e2]/50 border border-[#141210] font-newsreader text-[10.5px] sm:text-[11.5px] text-[#3a352f] leading-relaxed text-center">
-          <div className="font-garamond font-bold uppercase tracking-wider text-[#141210] text-[12px] mb-0.5">
-            THE CHRONICLE ARCHIVE COLOPHON
-          </div>
-          <p className="italic">
-            Typeset in classic Didone, IM Fell English, and IBM Plex Mono. Authored and maintained by Mythreie Dumpati. Hyderabad, Telangana • India.
-          </p>
-        </div>
-      </div>
-
-      {/* Page Footer */}
-      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9px] sm:text-[9.5px] font-mono-tech text-[#5a554e] shrink-0">
-        <span>MYTHREIE DUMPATI // EDITORIAL COLOPHON</span>
-        <span className="font-typewriter font-bold text-[#141210]">PAGE 11</span>
-      </div>
-    </div>
-  );
-};
-
-// =========================================================================
-// PAGE 12: ARCHIVAL DIRECTORY & MASTER INDEX SUMMARY
-// =========================================================================
-export const Page12ClosingBroadside: React.FC<{ onNavigateToSpread?: (spread: number) => void }> = ({
-  onNavigateToSpread,
-}) => {
-  const archives = [
-    { num: '01', title: 'ACADEMIC LEDGER', desc: 'KMEC CSE (8.36), Diploma (8.8), ICSE (81.4%)', spread: 3 },
-    { num: '02', title: 'PUBLIC SAFETY & INDUSTRY', desc: 'Telangana Police Bharosa Module, Teleparadigm', spread: 3 },
-    { num: '03', title: 'ENGINEERING ARTIFACTS', desc: 'SecureShare, QPAT Classifier, SMIA, Interlock', spread: 4 },
-    { num: '04', title: 'SCHOLARLY MONOGRAPHS', desc: '3 IEEE & IJRDET Papers with Pareto Benchmarks', spread: 4 },
-    { num: '05', title: 'TECHNICAL ARSENAL', desc: 'Cybersecurity, Reverse Eng., Python, ML & Cryptography', spread: 5 },
-    { num: '06', title: 'RECOGNIZED CREDENTIALS', desc: 'NLU Odisha 87% Distinction, CCNAv7, IBM Analyst', spread: 5 },
-    { num: '07', title: 'INSTITUTIONAL GOVERNANCE', desc: 'Student Body President, Cultural Head, Carnatic Vocalist', spread: 6 },
-  ];
-
-  return (
-    <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      <div>
-        {/* Universal Top Header Bar */}
-        <NewspaperPageHeader />
-
-        {/* Heading matching Contents font */}
-        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start shrink-0">
-          <div>
-            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
-              FINAL REGISTER // VOLUME 01
-            </span>
-            <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
-              ARCHIVAL DIRECTORY &amp; CLOSING
-            </h3>
-          </div>
-          <NewspaperStamp text="CLASSIFIED" variant="crimson" rotation={-2} />
-        </div>
-
-        {/* Archival Table */}
-        <div className="border-2 border-[#141210] p-2 bg-[#eae8e2]/70 mb-2 space-y-1">
-          <div className="font-mono-tech text-[9px] uppercase font-bold text-[#141210] border-b border-[#141210] pb-0.5 flex justify-between">
-            <span>MASTER DOSSIER DIRECTORY</span>
-            <span>HYDERABAD ARCHIVE</span>
-          </div>
-          <div className="space-y-1 font-mono-tech text-[9px]">
-            {archives.map((a) => (
-              <div
-                key={a.num}
-                onClick={() => onNavigateToSpread?.(a.spread)}
-                className="flex items-start justify-between p-0.5 hover:bg-[#141210] hover:text-[#f5f0e1] transition-colors cursor-pointer group"
-              >
-                <div>
-                  <span className="font-bold text-[#141210] group-hover:text-[#d9c49f] mr-1.5">[{a.num}]</span>
-                  <span className="font-bold">{a.title}</span>
-                  <p className="text-[8px] text-[#5a554e] group-hover:text-[#cfc5b0]">{a.desc}</p>
-                </div>
-                <span className="text-[8px] uppercase tracking-wider underline">SPREAD 0{a.spread}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Clearance and Seal */}
-        <div className="p-2 bg-[#141210] text-[#f5f0e1] border-2 border-[#141210] flex items-center justify-between">
-          <div>
-            <span className="font-mono-tech text-[8px] uppercase tracking-widest text-[#d9c49f] block">
-              RESEARCH SECURITY CLEARANCE
-            </span>
-            <span className="font-display text-xs font-bold uppercase tracking-wider">
-              AUTHORIZATION LEVEL 4 // ARCHIVE COMPLETE
-            </span>
-          </div>
-          <NewspaperStamp text="VERIFIED" variant="olive" rotation={1} />
-        </div>
-      </div>
-
-      {/* Page Footer */}
-      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9px] sm:text-[9.5px] font-mono-tech text-[#5a554e] shrink-0">
-        <span>MYTHREIE DUMPATI // CLOSING BROADSIDE</span>
-        <span className="font-typewriter font-bold text-[#141210]">PAGE 12</span>
-      </div>
-    </div>
-  );
-};
-
-// =========================================================================
-// UNIVERSAL PAGE RENDERER
+// UNIVERSAL PAGE RENDERER (PAGES 01 - 09)
 // =========================================================================
 export const renderNewspaperPage = (
   pageNum: number,
@@ -1407,12 +1078,6 @@ export const renderNewspaperPage = (
       return <Page08Certifications />;
     case 9:
       return <Page09Activities />;
-    case 10:
-      return <Page10Dispatch />;
-    case 11:
-      return <Page11Colophon />;
-    case 12:
-      return <Page12ClosingBroadside onNavigateToSpread={callbacks?.onNavigateToSpread} />;
     default:
       return <Page01Cover onOpenNewspaper={callbacks?.onOpenNewspaper} />;
   }

@@ -12,6 +12,7 @@ export interface ProjectItem {
   badge?: string;
   specimenNo: string;
   handwrittenNote?: string;
+  githubUrl?: string;
 }
 
 export interface PublicationItem {
@@ -26,6 +27,7 @@ export interface PublicationItem {
   metrics?: string;
   handwrittenNote?: string;
   type: 'conference' | 'journal';
+  url?: string;
 }
 
 export interface ExperienceItem {
@@ -196,6 +198,7 @@ export const RESUME_DATA = {
       status: 'Accepted & Presented (Aug 2026)',
       date: 'Aug 2026',
       type: 'conference',
+      url: 'https://ieeexplore.ieee.org/document/11722208',
       scope: 'Decentralized Cryptography & Anomaly Detection',
       methodology:
         'Presented at the 2nd IEEE International Conference on Smart Systems for Electrical, Electronics, Communication and Computer Engineering; designed a decentralized file-sharing architecture integrating Blockchain, IPFS, Shamir’s Secret Sharing, and an Isolation Forest anomaly detection model.',
@@ -214,6 +217,7 @@ export const RESUME_DATA = {
       status: 'Published (Dec 2025)',
       date: 'Dec 2025',
       type: 'journal',
+      url: 'https://www.ijrdet.com/files/Volume14Issue12/IJRDET_1225_148.pdf',
       scope: 'Digital Forensics & Law Enforcement Automation',
       methodology:
         'Developed an automated, non-invasive digital forensic tool using FastAPI and Flutter to streamline evidence acquisition for investigations.',
@@ -234,6 +238,7 @@ export const RESUME_DATA = {
       subtitle: 'Decentralized Secure File Sharing and Communication Platform',
       dateRange: 'Sep 2025 – Mar 2026',
       specimenNo: 'SPECIMEN // 001-P',
+      githubUrl: 'https://github.com/mythreie-dumpati/SecureShare',
       objective: 'Eliminate centralized data leakage vectors while providing verifiable, tamper-evident communication and storage.',
       problem: 'Conventional cloud storage providers represent centralized points of failure susceptible to surveillance, subpoena, and unencrypted data leakage.',
       approach: 'Developed a tamper-evident communication system combining a hardened Flutter client and a modular FastAPI backend with IPFS and blockchain-backed state integrity.',
@@ -253,6 +258,7 @@ export const RESUME_DATA = {
       subtitle: 'Automated Academic Assessment Generation System',
       dateRange: 'April – Aug 2025',
       specimenNo: 'SPECIMEN // 002-P',
+      githubUrl: 'https://github.com/mythreie-dumpati/Question-Paper-Automation-Tool',
       objective: 'Automate blueprint-compliant examination generation aligned with strict institutional regulatory taxonomies.',
       problem: 'Manual academic assessment creation is prone to cognitive bias, uneven difficulty distribution, and failure to meet Course Outcome (CO) accreditations.',
       approach: 'Engineered a full-stack assessment platform pairing a FastAPI backend with a cross-platform Flutter client incorporating natural language processing.',
@@ -272,6 +278,7 @@ export const RESUME_DATA = {
       subtitle: 'Digital Forensic Evidence Documentation Tool',
       dateRange: 'Jan – May 2025',
       specimenNo: 'SPECIMEN // 003-P',
+      githubUrl: 'https://github.com/mythreie-dumpati/social-media-investigative-assistant-for-law-enforcement',
       objective: 'Empower investigators with structured case management and legally defensible digital evidence gathering.',
       problem: 'Forensic investigators frequently struggle with ad-hoc screenshot capturing that lacks timestamp verification and court admissibility proof.',
       approach: 'Designed an extensible forensic analysis tool in Flutter, enabling structured case management and tamper-evident evidence collection.',
