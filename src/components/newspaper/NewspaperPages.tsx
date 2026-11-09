@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ExternalLink,
-  CheckCircle,
   Download,
   Send,
 } from 'lucide-react';
@@ -98,19 +97,19 @@ export const Page02Contents: React.FC<{ onNavigateToSpread?: (spread: number) =>
     {
       num: '05',
       title: 'Skills',
-      desc: 'Technical competencies and tools',
+      desc: 'Technical competencies, tools, and frameworks',
       page: 7,
     },
     {
       num: '06',
-      title: 'Certifications',
-      desc: 'Professional training and recognized credentials',
+      title: 'Volunteering & Certifications',
+      desc: 'Leadership initiatives, community impact, and recognized credentials',
       page: 8,
     },
     {
       num: '07',
-      title: 'Activities and Societies',
-      desc: 'Leadership, campus involvement, and extracurricular pursuits',
+      title: 'Languages & Contact',
+      desc: 'Linguistic proficiencies and communication dispatch',
       page: 9,
     },
   ];
@@ -614,55 +613,84 @@ export const Page06Publications: React.FC = () => {
 };
 
 // =========================================================================
-// PAGE 07: 05. SKILLS
+// PAGE 07: 05. SKILLS (Exact reproduction of uploaded reference image)
 // =========================================================================
 export const Page07Skills: React.FC = () => {
-  const skillCategories = [
-    { title: 'Cybersecurity & Forensics', items: RESUME_DATA.skills.cybersecurityAndForensics },
-    { title: 'Security Tools', items: RESUME_DATA.skills.securityTools },
-    { title: 'Programming Languages', items: RESUME_DATA.skills.programmingLanguages },
-    { title: 'Distributed Systems & Web', items: [...RESUME_DATA.skills.distributedSystems, ...RESUME_DATA.skills.backendAndWeb] },
-    { title: 'AI & Applied Analytics', items: RESUME_DATA.skills.aiAndAppliedData },
-    { title: 'Environments & Tools', items: RESUME_DATA.skills.environmentsAndTools },
+  const skillsList = [
+    {
+      num: 1,
+      title: 'Cybersecurity & Forensics',
+      items: 'Vulnerability Assessment | Network Scanning & Analysis | Mobile & Digital Forensics',
+    },
+    {
+      num: 2,
+      title: 'Security & Forensic Tools',
+      items: 'Burp Suite | Wireshark | Nmap/Zenmap | Metasploit | Kali Linux',
+    },
+    {
+      num: 3,
+      title: 'Programming Languages:',
+      items: 'Python | Java | JavaScript | CSS | Dart | C | HTML | SQL | Bash & Shell Scripting',
+    },
+    {
+      num: 4,
+      title: 'Backend & Web Technologies',
+      items: 'FastAPI | WebSockets | JWT Authentication | Role-Based Access Control (RBAC)',
+    },
+    {
+      num: 5,
+      title: 'Mobile & App Development',
+      items: 'Flutter | Firebase',
+    },
+    {
+      num: 6,
+      title: 'Distributed Systems',
+      items: 'Blockchain | P2P Protocols | InterPlanetary File System (IPFS)',
+    },
+    {
+      num: 7,
+      title: 'AI & Applied Data',
+      items: 'Natural Language Processing | Semantic Similarity | Text Classification | Scikit-learn/Spacy',
+    },
+    {
+      num: 8,
+      title: 'Tools',
+      items: 'Docker | Git/GitHub | Linux (Parrot, Kali, Fedora) | Android Studio | VS Code | Jupyter Notebook',
+    },
+    {
+      num: 9,
+      title: 'Soft Skills',
+      items: 'Team Leadership | Problem Solving | communication | Project Management | Technical Writing & Presentation',
+    },
   ];
 
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      <div>
-        {/* Universal Top Header Bar */}
-        <NewspaperPageHeader />
+      <div className="flex-1 flex flex-col justify-between">
+        <div>
+          {/* Universal Top Header Bar */}
+          <NewspaperPageHeader />
 
-        {/* Heading matching Contents font */}
-        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start shrink-0">
-          <div>
-            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
-              SECTION 05 // TECHNICAL COMPETENCIES
-            </span>
-            <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
-              SKILLS &amp; ARTIFACTS
-            </h3>
+          {/* Master Heading with Thick Left Vertical Bar */}
+          <div className="flex items-center gap-2.5 sm:gap-3 mt-1 sm:mt-1.5 mb-2 sm:mb-2.5 shrink-0">
+            <div className="w-[3px] sm:w-[3.5px] h-7 sm:h-8 md:h-9 bg-[#111111]" />
+            <h2 className="font-garamond font-bold text-2xl sm:text-3xl md:text-[34px] text-[#111111] leading-none">
+              Skills
+            </h2>
           </div>
-          <NewspaperStamp text="VERIFIED" variant="olive" rotation={-2} />
         </div>
 
-        {/* 6 Skill Categories */}
-        <div className="space-y-1.5 sm:space-y-2 mt-2">
-          {skillCategories.map((category, idx) => (
-            <div key={idx} className="p-1.5 sm:p-2 bg-[#eae8e2]/60 border border-[#141210]">
-              <div className="font-mono-tech text-[9px] font-bold uppercase tracking-wider text-[#141210] border-b border-[#141210]/20 pb-0.5 mb-1 flex items-center justify-between">
+        {/* 9 Numbered Skill Categories: calibrated vertical flex distribution */}
+        <div className="flex-1 flex flex-col justify-between py-0.5 sm:py-1">
+          {skillsList.map((category) => (
+            <div key={category.num} className="py-0.5">
+              <h3 className="font-garamond font-bold text-xs sm:text-[13px] md:text-[14px] text-[#111111] leading-snug">
+                <span className="inline-block w-4 sm:w-5">{category.num}.</span>
                 <span>{category.title}</span>
-                <span className="text-[#8C3833] text-[7.5px]">[{category.items.length} ITEMS]</span>
-              </div>
-              <div className="flex flex-wrap gap-1">
-                {category.items.map((skill, sIdx) => (
-                  <span
-                    key={sIdx}
-                    className="px-1.5 py-0.2 font-mono-tech text-[8px] sm:text-[8.5px] bg-[#f4f3ef] border border-[#141210]/40 text-[#141210] font-semibold"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
+              </h3>
+              <p className="font-garamond italic text-[10px] sm:text-[11px] md:text-[11.5px] text-[#222222] pl-4 sm:pl-5 mt-0.5 leading-snug">
+                {category.items}
+              </p>
             </div>
           ))}
         </div>
@@ -678,67 +706,115 @@ export const Page07Skills: React.FC = () => {
 };
 
 // =========================================================================
-// PAGE 08: 06. CERTIFICATIONS
+// PAGE 08: 06. VOLUNTEERING & CERTIFICATIONS (Exact reproduction of reference image)
 // =========================================================================
 export const Page08Certifications: React.FC = () => {
+  const volunteeringItems = [
+    {
+      period: ['[ 15/06/2023 -', '25/06/2026 ]'],
+      role: 'Social Media Team – Computer Society of India (CSI) KMEC',
+      desc: 'Led multi-platform digital marketing initiatives and content creation to actively promote tech symposiums, hackathons, and skill-building workshops to the student body.',
+    },
+    {
+      period: ['[ 09/11/2023 -', '15/02/2026 ]'],
+      role: 'Event Organizer for College',
+      desc: 'Coordinated logistics, scheduling, and cross-functional teams for flagship technical and cultural college festivals, driving high student participation and ensuring seamless event execution.',
+    },
+    {
+      period: ['[ 10/07/2018 -', '15/03/2019 ]'],
+      role: 'Student Body President at School',
+      desc: 'Represented the student body to institutional leadership, spearheading campus-wide initiatives, policy improvements, and major events.',
+    },
+  ];
+
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      <div>
-        {/* Universal Top Header Bar */}
-        <NewspaperPageHeader />
+      <div className="flex-1 flex flex-col justify-between">
+        <div>
+          {/* Universal Top Header Bar */}
+          <NewspaperPageHeader />
 
-        {/* Heading matching Contents font */}
-        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start shrink-0">
-          <div>
-            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
-              SECTION 06 // PROFESSIONAL CREDENTIALS
-            </span>
-            <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
-              CERTIFICATIONS &amp; ACCREDITATIONS
-            </h3>
+          {/* TOP HALF: VOLUNTEERING */}
+          <div className="mt-0.5 sm:mt-1">
+            <h2 className="font-garamond font-bold text-xl sm:text-2xl md:text-[25px] text-[#111111] leading-none mb-1">
+              Volunteering
+            </h2>
+            <div className="w-full border-b-[1.5px] border-[#888888] mb-2 sm:mb-2.5" />
+
+            <div className="space-y-2 sm:space-y-2.5">
+              {volunteeringItems.map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2.5 sm:gap-3">
+                  <div className="w-[85px] sm:w-[98px] md:w-[108px] shrink-0 font-garamond text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#111111] leading-tight select-none">
+                    <div>{item.period[0]}</div>
+                    <div className="pl-0.5">{item.period[1]}</div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-garamond font-bold text-[11px] sm:text-[12px] md:text-[13px] text-[#111111] leading-snug">
+                      {item.role}
+                    </h3>
+                    <p className="font-garamond text-[9px] sm:text-[10px] md:text-[10.5px] text-[#222222] mt-0.5 leading-snug">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <NewspaperStamp text="AUDITED" variant="crimson" rotation={1} />
         </div>
 
-        {/* Certifications and Callout */}
-        <div className="space-y-1.5 sm:space-y-2 mt-2">
-          {RESUME_DATA.certifications.map((cert, idx) => (
-            <div key={idx} className="p-2 sm:p-2.5 bg-[#eae8e2]/70 border border-[#141210]">
-              <div className="flex items-start justify-between gap-2 border-b border-[#141210]/20 pb-1 mb-1">
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-[#8C3833] flex-shrink-0" />
-                  <h4 className="font-garamond font-bold text-xs sm:text-[13px] md:text-[13.5px] text-[#141210] leading-tight">
-                    {cert.title}
-                  </h4>
-                </div>
-                {cert.score && (
-                  <span className="font-mono-tech text-[8px] sm:text-[8.5px] bg-[#8C3833] text-white px-1.5 py-0.2 font-bold flex-shrink-0">
-                    {cert.score}
-                  </span>
-                )}
+        {/* BOTTOM HALF: CERTIFICATIONS (2x2 Black Cards) */}
+        <div className="mt-2.5 sm:mt-3">
+          <h2 className="font-garamond font-bold text-xl sm:text-2xl md:text-[25px] text-[#111111] leading-none mb-1">
+            Certifications
+          </h2>
+          <div className="w-full border-b-[1.5px] border-[#888888] mb-2 sm:mb-2.5" />
+
+          <div className="grid grid-cols-2 gap-2 sm:gap-2.5 md:gap-3">
+            {/* 1. Cyber Crime and Cyber Forensics Course 87% */}
+            <div className="bg-black text-white p-2 sm:p-2.5 md:p-3 rounded-xs flex flex-col justify-between shadow-xs min-h-[56px] sm:min-h-[64px] md:min-h-[70px]">
+              <div className="font-sans font-bold text-[10px] sm:text-[11px] md:text-[11.5px] text-white leading-tight">
+                <div>Cyber Crime and</div>
+                <div>Cyber Forensics</div>
               </div>
-              <div className="flex justify-between font-mono-tech text-[8.5px] sm:text-[9px] text-[#5a554e]">
-                <span>ISSUER: {cert.issuer}</span>
-                <span>DATE: {cert.date}</span>
+              <div className="flex justify-between items-baseline font-sans font-bold text-[10px] sm:text-[11px] md:text-[11.5px] text-white mt-1">
+                <span>Course</span>
+                <span className="text-[11px] sm:text-[12px] md:text-[13px]">87%</span>
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* NLU Odisha Special Callout */}
-        <div className="mt-2.5 p-2 sm:p-2.5 bg-[#eae8e2]/90 border-2 border-[#141210]">
-          <div className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase font-bold text-[#8C3833]">
-            SPECIAL LEGAL &amp; FORENSIC DISTINCTION
-          </div>
-          <div className="font-serif-vintage text-[10.5px] sm:text-xs text-[#2a2521] mt-0.5 leading-snug">
-            National Law University Odisha (NLUO) Post Graduate Diploma in Cyber Law and Digital Forensics, completed with an exceptional 87% Distinction grade.
+            {/* 2. Ethical Hacking Awareness Workshop */}
+            <div className="bg-black text-white p-2 sm:p-2.5 md:p-3 rounded-xs flex flex-col justify-center items-center text-center shadow-xs min-h-[56px] sm:min-h-[64px] md:min-h-[70px]">
+              <div className="font-sans font-bold text-[10px] sm:text-[11px] md:text-[11.5px] text-white leading-tight">
+                <div>Ethical Hacking</div>
+                <div>Awareness</div>
+                <div>Workshop</div>
+              </div>
+            </div>
+
+            {/* 3. Machine and Deep Learning Techniques Webinar */}
+            <div className="bg-black text-white p-2 sm:p-2.5 md:p-3 rounded-xs flex flex-col justify-center items-center text-center shadow-xs min-h-[56px] sm:min-h-[64px] md:min-h-[70px]">
+              <div className="font-sans font-bold text-[10px] sm:text-[11px] md:text-[11.5px] text-white leading-tight">
+                <div>Machine and Deep</div>
+                <div>Learning Techniques</div>
+                <div>Webinar</div>
+              </div>
+            </div>
+
+            {/* 4. Cybersecurity with Ethical Hacking Workshop */}
+            <div className="bg-black text-white p-2 sm:p-2.5 md:p-3 rounded-xs flex flex-col justify-center items-center text-center shadow-xs min-h-[56px] sm:min-h-[64px] md:min-h-[70px]">
+              <div className="font-sans font-bold text-[10px] sm:text-[11px] md:text-[11.5px] text-white leading-tight">
+                <div>Cybersecurity with</div>
+                <div>Ethical Hacking</div>
+                <div>Workshop</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Page Footer */}
       <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9px] sm:text-[9.5px] font-mono-tech text-[#5a554e] shrink-0">
-        <span>MYTHREIE DUMPATI // 06. CERTIFICATIONS</span>
+        <span>MYTHREIE DUMPATI // 06. VOLUNTEERING &amp; CERTIFICATIONS</span>
         <span className="font-typewriter font-bold text-[#141210]">PAGE 08</span>
       </div>
     </div>
@@ -746,74 +822,165 @@ export const Page08Certifications: React.FC = () => {
 };
 
 // =========================================================================
-// PAGE 09: 07. ACTIVITIES AND SOCIETIES
+// PAGE 09: 07. LANGUAGES & CONTACT (Exact reproduction of reference image)
 // =========================================================================
-export const Page09Activities: React.FC = () => {
+export const Page09LanguagesContact: React.FC = () => {
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [message, setMessage] = React.useState('');
+  const [status, setStatus] = React.useState<'idle' | 'loading' | 'sent' | 'error'>('idle');
+  const [feedbackMsg, setFeedbackMsg] = React.useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+    setFeedbackMsg('');
+
+    try {
+      const res = await fetch('/api/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to dispatch transmission.');
+      }
+      setStatus('sent');
+      setFeedbackMsg('Message sent successfully!');
+      setTimeout(() => {
+        setName('');
+        setEmail('');
+        setMessage('');
+        setStatus('idle');
+      }, 5000);
+    } catch (err: any) {
+      setStatus('error');
+      setFeedbackMsg(err.message || 'Direct email: mythreie.dumpati@gmail.com');
+    }
+  };
+
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      <div>
-        {/* Universal Top Header Bar */}
-        <NewspaperPageHeader />
+      <div className="flex-1 flex flex-col justify-between">
+        <div>
+          {/* Universal Top Header Bar */}
+          <NewspaperPageHeader />
 
-        {/* Heading matching Contents font */}
-        <div className="border-b-2 border-[#141210] pb-1.5 mb-2.5 flex justify-between items-start shrink-0">
-          <div>
-            <span className="font-mono-tech text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[#8C3833] font-bold block">
-              SECTION 07 // CAMPUS &amp; COMMUNITY
-            </span>
-            <h3 className="font-garamond font-black text-lg sm:text-xl md:text-2xl uppercase tracking-wider text-[#111111]">
-              ACTIVITIES AND SOCIETIES
-            </h3>
+          {/* Master Heading: Languages */}
+          <div className="mt-0.5 sm:mt-1 mb-2 sm:mb-3 shrink-0">
+            <h2 className="font-garamond font-bold text-2xl sm:text-3xl md:text-[34px] text-[#111111] leading-none">
+              Languages
+            </h2>
           </div>
-          <NewspaperStamp text="LEADERSHIP" variant="olive" rotation={1} />
-        </div>
 
-        {/* Presidency Highlight */}
-        <div className="p-2.5 sm:p-3 bg-[#eae8e2]/80 border-2 border-[#141210] mb-2 sm:mb-2.5">
-          <div className="flex items-center justify-between border-b border-[#141210] pb-1 mb-1">
-            <div>
-              <span className="font-mono-tech text-[8px] text-[#8C3833] uppercase font-bold tracking-widest block">
-                ELECTED CHAIR OF THE GENERAL STUDENT BODY
+          {/* Two Solid Black Circles: Telugu & English */}
+          <div className="flex items-center gap-3 sm:gap-4 md:gap-5 pl-1 sm:pl-2 mt-2 sm:mt-3">
+            {/* Telugu Circle (Larger) */}
+            <div className="w-[120px] h-[120px] sm:w-[138px] sm:h-[138px] md:w-[152px] md:h-[152px] rounded-full bg-black text-white flex flex-col items-center justify-center text-center shrink-0 shadow-md">
+              <span className="font-sans font-bold text-sm sm:text-base md:text-[17px] text-white leading-tight">
+                Telugu
               </span>
-              <h4 className="font-garamond font-bold text-sm sm:text-base text-[#141210]">
-                President, Student Council
-              </h4>
+              <span className="font-garamond italic text-[11px] sm:text-xs md:text-[12.5px] text-white/90 mt-0.5">
+                Mother tongue
+              </span>
             </div>
-            <span className="font-mono-tech text-[8.5px] bg-[#141210] text-[#f5f0e1] px-1.5 py-0.5 font-bold">
-              2025 – 2026
-            </span>
+
+            {/* English Circle (Offset slightly) */}
+            <div className="w-[105px] h-[105px] sm:w-[118px] sm:h-[118px] md:w-[130px] md:h-[130px] rounded-full bg-black text-white flex flex-col items-center justify-center text-center shrink-0 shadow-md translate-y-1.5 sm:translate-y-2">
+              <span className="font-sans font-bold text-sm sm:text-base md:text-[17px] text-white leading-tight">
+                English
+              </span>
+              <span className="font-garamond italic text-[11px] sm:text-xs md:text-[12.5px] text-white/90 mt-0.5">
+                Band: C1
+              </span>
+            </div>
           </div>
-          <div className="font-typewriter text-[10px] text-[#4b4e39] font-bold mb-0.5">
-            Keshav Memorial Engineering College • Hyderabad
-          </div>
-          <p className="font-newsreader text-[10px] sm:text-[10.5px] text-[#2a2521] leading-snug">
-            Represented 1,200+ undergraduate engineering scholars across academic boards, institutional safety audits, campus infrastructure expansion, and national collegiate hackathon delegations.
-          </p>
         </div>
 
-        {/* Activities List */}
-        <div className="space-y-1.5 sm:space-y-2">
-          {RESUME_DATA.activitiesAndSocieties.map((activity, idx) => (
-            <div key={idx} className="p-2 sm:p-2.5 bg-[#eae8e2]/60 border border-[#141210]">
-              <div className="flex items-center justify-between border-b border-[#141210]/20 pb-0.5 mb-0.5">
-                <span className="font-garamond text-xs sm:text-[13.5px] font-bold text-[#141210]">{activity.role}</span>
-                <span className="font-mono-tech text-[8px] sm:text-[8.5px] text-[#8C3833] font-bold">{activity.organization}</span>
+        {/* BOTTOM SECTION: Giant Black Dome Contact Portal */}
+        <div className="relative mt-auto -mx-4 sm:-mx-5 md:-mx-6 lg:-mx-7 -mb-4 sm:-mb-5 md:-mb-6 lg:-mb-7 bg-black text-white pt-6 sm:pt-8 md:pt-9 pb-3 sm:pb-4 px-6 sm:px-8 md:px-10 rounded-t-[50%_32%] overflow-hidden flex flex-col items-center">
+          <form onSubmit={handleSubmit} className="w-full max-w-[270px] sm:max-w-[300px] md:max-w-[320px] flex flex-col">
+            {/* Fullname */}
+            <div className="w-full mb-2.5 sm:mb-3">
+              <label className="font-garamond font-bold text-xs sm:text-[13px] md:text-[14px] text-white block mb-0.5">
+                Fullname
+              </label>
+              <div className="border-b-[1.5px] border-white pb-0.5">
+                <input
+                  type="text"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full bg-transparent text-white font-garamond text-xs sm:text-[13px] focus:outline-hidden"
+                />
               </div>
-              <p className="font-newsreader text-[10px] sm:text-[10.5px] text-[#2a2521] mt-0.5 leading-snug">
-                {activity.description}
-              </p>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* Page Footer */}
-      <div className="pt-2 border-t border-[#141210]/30 flex justify-between items-center text-[9px] sm:text-[9.5px] font-mono-tech text-[#5a554e] shrink-0">
-        <span>MYTHREIE DUMPATI // 07. ACTIVITIES AND SOCIETIES</span>
-        <span className="font-typewriter font-bold text-[#141210]">PAGE 09</span>
+            {/* E-mail */}
+            <div className="w-full mb-3 sm:mb-3.5">
+              <label className="font-garamond font-bold text-xs sm:text-[13px] md:text-[14px] text-white block mb-0.5">
+                E-mail
+              </label>
+              <div className="border-b-[1.5px] border-white pb-0.5">
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full bg-transparent text-white font-garamond text-xs sm:text-[13px] focus:outline-hidden"
+                />
+              </div>
+            </div>
+
+            {/* Message Box */}
+            <div className="w-full bg-white rounded-xl sm:rounded-2xl p-2 sm:p-2.5 relative shadow-lg">
+              <textarea
+                required
+                rows={3}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Message"
+                className="w-full bg-transparent text-[#111111] font-garamond placeholder-[#111111] text-xs sm:text-[13px] focus:outline-hidden resize-none leading-relaxed pr-8"
+              />
+              <button
+                type="submit"
+                disabled={status === 'loading'}
+                className="absolute bottom-2 right-2 bg-black hover:bg-neutral-800 disabled:opacity-40 text-white rounded-full p-1.5 transition-colors cursor-pointer flex items-center justify-center shadow-xs"
+                title="Send Message"
+                aria-label="Send Message"
+              >
+                <Send className="w-3 h-3" />
+              </button>
+            </div>
+
+            {/* Feedback Message */}
+            {status === 'sent' && (
+              <div className="text-[10px] font-mono-tech text-[#a3e635] mt-1 text-center font-bold">
+                ✓ Message dispatched successfully!
+              </div>
+            )}
+            {status === 'error' && (
+              <div className="text-[9.5px] font-mono-tech text-[#f87171] mt-1 text-center">
+                {feedbackMsg}
+              </div>
+            )}
+          </form>
+
+          {/* Page Footer inside black dome */}
+          <div className="w-full max-w-[270px] sm:max-w-[300px] md:max-w-[320px] pt-2 mt-2.5 border-t border-white/20 flex justify-between items-center text-[8.5px] sm:text-[9px] font-mono-tech text-white/70 shrink-0">
+            <span>MYTHREIE DUMPATI // 07. LANGUAGES &amp; CONTACT</span>
+            <span className="font-typewriter font-bold text-white">PAGE 09</span>
+          </div>
+        </div>
       </div>
     </div>
   );
+};
+
+// Backwards-compatibility alias for Spread 09
+export const Page09Activities: React.FC = () => {
+  return <Page09LanguagesContact />;
 };
 
 // =========================================================================

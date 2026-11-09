@@ -58,9 +58,9 @@ export const NewspaperSideNav: React.FC<NewspaperSideNavProps> = ({
     { spread: 4, title: 'Experience', pages: '04', subtitle: '02. Professional Experience • Telangana Police Bharosa' },
     { spread: 5, title: 'Projects', pages: '05', subtitle: '03. Projects • SecureShare, QPAT & SMIA' },
     { spread: 6, title: 'Publications', pages: '06', subtitle: '04. Publications • 3 IEEE & IJRDET Papers' },
-    { spread: 7, title: 'Skills', pages: '07', subtitle: '05. Skills • Classified Technical Arsenal' },
-    { spread: 8, title: 'Certifications', pages: '08', subtitle: '06. Certifications • NLU Odisha 87% Distinction' },
-    { spread: 9, title: 'Activities', pages: '09', subtitle: '07. Activities • Student Council President & Arts' },
+    { spread: 7, title: 'Skills', pages: '07', subtitle: '05. Skills • Technical Competencies & Arsenal' },
+    { spread: 8, title: 'Volunteering & Certs', pages: '08', subtitle: '06. Volunteering & Recognized Credentials' },
+    { spread: 9, title: 'Languages & Contact', pages: '09', subtitle: '07. Languages & Direct Contact Portal' },
     { spread: 10, title: 'Dispatch', pages: '10', subtitle: 'Encrypted Resend Telegraph Terminal' },
     { spread: 11, title: 'Colophon & PDF', pages: '11', subtitle: 'Official Verified Resume PDF & Colophon' },
   ];
