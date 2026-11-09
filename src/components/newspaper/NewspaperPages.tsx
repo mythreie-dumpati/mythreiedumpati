@@ -680,15 +680,15 @@ export const Page07Skills: React.FC = () => {
           </div>
         </div>
 
-        {/* 9 Numbered Skill Categories: calibrated vertical flex distribution */}
-        <div className="flex-1 flex flex-col justify-between py-0.5 sm:py-1">
+        {/* 9 Numbered Skill Categories: increased font size to naturally fill vertical space and reduce in-between gaps without increasing bottom gap */}
+        <div className="flex-1 flex flex-col justify-between py-1 sm:py-1.5">
           {skillsList.map((category) => (
             <div key={category.num} className="py-0.5">
-              <h3 className="font-garamond font-bold text-xs sm:text-[13px] md:text-[14px] text-[#111111] leading-snug">
-                <span className="inline-block w-4 sm:w-5">{category.num}.</span>
+              <h3 className="font-garamond font-bold text-[13px] sm:text-[14.5px] md:text-[15.5px] text-[#111111] leading-snug">
+                <span className="inline-block w-4.5 sm:w-5">{category.num}.</span>
                 <span>{category.title}</span>
               </h3>
-              <p className="font-garamond italic text-[10px] sm:text-[11px] md:text-[11.5px] text-[#222222] pl-4 sm:pl-5 mt-0.5 leading-snug">
+              <p className="font-garamond italic text-[11px] sm:text-[12px] md:text-[13px] text-[#222222] pl-4.5 sm:pl-5 mt-0.5 sm:mt-1 leading-snug">
                 {category.items}
               </p>
             </div>
