@@ -14,6 +14,30 @@ export const NewspaperShell: React.FC = () => {
   const [isIndexOpen, setIsIndexOpen] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
 
+  // Auto-hiding sidebar navigation state
+  const [isNavHovered, setIsNavHovered] = useState(false);
+  const [isNavPinned, setIsNavPinned] = useState(false);
+  const navHoverTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleNavMouseEnter = () => {
+    if (navHoverTimeout.current) {
+      clearTimeout(navHoverTimeout.current);
+      navHoverTimeout.current = null;
+    }
+    setIsNavHovered(true);
+  };
+
+  const handleNavMouseLeave = () => {
+    if (navHoverTimeout.current) {
+      clearTimeout(navHoverTimeout.current);
+    }
+    navHoverTimeout.current = setTimeout(() => {
+      setIsNavHovered(false);
+    }, 280);
+  };
+
+  const isNavVisible = isNavHovered || isNavPinned;
+
   const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
@@ -111,28 +135,75 @@ export const NewspaperShell: React.FC = () => {
 
   return (
     <div
-      className="newspaper-desk-bg h-screen w-full flex items-center justify-between p-2 sm:p-3 overflow-hidden select-none relative text-[#141210]"
+      className="newspaper-desk-bg h-screen w-full flex items-center justify-center p-2 sm:p-3 overflow-hidden select-none relative text-[#141210]"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
       {/* Warm Ambient Desk Lamp Vignette */}
       <div className="absolute inset-0 bg-radial from-amber-500/[0.04] via-transparent to-black/85 pointer-events-none"></div>
 
-      {/* SIDEWARDS DOCKED NAVIGATION BAR */}
-      <NewspaperSideNav
-        currentSpread={currentSpread}
-        totalSpreads={TOTAL_SPREADS}
-        onNavigateToSpread={navigateToSpread}
-        onPrevSpread={turnPrev}
-        onNextSpread={turnNext}
-        isFlipping={isFlipping}
-        soundEnabled={soundEnabled}
-        onToggleSound={() => setSoundEnabled(!soundEnabled)}
-        onOpenIndex={() => setIsIndexOpen(true)}
-      />
+      {/* Backdrop for pinned navigation on touch devices */}
+      {isNavPinned && (
+        <div
+          className="fixed inset-0 z-35 bg-black/30 backdrop-blur-[1px] transition-opacity"
+          onClick={() => setIsNavPinned(false)}
+        />
+      )}
 
-      {/* MAIN BROADSHEET STAGE — REALTIME 3D PHYSICAL VIEWER */}
-      <main className="relative z-20 flex-1 h-full max-h-[calc(100vh-1rem)] flex items-center justify-center">
+      {/* SIDEWARDS AUTO-HIDING NAVIGATION DRAWER (Hidden by default, reveals on hover) */}
+      <div
+        className="fixed left-0 top-0 bottom-0 z-40 flex items-center"
+        onMouseEnter={handleNavMouseEnter}
+        onMouseLeave={handleNavMouseLeave}
+      >
+        {/* Subtle Hover Trigger Strip & Peek Tab on the left edge */}
+        <div
+          onClick={() => setIsNavPinned(!isNavPinned)}
+          className={`w-3 sm:w-4 h-full flex items-center justify-start cursor-pointer transition-opacity duration-300 ${
+            isNavVisible ? 'opacity-0 pointer-events-none' : 'opacity-60 hover:opacity-100 pointer-events-auto'
+          }`}
+          title="Hover or click to show navigation tools"
+          aria-label="Navigation tools"
+        >
+          <div className="w-2 sm:w-2.5 h-16 bg-[#221a14]/85 hover:bg-[#8C3833] border-r border-y border-[#3d2e23] rounded-r-md flex items-center justify-center shadow-lg transition-colors">
+            <div className="w-0.5 h-8 bg-[#d9c49f]/80 rounded-full" />
+          </div>
+        </div>
+
+        {/* The Sidebar Panel sliding in smoothly */}
+        <div
+          className={`fixed left-2 sm:left-3 top-1/2 -translate-y-1/2 transition-all duration-300 ease-out z-50 ${
+            isNavVisible
+              ? 'translate-x-0 opacity-100 pointer-events-auto'
+              : '-translate-x-[120%] opacity-0 pointer-events-none'
+          }`}
+          onMouseEnter={handleNavMouseEnter}
+          onMouseLeave={handleNavMouseLeave}
+        >
+          <NewspaperSideNav
+            currentSpread={currentSpread}
+            totalSpreads={TOTAL_SPREADS}
+            onNavigateToSpread={(s) => {
+              navigateToSpread(s);
+              setIsNavPinned(false);
+              setIsNavHovered(false);
+            }}
+            onPrevSpread={turnPrev}
+            onNextSpread={turnNext}
+            isFlipping={isFlipping}
+            soundEnabled={soundEnabled}
+            onToggleSound={() => setSoundEnabled(!soundEnabled)}
+            onOpenIndex={() => {
+              setIsIndexOpen(true);
+              setIsNavPinned(false);
+              setIsNavHovered(false);
+            }}
+          />
+        </div>
+      </div>
+
+      {/* MAIN BROADSHEET STAGE — REALTIME 3D PHYSICAL VIEWER (Centered & Alone) */}
+      <main className="relative z-20 w-full h-full max-h-[calc(100vh-1rem)] flex items-center justify-center">
         <div className="relative w-full h-full flex items-center justify-center">
           {/* Broadsheet Stack Elevation Layers (Bottom Paper Depth) */}
           <div className="absolute -left-2 top-3 bottom-3 w-2.5 bg-[#eae8e1] rounded-l-xs border-y border-l border-[#221e1a]/40 shadow-xl flex flex-col justify-between overflow-hidden">

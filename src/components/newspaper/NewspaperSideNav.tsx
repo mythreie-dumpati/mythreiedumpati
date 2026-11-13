@@ -64,7 +64,7 @@ export const NewspaperSideNav: React.FC<NewspaperSideNavProps> = ({
   ];
 
   return (
-    <aside className="relative z-30 h-full max-h-[calc(100vh-1rem)] flex flex-col justify-between items-center py-2 px-1.5 sm:px-2 bg-[#14100c]/95 border border-[#30261e] rounded-xs text-[#f5f0e1] shadow-2xl select-none flex-shrink-0 transition-all mr-2 sm:mr-3 overflow-y-auto overflow-x-hidden editorial-scroll">
+    <aside className="relative z-30 h-full max-h-[calc(100vh-1rem)] flex flex-col justify-between items-center py-2 px-1.5 sm:px-2 bg-[#14100c]/95 border border-[#30261e] rounded-xs text-[#f5f0e1] shadow-2xl select-none flex-shrink-0 transition-all overflow-y-auto overflow-x-hidden editorial-scroll">
       {/* Top: Publication Brand Icon with Flyout Tooltip */}
       <div className="flex flex-col items-center gap-1.5 shrink-0">
         <div className="relative group">

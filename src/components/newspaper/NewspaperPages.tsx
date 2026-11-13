@@ -291,25 +291,27 @@ export const Page03Education: React.FC = () => {
 export const Page04Experience: React.FC = () => {
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      <div>
+      <div className="flex-1 flex flex-col justify-between">
         {/* Universal Top Header Bar */}
-        <NewspaperPageHeader />
+        <div className="shrink-0">
+          <NewspaperPageHeader />
 
-        {/* Master Heading: professional Experience / Internships (enlarged, centered, and placed a bit down from the top) */}
-        <div className="flex flex-col items-center justify-center mt-3 sm:mt-4 md:mt-5 mb-2 sm:mb-2.5 text-center shrink-0">
-          <img
-            src="/internships_title_vector@2x.png"
-            alt="professional Experience — Internships"
-            className="w-[230px] sm:w-[265px] md:w-[295px] max-w-full h-auto object-contain block pointer-events-none drop-shadow-xs mx-auto"
-          />
-          <div className="sr-only">
-            <h2>professional Experience</h2>
-            <h3>Internships</h3>
+          {/* Master Heading: professional Experience / Internships */}
+          <div className="flex flex-col items-center justify-center mt-2 sm:mt-3 md:mt-4 mb-1 sm:mb-2 text-center shrink-0">
+            <img
+              src="/internships_title_vector@2x.png"
+              alt="professional Experience — Internships"
+              className="w-[230px] sm:w-[265px] md:w-[295px] max-w-full h-auto object-contain block pointer-events-none drop-shadow-xs mx-auto"
+            />
+            <div className="sr-only">
+              <h2>professional Experience</h2>
+              <h3>Internships</h3>
+            </div>
           </div>
         </div>
 
-        {/* Two-Column Symmetrical Layout (pulled down, strictly constrained to image width, with justified text) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-7 items-start mt-4 sm:mt-5 md:mt-6">
+        {/* Two-Column Symmetrical Layout (evenly balanced vertically between heading and footer) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-7 items-start my-auto py-2 sm:py-3 md:py-4">
           {/* Column 1: Teleparadigm Networks Ltd. */}
           <div className="w-full max-w-[135px] sm:max-w-[155px] md:max-w-[170px] mx-auto flex flex-col">
             {/* Date Tag */}
@@ -385,24 +387,24 @@ export const Page04Experience: React.FC = () => {
 export const Page05Projects: React.FC = () => {
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      <div>
-        {/* Universal Top Header Bar */}
-        <NewspaperPageHeader />
-
-        {/* Master Heading: Projects / Curiosity, translated into code. */}
-        <div className="text-center mt-0.5 sm:mt-1 mb-2.5 sm:mb-3 shrink-0">
-          <h2 className="font-garamond font-black text-2xl sm:text-3xl md:text-[34px] text-[#111111] tracking-[0.01em] leading-none">
-            Projects
-          </h2>
-          <p className="font-garamond italic text-xs sm:text-sm md:text-[14px] text-[#222222] mt-1 sm:mt-1.5">
-            Curiosity, translated into code.
-          </p>
+      <div className="flex-1 flex flex-col justify-between">
+        {/* Universal Top Header Bar & Master Heading */}
+        <div className="shrink-0">
+          <NewspaperPageHeader />
+          <div className="text-center mt-1 sm:mt-1.5 mb-1 sm:mb-2">
+            <h2 className="font-garamond font-black text-2xl sm:text-3xl md:text-[34px] text-[#111111] tracking-[0.01em] leading-none">
+              Projects
+            </h2>
+            <p className="font-garamond italic text-xs sm:text-sm md:text-[14px] text-[#222222] mt-1 sm:mt-1.5">
+              Curiosity, translated into code.
+            </p>
+          </div>
         </div>
 
-        {/* 3 Projects distributed with clean, natural editorial gaps */}
-        <div className="space-y-3 sm:space-y-3.5 md:space-y-4 mt-1.5 sm:mt-2">
+        {/* 3 Projects distributed with clean, natural editorial gaps across the full vertical canvas */}
+        <div className="flex-1 flex flex-col justify-evenly py-1.5 sm:py-2.5 md:py-3.5">
           {/* 1. SecureShare (Left Vertical Accent Bar) */}
-          <div className="border-l-[3.5px] sm:border-l-[4px] border-[#111111] pl-3 sm:pl-4 py-0.5">
+          <div className="border-l-[3.5px] sm:border-l-[4px] border-[#111111] pl-3 sm:pl-4 py-0.5 sm:py-1">
             <h3 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-snug mb-1">
               SecureShare | Decentralized Secure File Sharing and Communication Platform
             </h3>
@@ -422,7 +424,7 @@ export const Page05Projects: React.FC = () => {
           </div>
 
           {/* 2. Question Paper Automation Tool (QPAT) (Right Vertical Accent Bar) */}
-          <div className="border-r-[3.5px] sm:border-r-[4px] border-[#111111] pr-3 sm:pr-4 py-0.5 text-right">
+          <div className="border-r-[3.5px] sm:border-r-[4px] border-[#111111] pr-3 sm:pr-4 py-0.5 sm:py-1 text-right">
             <h3 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-snug mb-1">
               Question Paper Automation Tool (QPAT) | Automated Academic Assessment System
             </h3>
@@ -442,7 +444,7 @@ export const Page05Projects: React.FC = () => {
           </div>
 
           {/* 3. Social Media Investigative Assistant (SMIA) (Left Vertical Accent Bar) */}
-          <div className="border-l-[3.5px] sm:border-l-[4px] border-[#111111] pl-3 sm:pl-4 py-0.5">
+          <div className="border-l-[3.5px] sm:border-l-[4px] border-[#111111] pl-3 sm:pl-4 py-0.5 sm:py-1">
             <h3 className="font-garamond font-bold text-xs sm:text-[13.5px] md:text-[14.5px] text-[#111111] leading-snug mb-1">
               Social Media Investigative Assistant (SMIA) | Digital Forensic Documentation Tool
             </h3>
@@ -704,18 +706,18 @@ export const Page07Skills: React.FC = () => {
 export const Page08Certifications: React.FC = () => {
   return (
     <div className="p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col justify-between h-full overflow-hidden relative bg-[#faf9f6] text-[#141210] select-none">
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col justify-between">
         {/* Universal Top Header Bar */}
         <NewspaperPageHeader />
 
         {/* TOP HALF: VOLUNTEERING */}
-        <div className="mt-1 sm:mt-1.5">
+        <div className="mt-0.5 sm:mt-1">
           <h2 className="font-garamond font-bold text-2xl sm:text-[26px] md:text-[28px] text-[#111111] leading-none mb-1">
             Volunteering
           </h2>
-          <div className="w-full h-[2.5px] sm:h-[3px] bg-[#666666] mb-3 sm:mb-3.5" />
+          <div className="w-full h-[2.5px] sm:h-[3px] bg-[#666666] mb-2.5 sm:mb-3" />
 
-          <div className="space-y-3 sm:space-y-3.5">
+          <div className="space-y-2.5 sm:space-y-3 md:space-y-3.5">
             {/* 1. CSI KMEC */}
             <div className="flex items-start gap-2.5 sm:gap-3">
               <div className="w-[82px] sm:w-[94px] md:w-[102px] shrink-0 font-sans text-[9.5px] sm:text-[10.5px] md:text-[11px] text-[#111111] leading-tight select-none">
@@ -767,15 +769,17 @@ export const Page08Certifications: React.FC = () => {
           </div>
         </div>
 
-        {/* BOTTOM HALF: CERTIFICATIONS (Centered 2x2 Black Cards matching exact reference image) */}
-        <div className="mt-3.5 sm:mt-4 md:mt-5">
-          <h2 className="font-garamond font-bold text-2xl sm:text-[26px] md:text-[28px] text-[#111111] leading-none mb-1">
-            Certifications
-          </h2>
-          <div className="w-full h-[2.5px] sm:h-[3px] bg-[#666666] mb-3 sm:mb-3.5" />
+        {/* BOTTOM HALF: CERTIFICATIONS (Centered 2x2 Black Cards with gap between heading and data, pulling cards down) */}
+        <div className="flex-1 flex flex-col justify-between pt-2.5 sm:pt-3.5 md:pt-4">
+          <div>
+            <h2 className="font-garamond font-bold text-2xl sm:text-[26px] md:text-[28px] text-[#111111] leading-none mb-1">
+              Certifications
+            </h2>
+            <div className="w-full h-[2.5px] sm:h-[3px] bg-[#666666]" />
+          </div>
 
-          {/* Centered 2x2 grid (78% span, max-w-[325px], mx-auto) */}
-          <div className="w-[78%] max-w-[325px] mx-auto grid grid-cols-2 gap-2.5 sm:gap-3 md:gap-3.5">
+          {/* Centered 2x2 grid (78% span, max-w-[325px], mx-auto) with gap between heading and data */}
+          <div className="w-[78%] max-w-[325px] mx-auto grid grid-cols-2 gap-2.5 sm:gap-3 md:gap-3.5 my-auto pt-3 sm:pt-4 md:pt-6 pb-1 sm:pb-2">
             {/* 1. Cyber Crime and Cyber Forensics Course 87% */}
             <div className="bg-black text-white p-2.5 sm:p-3 rounded-none flex flex-col justify-between shadow-xs aspect-[1.8/1] min-h-[58px] sm:min-h-[64px]">
               <div className="font-sans font-bold text-[9.5px] sm:text-[10.5px] md:text-[11px] text-white leading-tight">
